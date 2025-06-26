@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Guia Detalhado: Normas ISO para Qualidade de Software</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: 'Inter', sans-serif;
+				background-color: #f8fafc; /* slate-50 */
+			}
+			.main-content {
+				padding-left: 20rem; /* Space for the fixed sidebar */
+			}
+			.sidebar {
+				width: 20rem;
+			}
+			@media (max-width: 1024px) {
+				.main-content {
+					padding-left: 0;
+				}
+				.sidebar {
+					position: relative;
+					width: 100%;
+					height: auto;
+				}
+			}
+			.sidebar-link {
+				transition: all 0.2s ease-in-out;
+				border-left-width: 4px;
+				border-color: transparent;
+			}
+			.sidebar-link.active {
+				border-color: #fb923c; /* orange-400 */
+				background-color: #fff7ed; /* orange-50 */
+				color: #c2410c; /* orange-700 */
+				font-weight: 600;
+			}
+			.sidebar-link:hover {
+				background-color: #f1f5f9; /* slate-100 */
+				border-color: #cbd5e1; /* slate-300 */
+			}
+			.content-section {
+				scroll-margin-top: 2rem;
+			}
+			.capability-level {
+				transition: all 0.3s ease;
+				cursor: default;
+			}
+			.capability-level:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+					0 4px 6px -4px rgb(0 0 0 / 0.1);
+			}
+		</style>
+	</head>
+	<body class="bg-slate-50">
+		<div class="flex flex-col lg:flex-row">
+			<!-- Sidebar Navigation -->
+			<aside
+				id="sidebar"
+				class="sidebar lg:fixed lg:h-screen lg:overflow-y-auto bg-white border-r border-slate-200 p-6"
+			>
+				<h1 class="text-2xl font-bold text-slate-800 mb-4">
+					Normas ISO
+				</h1>
+				<a
+					href="index.html"
+					class="inline-flex items-center px-3 py-2 mb-6 text-sm font-medium text-amber-700 bg-amber-50 border border-amber-200 rounded-lg hover:bg-amber-100 transition-colors"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-4 w-4 mr-2"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M15 19l-7-7 7-7"
+						/>
+					</svg>
+					Voltar ao Guia Principal
+				</a>
+				<nav>
+					<ul class="space-y-2">
+						<li>
+							<a
+								href="#iso9001"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>ISO 9001</a
+							>
+						</li>
+						<li>
+							<a
+								href="#iso12207"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>ISO/IEC 12207</a
+							>
+						</li>
+						<li>
+							<a
+								href="#iso15504"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>ISO/IEC 15504 (SPICE)</a
+							>
+							<ul class="pl-6 mt-1 space-y-1 text-sm">
+								<li>
+									<a
+										href="#spice-objetivos"
+										class="sidebar-link block py-1 px-2 text-slate-500"
+										>Objetivos</a
+									>
+								</li>
+								<li>
+									<a
+										href="#spice-framework"
+										class="sidebar-link block py-1 px-2 text-slate-500"
+										>Framework 2D</a
+									>
+								</li>
+								<li>
+									<a
+										href="#spice-niveis"
+										class="sidebar-link block py-1 px-2 text-slate-500"
+										>Níveis de Capacidade</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a
+								href="#iso33000"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>ISO/IEC 33000</a
+							>
+						</li>
+						<li>
+							<a
+								href="#iso29110"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>ISO/IEC 29110 (VSE)</a
+							>
+							<ul class="pl-6 mt-1 space-y-1 text-sm">
+								<li>
+									<a
+										href="#vse-perfil-basico"
+										class="sidebar-link block py-1 px-2 text-slate-500"
+										>Perfil Básico</a
+									>
+								</li>
+								<li>
+									<a
+										href="#vse-perfil-gestao"
+										class="sidebar-link block py-1 px-2 text-slate-500"
+										>Perfil de Gestão</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a
+								href="#iso25010"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>ISO/IEC 25010 (SQuaRE)</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="main-content flex-1 p-6 md:p-10">
+				<div class="max-w-4xl mx-auto">
+					<header class="mb-12">
+						<h1 class="text-5xl font-extrabold text-slate-900">
+							Guia Detalhado das Normas ISO para Qualidade de
+							Software
+						</h1>
+						<p class="mt-4 text-lg text-slate-600">
+							Uma exploração aprofundada das principais normas que
+							estruturam a qualidade, o processo e a avaliação de
+							software, com foco nos modelos ISO 15504 e 29110.
+						</p>
+					</header>
+
+					<!-- ISO 9001 Section -->
+					<section id="iso9001" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-orange-400 pb-2 mb-6"
+						>
+							ISO 9001: A Fundação da Gestão da Qualidade
+						</h2>
+						<p class="text-slate-700 mb-4">
+							A ISO 9001 é a norma fundamental para Sistemas de
+							Gestão da Qualidade (SGQ). Embora não seja
+							específica para software, ela estabelece os
+							princípios e requisitos para que uma organização
+							demonstre sua capacidade de fornecer
+							consistentemente produtos e serviços que atendam aos
+							requisitos do cliente e regulamentares. É a base
+							sobre a qual muitas outras normas mais específicas
+							são construídas.
+						</p>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3
+								class="text-xl font-semibold text-slate-700 mb-3"
+							>
+								Princípios Chave:
+							</h3>
+							<ul
+								class="list-disc list-inside space-y-2 text-slate-600"
+							>
+								<li>
+									<strong class="font-medium text-slate-800"
+										>Foco no Cliente:</strong
+									>
+									O objetivo principal é atender e exceder as
+									expectativas do cliente.
+								</li>
+								<li>
+									<strong class="font-medium text-slate-800"
+										>Liderança:</strong
+									>
+									A alta direção deve estar comprometida e
+									engajada com o sistema de gestão.
+								</li>
+								<li>
+									<strong class="font-medium text-slate-800"
+										>Abordagem de Processo:</strong
+									>
+									Entender e gerenciar atividades
+									inter-relacionadas como um sistema coerente.
+								</li>
+								<li>
+									<strong class="font-medium text-slate-800"
+										>Melhoria Contínua:</strong
+									>
+									A organização deve buscar continuamente
+									melhorar sua eficácia, baseando-se no ciclo
+									PDCA (Plan-Do-Check-Act).
+								</li>
+								<li>
+									<strong class="font-medium text-slate-800"
+										>Tomada de Decisão Baseada em
+										Evidências:</strong
+									>
+									Decisões devem ser baseadas na análise de
+									dados e informações.
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<!-- ISO 12207 Section -->
+					<section id="iso12207" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-orange-400 pb-2 mb-6"
+						>
+							ISO/IEC 12207: O Ciclo de Vida do Software
+						</h2>
+						<p class="text-slate-700 mb-4">
+							A ISO/IEC 12207 estabelece um framework comum para
+							os processos do ciclo de vida do software. Sua
+							grande virtude é definir "o que" precisa ser feito,
+							mas não "como". Isso lhe confere a flexibilidade
+							para ser aplicada em conjunto com qualquer modelo de
+							desenvolvimento, seja ele Cascata, Incremental,
+							Espiral ou Ágil.
+						</p>
+						<blockquote
+							class="border-l-4 border-slate-300 pl-4 py-2 my-4 text-slate-600 italic"
+						>
+							Esta norma fornece uma linguagem comum para que
+							clientes, fornecedores e outras partes interessadas
+							possam "falar a mesma língua" quando se trata de
+							desenvolvimento e manutenção de software.
+						</blockquote>
+						<p class="text-slate-700">
+							Os processos são agrupados em categorias, como
+							processos de acordo (aquisição e fornecimento),
+							processos organizacionais, e processos técnicos
+							(desenvolvimento, operação, manutenção).
+						</p>
+					</section>
+
+					<!-- ISO 15504 Section -->
+					<section id="iso15504" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-orange-400 pb-2 mb-6"
+						>
+							ISO/IEC 15504 (SPICE): Avaliação e Capacidade de
+							Processo
+						</h2>
+						<p class="text-slate-700 mb-4">
+							Conhecida pelo seu acrónimo SPICE (Software Process
+							Improvement and Capability dEtermination), a ISO/IEC
+							15504 é uma norma internacional para avaliação de
+							processos de software. Ela foi criada para resolver
+							problemas comuns em organizações imaturas, como
+							atrasos, defeitos e dependência de "heróis" para o
+							sucesso dos projetos.
+						</p>
+
+						<div
+							id="spice-objetivos"
+							class="bg-white p-6 rounded-lg shadow-md mb-8"
+						>
+							<h3
+								class="text-xl font-semibold text-slate-700 mb-3"
+							>
+								Objetivos Principais do SPICE:
+							</h3>
+							<ul
+								class="list-disc list-inside space-y-2 text-slate-600"
+							>
+								<li>
+									<strong
+										>Melhoria de Processo Interna:</strong
+									>
+									Entender o estado atual dos processos da
+									própria organização para identificar pontos
+									fortes, fracos e riscos, guiando um plano de
+									melhoria.
+								</li>
+								<li>
+									<strong
+										>Determinação de Capacidade
+										Externa:</strong
+									>
+									Avaliar a capacidade de um fornecedor para
+									determinar se ele é adequado para um
+									contrato específico.
+								</li>
+							</ul>
+						</div>
+
+						<div id="spice-framework" class="mb-8">
+							<h3
+								class="text-2xl font-semibold text-slate-800 mb-4"
+							>
+								O Framework Bidimensional
+							</h3>
+							<p class="text-slate-700 mb-4">
+								A avaliação SPICE é baseada em um modelo de
+								referência bidimensional:
+							</p>
+							<div class="grid md:grid-cols-2 gap-8">
+								<div
+									class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400"
+								>
+									<h4
+										class="font-bold text-lg text-blue-800 mb-2"
+									>
+										Dimensão de Processo
+									</h4>
+									<p class="text-slate-600">
+										Define "o que" é feito. Descreve os
+										processos de software em si, agrupados
+										em categorias como Cliente-Fornecedor
+										(CON), Engenharia (ENG), Suporte (SUP),
+										Gerenciamento (MAN) e Organização (ORG).
+									</p>
+								</div>
+								<div
+									class="bg-green-50 p-6 rounded-lg border-l-4 border-green-400"
+								>
+									<h4
+										class="font-bold text-lg text-green-800 mb-2"
+									>
+										Dimensão de Capacidade
+									</h4>
+									<p class="text-slate-600">
+										Define "quão bem" é feito. Mede a
+										maturidade e a capacidade com que um
+										processo é executado, utilizando uma
+										escala de 6 níveis.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div id="spice-niveis">
+							<h3
+								class="text-2xl font-semibold text-slate-800 mb-6"
+							>
+								Níveis de Capacidade da ISO 15504
+							</h3>
+							<div class="space-y-4">
+								<div
+									class="capability-level bg-white p-6 rounded-lg shadow-sm border-l-4 border-red-400"
+								>
+									<h4 class="font-bold text-lg text-red-700">
+										Nível 0: Incompleto
+									</h4>
+									<p class="text-slate-600 mt-1">
+										O processo não é implementado ou falha
+										em atingir seus objetivos. Há pouca ou
+										nenhuma evidência de realização.
+									</p>
+								</div>
+								<div
+									class="capability-level bg-white p-6 rounded-lg shadow-sm border-l-4 border-yellow-400"
+								>
+									<h4
+										class="font-bold text-lg text-yellow-700"
+									>
+										Nível 1: Executado
+									</h4>
+									<p class="text-slate-600 mt-1">
+										O processo atinge seus objetivos, mas de
+										forma inconsistente. O sucesso ainda
+										depende de indivíduos (heróis) e não do
+										processo.
+									</p>
+								</div>
+								<div
+									class="capability-level bg-white p-6 rounded-lg shadow-sm border-l-4 border-sky-400"
+								>
+									<h4 class="font-bold text-lg text-sky-700">
+										Nível 2: Gerenciado
+									</h4>
+									<p class="text-slate-600 mt-1">
+										O processo é planeado, monitorizado e os
+										seus produtos de trabalho são
+										controlados. Já existe uma gestão de
+										projetos básica.
+									</p>
+								</div>
+								<div
+									class="capability-level bg-white p-6 rounded-lg shadow-sm border-l-4 border-indigo-400"
+								>
+									<h4
+										class="font-bold text-lg text-indigo-700"
+									>
+										Nível 3: Estabelecido
+									</h4>
+									<p class="text-slate-600 mt-1">
+										O processo é implementado usando uma
+										versão adaptada de um processo padrão
+										definido para toda a organização,
+										tornando-o proativo.
+									</p>
+								</div>
+								<div
+									class="capability-level bg-white p-6 rounded-lg shadow-sm border-l-4 border-purple-400"
+								>
+									<h4
+										class="font-bold text-lg text-purple-700"
+									>
+										Nível 4: Previsível
+									</h4>
+									<p class="text-slate-600 mt-1">
+										O processo é executado dentro de limites
+										de controle definidos, usando medições e
+										análise estatística para obter
+										resultados previsíveis.
+									</p>
+								</div>
+								<div
+									class="capability-level bg-white p-6 rounded-lg shadow-sm border-l-4 border-emerald-400"
+								>
+									<h4
+										class="font-bold text-lg text-emerald-700"
+									>
+										Nível 5: Em Otimização
+									</h4>
+									<p class="text-slate-600 mt-1">
+										O processo é continuamente melhorado
+										para atender aos objetivos de negócio
+										atuais e futuros, através de inovação e
+										otimização.
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- ISO 33000 Section -->
+					<section id="iso33000" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-orange-400 pb-2 mb-6"
+						>
+							ISO/IEC 33000: A Evolução do SPICE
+						</h2>
+						<p class="text-slate-700 mb-4">
+							A série ISO/IEC 33000 é a sucessora e atualização da
+							família ISO/IEC 15504. O seu objetivo foi revisar,
+							modernizar e ampliar o escopo da avaliação de
+							processos, tornando-a mais abrangente e alinhada com
+							as práticas atuais.
+						</p>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3
+								class="text-xl font-semibold text-slate-700 mb-3"
+							>
+								Principais Mudanças e Melhorias:
+							</h3>
+							<ul
+								class="list-disc list-inside space-y-2 text-slate-600"
+							>
+								<li>
+									<strong>Estrutura Reorganizada:</strong> As
+									partes da norma foram reestruturadas para
+									maior clareza e coesão, com documentos
+									dedicados a conceitos, requisitos de
+									avaliação, medição, etc. (ex: ISO/IEC 33001,
+									33002, 33020).
+								</li>
+								<li>
+									<strong>Maior Generalidade:</strong> Embora
+									mantenha a base, a série 33000 foi projetada
+									para ser mais facilmente aplicável a outros
+									domínios além do software.
+								</li>
+								<li>
+									<strong>Refinamento dos Atributos:</strong>
+									Houve um leve refinamento nos atributos de
+									processo, embora os 6 níveis de capacidade
+									tenham sido mantidos.
+								</li>
+							</ul>
+							<p class="mt-4 text-slate-600">
+								Em essência, a ISO 33000 consolida e melhora o
+								legado do SPICE, mantendo os seus princípios
+								fundamentais de avaliação de capacidade de
+								processo.
+							</p>
+						</div>
+					</section>
+
+					<!-- ISO 29110 Section -->
+					<section id="iso29110" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-orange-400 pb-2 mb-6"
+						>
+							ISO/IEC 29110: Qualidade para Pequenas Empresas
+							(VSEs)
+						</h2>
+						<p class="text-slate-700 mb-4">
+							A ISO/IEC 29110 nasceu da necessidade de um padrão
+							de qualidade adaptado à realidade das "Very Small
+							Entities" (VSEs) — organizações, departamentos ou
+							projetos com até 25 pessoas. Normas como a ISO 12207
+							ou o CMMI são muitas vezes pesadas e custosas para
+							estas pequenas equipas.
+						</p>
+						<blockquote
+							class="border-l-4 border-slate-300 pl-4 py-2 my-4 text-slate-600 italic"
+						>
+							O objetivo da ISO 29110 é democratizar a qualidade,
+							fornecendo um conjunto leve e acessível de processos
+							e guias para que as PMEs possam melhorar sua
+							competitividade e gestão.
+						</blockquote>
+
+						<div
+							id="vse-perfil-basico"
+							class="bg-white p-6 rounded-lg shadow-md mb-8"
+						>
+							<h3
+								class="text-xl font-semibold text-slate-700 mb-3"
+							>
+								Perfil Básico: O Ponto de Partida
+							</h3>
+							<p class="text-slate-600 mb-4">
+								Destinado a equipas que estão a desenvolver uma
+								aplicação única. Ele foca em dois processos
+								cruciais:
+							</p>
+							<div class="grid md:grid-cols-2 gap-6">
+								<div class="bg-gray-50 p-4 rounded">
+									<h4 class="font-semibold text-slate-800">
+										1. Gerenciamento de Projeto (GP)
+									</h4>
+									<p class="text-sm text-slate-600 mt-2">
+										Estabelece as tarefas do projeto de
+										forma sistemática. Resultados esperados
+										incluem a definição do escopo,
+										estimativas de custo e prazo, alocação
+										de recursos, identificação de riscos e
+										controlo de versões.
+									</p>
+								</div>
+								<div class="bg-gray-50 p-4 rounded">
+									<h4 class="font-semibold text-slate-800">
+										2. Implementação de Software (IS)
+									</h4>
+									<p class="text-sm text-slate-600 mt-2">
+										Cobre a execução técnica. Resultados
+										esperados incluem a análise de
+										requisitos, desenvolvimento da
+										arquitetura e projeto detalhado,
+										produção de componentes, testes e
+										entrega do produto final.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div
+							id="vse-perfil-gestao"
+							class="bg-white p-6 rounded-lg shadow-md"
+						>
+							<h3
+								class="text-xl font-semibold text-slate-700 mb-3"
+							>
+								Perfil de Gestão Organizacional
+							</h3>
+							<p class="text-slate-600 mb-4">
+								Para VSEs que buscam um nível maior de
+								maturidade, este perfil adiciona processos de
+								gestão mais amplos:
+							</p>
+							<ul
+								class="list-disc list-inside space-y-2 text-slate-600"
+							>
+								<li>
+									<strong
+										>Gerenciamento Organizacional:</strong
+									>
+									Define a missão, visão, plano estratégico e
+									orçamento da VSE.
+								</li>
+								<li>
+									<strong>Gerenciamento de Recursos:</strong>
+									Trata da competência das pessoas, da
+									infraestrutura e da resolução de conflitos
+									de recursos.
+								</li>
+								<li>
+									<strong>Gerenciamento de Processo:</strong>
+									Foca na definição e melhoria dos próprios
+									processos da organização.
+								</li>
+								<li>
+									<strong
+										>Gerenciamento de Portfólio de
+										Projetos:</strong
+									>
+									Lida com a gestão de múltiplos projetos e o
+									relacionamento com os clientes.
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<!-- ISO 25010 Section -->
+					<section id="iso25010" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-orange-400 pb-2 mb-6"
+						>
+							ISO/IEC 25010 (SQuaRE): Qualidade do Produto
+						</h2>
+						<p class="text-slate-700 mb-4">
+							Enquanto normas como a 15504 focam na qualidade do
+							processo, a ISO/IEC 25010 (parte da série SQuaRE -
+							Software Quality Requirements and Evaluation) foca
+							na **qualidade do produto**. Ela fornece um modelo
+							para definir e avaliar as características que tornam
+							um software "bom" do ponto de vista técnico e de
+							uso.
+						</p>
+						<p class="text-slate-700 mb-6">
+							Esta norma é a sucessora da popular ISO 9126 e
+							refina o modelo de qualidade, sendo hoje a principal
+							referência para especificar requisitos
+							não-funcionais.
+						</p>
+						<div class="bg-white p-6 rounded-lg shadow-md">
+							<h3
+								class="text-xl font-semibold text-slate-700 mb-3"
+							>
+								8 Características Principais da Qualidade de
+								Produto:
+							</h3>
+							<div
+								class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center"
+							>
+								<div class="p-3 bg-red-100 rounded">
+									<h4 class="font-bold text-red-800">
+										Funcionalidade
+									</h4>
+									<p class="text-xs text-red-700">
+										Adequação, Acurácia, Interoperabilidade
+									</p>
+								</div>
+								<div class="p-3 bg-blue-100 rounded">
+									<h4 class="font-bold text-blue-800">
+										Confiabilidade
+									</h4>
+									<p class="text-xs text-blue-700">
+										Maturidade, Tolerância a Falhas,
+										Recuperabilidade
+									</p>
+								</div>
+								<div class="p-3 bg-yellow-100 rounded">
+									<h4 class="font-bold text-yellow-800">
+										Usabilidade
+									</h4>
+									<p class="text-xs text-yellow-700">
+										Apreensibilidade, Operacionalidade,
+										Atratividade
+									</p>
+								</div>
+								<div class="p-3 bg-green-100 rounded">
+									<h4 class="font-bold text-green-800">
+										Eficiência
+									</h4>
+									<p class="text-xs text-green-700">
+										Uso de Recursos, Comportamento no Tempo
+									</p>
+								</div>
+								<div class="p-3 bg-purple-100 rounded">
+									<h4 class="font-bold text-purple-800">
+										Manutenibilidade
+									</h4>
+									<p class="text-xs text-purple-700">
+										Modulariedade, Reusabilidade,
+										Analisabilidade
+									</p>
+								</div>
+								<div class="p-3 bg-indigo-100 rounded">
+									<h4 class="font-bold text-indigo-800">
+										Portabilidade
+									</h4>
+									<p class="text-xs text-indigo-700">
+										Adaptabilidade, Instalabilidade
+									</p>
+								</div>
+								<div class="p-3 bg-gray-200 rounded">
+									<h4 class="font-bold text-gray-800">
+										Segurança
+									</h4>
+									<p class="text-xs text-gray-700">
+										Confidencialidade, Integridade,
+										Autenticidade
+									</p>
+								</div>
+								<div class="p-3 bg-pink-100 rounded">
+									<h4 class="font-bold text-pink-800">
+										Compatibilidade
+									</h4>
+									<p class="text-xs text-pink-700">
+										Coexistência, Interoperabilidade
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</main>
+		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const sections = document.querySelectorAll('.content-section');
+				const navLinks = document.querySelectorAll('.sidebar-link');
+
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								navLinks.forEach((link) => {
+									link.classList.remove('active');
+									if (
+										link
+											.getAttribute('href')
+											.substring(1) === entry.target.id
+									) {
+										link.classList.add('active');
+									}
+									// Handle sub-links
+									if (
+										link.parentElement.tagName === 'UL' &&
+										link
+											.getAttribute('href')
+											.substring(1) === entry.target.id
+									) {
+										link.parentElement.previousElementSibling.classList.add(
+											'active'
+										);
+									}
+								});
+							}
+						});
+					},
+					{ rootMargin: '-50% 0px -50% 0px' }
+				);
+
+				sections.forEach((section) => {
+					observer.observe(section);
+				});
+
+				// Also handle sub-sections for parent highlighting
+				document.querySelectorAll('div[id]').forEach((div) => {
+					if (div.id.includes('spice-') || div.id.includes('vse-')) {
+						observer.observe(div);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

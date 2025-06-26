@@ -165,14 +165,50 @@
 			"answer": "Do desenvolvedor",
 			"explanation": "A qualidade interna do código, como legibilidade e manutenibilidade, é uma preocupação primária da equipe de desenvolvimento."
 		},
-		"Explique a diferença entre legibilidade e manutenibilidade.",
-		"O que é qualidade percebida pelo usuário final?",
-		"Cite três fatores que influenciam a qualidade de software.",
-		"Como a visão do gerente difere da visão do desenvolvedor?",
-		"Por que a padronização do processo reduz a dependência de 'heróis'?",
-		"Defina usabilidade segundo a ISO/IEC 25010.",
-		"Quais são os principais pontos de vista sobre qualidade de software?",
-		"Como a eficiência se relaciona com o desempenho do software?"
+		{
+			"question": "A 'qualidade percebida' pelo usuário final está mais relacionada a qual tipo de característica?",
+			"options": [
+				"Características internas, como arquitetura",
+				"Características externas, como usabilidade e confiabilidade",
+				"Custo de desenvolvimento",
+				"Processo de desenvolvimento"
+			],
+			"answer": "Características externas, como usabilidade e confiabilidade",
+			"explanation": "O usuário percebe a qualidade através da sua interação direta com o software, ou seja, através das suas características externas."
+		},
+		{
+			"question": "O que acontece com o custo de manutenção de um software quando a qualidade do processo é baixa?",
+			"options": [
+				"Diminui, pois menos tempo é gasto em documentação",
+				"Permanece o mesmo",
+				"Aumenta, devido à falta de padronização e à dificuldade de modificação",
+				"Depende do número de funcionalidades"
+			],
+			"answer": "Aumenta, devido à falta de padronização e à dificuldade de modificação",
+			"explanation": "Processos imaturos geram código desorganizado e mal documentado, tornando a manutenção futura muito mais cara e demorada."
+		},
+		{
+			"question": "Qual é a principal motivação para uma organização investir na melhoria da qualidade de seus processos?",
+			"options": [
+				"Apenas para obter um certificado",
+				"Para aumentar a previsibilidade, reduzir custos e melhorar a satisfação do cliente",
+				"Para poder contratar mais desenvolvedores",
+				"Para dificultar o trabalho da equipe"
+			],
+			"answer": "Para aumentar a previsibilidade, reduzir custos e melhorar a satisfação do cliente",
+			"explanation": "A melhoria de processo é um investimento estratégico que visa tornar a organização mais eficiente, previsível e competitiva."
+		},
+		{
+			"question": "A gestão de qualidade de software busca alinhar:",
+			"options": [
+				"Apenas os desejos da equipe de desenvolvimento",
+				"Apenas as metas financeiras da empresa",
+				"As necessidades do cliente, as capacidades técnicas e os objetivos de negócio",
+				"Apenas os padrões da ISO"
+			],
+			"answer": "As necessidades do cliente, as capacidades técnicas e os objetivos de negócio",
+			"explanation": "Uma gestão de qualidade eficaz busca um ponto de equilíbrio entre o que o cliente quer, o que é tecnicamente viável e o que faz sentido para o negócio."
+		}
 	],
 	"sqa": [
 		{
@@ -307,14 +343,39 @@
 			"answer": "Uma prática fundamental para processos maduros",
 			"explanation": "A inclusão da SQA como uma área de processo chave nos principais modelos de maturidade ressalta sua importância para a qualidade e controle."
 		},
-		"Descreva o papel de auditorias em SQA.",
-		"Como a SQA garante independência na avaliação de qualidade?",
-		"O que é uma não conformidade em SQA e como deve ser tratada?",
-		"Cite dois benefícios da visibilidade do produto.",
-		"Por que a objetividade é importante em SQA?",
-		"Como a SQA se relaciona com o Gerenciamento de Configuração?",
-		"Qual a diferença entre revisão por pares e auditoria formal?",
-		"Como medir a eficácia das atividades de SQA?"
+		{
+			"question": "O termo 'auditoria' no contexto de SQA refere-se a:",
+			"options": [
+				"Uma verificação financeira do projeto",
+				"Um exame formal e independente para determinar a conformidade com padrões e procedimentos",
+				"Uma reunião de brainstorming",
+				"A fase de codificação do software"
+			],
+			"answer": "Um exame formal e independente para determinar a conformidade com padrões e procedimentos",
+			"explanation": "Uma auditoria de SQA é uma verificação formal para garantir que o que está planeado está a ser de facto executado."
+		},
+		{
+			"question": "A SQA se concentra em atividades 'proativas' ou 'reativas'?",
+			"options": [
+				"Apenas reativas, corrigindo problemas",
+				"Apenas proativas, planejando o futuro",
+				"Principalmente proativas, focadas em prevenir defeitos",
+				"Nenhuma das anteriores"
+			],
+			"answer": "Principalmente proativas, focadas em prevenir defeitos",
+			"explanation": "O cerne da SQA é a prevenção, ou seja, garantir que o processo é bom o suficiente para que os defeitos não sejam introduzidos em primeiro lugar."
+		},
+		{
+			"question": "Um Relatório de Não Conformidade (RNC) gerado pela SQA deve conter:",
+			"options": [
+				"Apenas o nome do culpado",
+				"Apenas a solução para o problema",
+				"A descrição do desvio, a evidência objetiva e a referência ao padrão violado",
+				"Uma sugestão de aumento de prazo"
+			],
+			"answer": "A descrição do desvio, a evidência objetiva e a referência ao padrão violado",
+			"explanation": "Um RNC é um documento formal que precisa descrever claramente o problema, onde ele foi encontrado e qual regra ou padrão não foi seguido."
+		}
 	],
 	"melhoria": [
 		{
@@ -449,14 +510,23 @@
 			"answer": "Incentiva a participação de pessoas mais introvertidas e reduz a influência de personalidades dominantes",
 			"explanation": "Ao permitir que todos escrevam suas ideias antes de discuti-las, o brainstorming escrito garante uma gama mais ampla de contribuições."
 		},
-		"Explique o propósito do brainstorming no MASP.",
-		"Como o 5W2H auxilia na fase de ação do MASP?",
-		"Descreva o que é Kaizen.",
-		"Qual a ordem correta das fases do PDCA?",
-		"Dê um exemplo de aplicação de diagrama de Ishikawa.",
-		"Como identificar gargalos usando fluxograma?",
-		"Explique a importância do ciclo PDCA em projetos ágeis.",
-		"Quais são as limitações do MASP em projetos complexos?"
+		{
+			"question": "A técnica dos '5 Porquês' é usada para:",
+			"options": [
+				"Planejar um projeto",
+				"Identificar a causa raiz de um problema perguntando 'Por quê?' repetidamente",
+				"Definir 5 metas de qualidade",
+				"Atribuir tarefas a 5 pessoas"
+			],
+			"answer": "Identificar a causa raiz de um problema perguntando 'Por quê?' repetidamente",
+			"explanation": "É uma técnica simples de análise de causa raiz que busca ir além dos sintomas superficiais para encontrar a origem fundamental do problema."
+		},
+		{
+			"question": "A 'padronização' é uma atividade crucial em qual fase do PDCA?",
+			"options": ["Plan", "Do", "Check", "Act"],
+			"answer": "Act",
+			"explanation": "Na fase 'Act', se uma melhoria foi bem-sucedida, ela é padronizada para garantir que se torne a nova maneira de trabalhar e que os ganhos não sejam perdidos."
+		}
 	],
 	"modelos": [
 		{
@@ -586,14 +656,17 @@
 			"answer": "Melhorar a estrutura interna do código sem alterar seu comportamento externo",
 			"explanation": "Refatoração é uma limpeza contínua do código para mantê-lo legível, simples e fácil de manter, sendo uma prática crucial em métodos ágeis como XP."
 		},
-		"Quando é indicado usar o modelo em espiral?",
-		"Cite três vantagens do modelo incremental.",
-		"Como o XP lida com mudanças de requisitos?",
-		"Quais são as fases do modelo de prototipação?",
-		"Compare Cascata e Prototipação em termos de flexibilidade.",
-		"Por que o modelo Cascata pode falhar em projetos dinâmicos?",
-		"Qual o papel do feedback do cliente em cada modelo?",
-		"Como o modelo incremental reduz riscos?"
+		{
+			"question": "O Modelo V é uma variação do Modelo Cascata que se destaca por:",
+			"options": [
+				"Eliminar a fase de testes",
+				"Enfatizar a relação entre cada fase de desenvolvimento e sua correspondente fase de teste",
+				"Ser um modelo ágil",
+				"Focar apenas em protótipos"
+			],
+			"answer": "Enfatizar a relação entre cada fase de desenvolvimento e sua correspondente fase de teste",
+			"explanation": "O Modelo V ilustra que para cada etapa de desenvolvimento (ex: projeto de arquitetura), existe uma etapa de verificação e validação correspondente (ex: teste de integração)."
+		}
 	],
 	"maturidade": [
 		{
@@ -727,15 +800,7 @@
 			],
 			"answer": "Qualitativo para Quantitativo",
 			"explanation": "Enquanto o Nível 3 estabelece processos definidos (qualitativos), o Nível 4 introduz o controle estatístico e a gestão baseada em métricas (quantitativo)."
-		},
-		"Descreva o foco do nível 3 do CMMI.",
-		"O que caracteriza o nível G do MPS.BR?",
-		"Como o nível 5 do CMMI promove inovação?",
-		"Compare quantitativo em CMMI nível 4 com MPS.BR nível B.",
-		"Por que o nível 1 do CMMI é chamado de 'Inicial'?",
-		"Quais subprocessos são adicionados no nível E do MPS.BR?",
-		"Como uma organização evolui do nível D ao C em MPS.BR?",
-		"Quais são os benefícios de alcançar o nível A do MPS.BR?"
+		}
 	],
 	"avaliacao": [
 		{
@@ -828,17 +893,6 @@
 			"explanation": "O valor real de uma avaliação está no diagnóstico que ela fornece, que serve como entrada para o próximo ciclo de melhoria de processo."
 		},
 		{
-			"question": "Qual o propósito da 'validação de dados' em uma avaliação?",
-			"options": [
-				"Garantir que os dados sejam favoráveis à empresa",
-				"Assegurar que as evidências coletadas são consistentes, precisas e suficientes",
-				"Apenas verificar a ortografia dos documentos",
-				"Descartar as evidências negativas"
-			],
-			"answer": "Assegurar que as evidências coletadas são consistentes, precisas e suficientes",
-			"explanation": "A validação é um passo crucial para garantir que as conclusões da avaliação são baseadas em informações confiáveis e bem fundamentadas."
-		},
-		{
 			"question": "A norma ISO/IEC 33014, que guia a melhoria de processo, mostra que a avaliação é:",
 			"options": [
 				"Uma atividade única e final",
@@ -848,26 +902,7 @@
 			],
 			"answer": "Uma etapa dentro de um ciclo contínuo de melhoria",
 			"explanation": "A norma posiciona a avaliação como a fase de 'Check' do ciclo PDCA organizacional, fornecendo o feedback necessário para planejar as próximas melhorias."
-		},
-		{
-			"question": "Um dos subprocessos do MA-MPS é 'Realizar a avaliação final (presencial)'. Por que a parte presencial é importante?",
-			"options": [
-				"Para fazer turismo",
-				"Para confirmar as evidências documentais através de entrevistas e observação direta",
-				"Apenas para socializar com a equipe",
-				"Para instalar softwares"
-			],
-			"answer": "Para confirmar as evidências documentais através de entrevistas e observação direta",
-			"explanation": "A fase presencial é crucial para validar o que está nos documentos, entendendo o contexto e confirmando se as práticas são realmente seguidas no dia a dia."
-		},
-		"O que diferencia SCAMPI A de SCAMPI B?",
-		"Como o MA-MPS aborda a avaliação para PMEs?",
-		"Por que a validade de 3 anos é importante em avaliações?",
-		"Qual o papel do avaliador líder em SCAMPI?",
-		"Como as evidências são coletadas em uma avaliação SCAMPI?",
-		"Explique as etapas de preparação no MA-MPS.",
-		"Como definir critérios de aceitação em avaliação?",
-		"Quais são desafios comuns em avaliações formais?"
+		}
 	],
 	"normas": [
 		{
@@ -911,17 +946,6 @@
 			"explanation": "A ISO 15939 é especificamente dedicada a definir um processo de medição, desde a identificação das necessidades de informação até a análise dos dados."
 		},
 		{
-			"question": "A estrutura da norma ISO 9001 é fortemente baseada em qual ciclo de melhoria?",
-			"options": [
-				"Ciclo de Vida em Cascata",
-				"Ciclo PDCA (Plan-Do-Check-Act)",
-				"Ciclo de Vida Espiral",
-				"Ciclo de Deming"
-			],
-			"answer": "Ciclo PDCA (Plan-Do-Check-Act)",
-			"explanation": "A estrutura da ISO 9001:2015 está alinhada com o ciclo PDCA, com cláusulas para Planejamento (P), Apoio e Operação (D), Avaliação de Desempenho (C) e Melhoria (A)."
-		},
-		{
 			"question": "A relação entre a ISO 12207 e a ISO 15504 é que:",
 			"options": [
 				"Elas são concorrentes diretas",
@@ -930,51 +954,18 @@
 				"A ISO 12207 é apenas para hardware"
 			],
 			"answer": "A ISO 12207 define os processos, e a ISO 15504 define como avaliar a capacidade desses processos",
-			"explanation": "Elas são complementares: a 12207 pode ser usada como o modelo de referência de processos (a dimensão de processo) para uma avaliação de capacidade conduzida usando o framework da 15504 (a dimensão de capacidade)."
+			"explanation": "Elas são complementares: a 12207 pode ser usada como o modelo de referência de processos para uma avaliação de capacidade conduzida usando o framework da 15504."
 		},
 		{
 			"question": "O que significa dizer que a ISO 12207 especifica 'o que' mas não 'como'?",
 			"options": [
 				"Que a norma é incompleta",
-				"Que ela permite flexibilidade para ser usada com diferentes modelos de ciclo de vida (Cascata, Ágil, etc.)",
+				"Que ela permite flexibilidade para ser usada com diferentes modelos de ciclo de vida",
 				"Que ela não tem valor prático",
 				"Que ela só se aplica a projetos teóricos"
 			],
-			"answer": "Que ela permite flexibilidade para ser usada com diferentes modelos de ciclo de vida (Cascata, Ágil, etc.)",
-			"explanation": "Ao não prescrever a maneira exata de executar um processo, a norma permite que cada organização adapte a implementação à sua realidade e ao modelo de desenvolvimento escolhido."
-		},
-		{
-			"question": "Uma organização que busca a certificação ISO 9001 deve demonstrar, entre outras coisas:",
-			"options": [
-				"Que possui o maior lucro do mercado",
-				"Um forte foco no cliente e uma abordagem de processo para a gestão",
-				"Que usa apenas a tecnologia mais recente",
-				"Que tem mais de 1000 funcionários"
-			],
-			"answer": "Um forte foco no cliente e uma abordagem de processo para a gestão",
-			"explanation": "Foco no cliente, liderança, abordagem de processo e melhoria contínua são alguns dos princípios fundamentais da gestão da qualidade da ISO 9001."
-		},
-		{
-			"question": "A 'dimensão de capacidade' na ISO 15504 é usada para:",
-			"options": [
-				"Contar o número de processos na empresa",
-				"Medir o quão bem um determinado processo é executado",
-				"Definir quais processos devem existir",
-				"Avaliar a satisfação do cliente"
-			],
-			"answer": "Medir o quão bem um determinado processo é executado",
-			"explanation": "A dimensão de capacidade fornece uma escala (Níveis 0 a 5) para avaliar a maturidade e a eficácia de qualquer processo que esteja sendo analisado."
-		},
-		{
-			"question": "A principal motivação para a criação da ISO 29110 foi:",
-			"options": [
-				"Criar uma norma mais complexa que a ISO 9001",
-				"A dificuldade e o custo para pequenas empresas implementarem as normas completas",
-				"A necessidade de uma norma específica para a indústria espacial",
-				"Substituir o CMMI"
-			],
-			"answer": "A dificuldade e o custo para pequenas empresas implementarem as normas completas",
-			"explanation": "A ISO 29110 visa democratizar o acesso à qualidade de processo, oferecendo um caminho mais simples e acessível para as VSEs (Very Small Entities)."
+			"answer": "Que ela permite flexibilidade para ser usada com diferentes modelos de ciclo de vida",
+			"explanation": "Ao não prescrever a maneira exata de executar um processo, a norma permite que cada organização adapte a implementação à sua realidade."
 		},
 		{
 			"question": "O conjunto de normas ISO/IEC 25000, conhecido como SQuaRE, trata de:",
@@ -987,14 +978,155 @@
 			"answer": "Requisitos e avaliação da Qualidade de Produto de Software",
 			"explanation": "A série SQuaRE (System and Software Quality Requirements and Evaluation), que inclui a ISO 25010, é o framework principal da ISO para definir, medir e avaliar a qualidade do produto."
 		},
-		"Qual norma ISO define requisitos de segurança?",
-		"Como a ISO 9001 se relaciona com a ISO 25010?",
-		"O que é SPICE em ISO 15504?",
-		"Por que a ISO 29110 é voltada a VSEs?",
-		"Como a ISO 15939 integra métodos qualitativos e quantitativos?",
-		"Explique o conceito de 'mapa de normas' ISO.",
-		"Quais normas ISO tratam diretamente de software?",
-		"Como a ISO 12207 e a ISO 12207:2017 diferem?"
+		{
+			"question": "Na ISO/IEC 15504 (SPICE), o modelo de referência bidimensional combina quais duas dimensões?",
+			"options": [
+				"Processo e Capacidade",
+				"Qualidade e Tempo",
+				"Custo e Benefício",
+				"Pessoas e Tecnologia"
+			],
+			"answer": "Processo e Capacidade",
+			"explanation": "A ISO 15504 avalia tanto QUAIS processos existem (dimensão do processo) quanto QUÃO BEM eles são executados (dimensão da capacidade)."
+		},
+		{
+			"question": "Quantos níveis de capacidade são definidos na ISO/IEC 15504?",
+			"options": [
+				"5 níveis (0 a 4)",
+				"6 níveis (0 a 5)",
+				"7 níveis (A a G)",
+				"3 níveis (Básico, Intermediário, Avançado)"
+			],
+			"answer": "6 níveis (0 a 5)",
+			"explanation": "A ISO 15504 define 6 níveis de capacidade: 0-Incompleto, 1-Executado, 2-Gerenciado, 3-Estabelecido, 4-Previsível, 5-Em Otimização."
+		},
+		{
+			"question": "O nível 0 (Incompleto) da ISO 15504 significa que:",
+			"options": [
+				"O processo é executado perfeitamente",
+				"O processo não é implementado ou falha em atingir seu propósito",
+				"O processo é gerenciado quantitativamente",
+				"O processo está em melhoria contínua"
+			],
+			"answer": "O processo não é implementado ou falha em atingir seu propósito",
+			"explanation": "No nível 0, o processo ou não existe ou não consegue produzir os resultados esperados de forma consistente."
+		},
+		{
+			"question": "A principal diferença entre o nível 1 (Executado) e o nível 2 (Gerenciado) na ISO 15504 é:",
+			"options": [
+				"No nível 2, o processo é documentado e controlado",
+				"No nível 1, há mais automação",
+				"No nível 2, há menos pessoas envolvidas",
+				"Não há diferença significativa"
+			],
+			"answer": "No nível 2, o processo é documentado e controlado",
+			"explanation": "Enquanto no nível 1 o processo simplesmente funciona, no nível 2 ele é planejado, monitorado e controlado de forma disciplinada."
+		},
+		{
+			"question": "A ISO/IEC 29110 define 'Very Small Entities' (VSEs) como organizações com até quantas pessoas?",
+			"options": [
+				"10 pessoas",
+				"25 pessoas",
+				"50 pessoas",
+				"100 pessoas"
+			],
+			"answer": "25 pessoas",
+			"explanation": "A ISO 29110 considera VSEs como organizações, departamentos ou projetos com até 25 pessoas trabalhando no desenvolvimento de software."
+		},
+		{
+			"question": "O 'Perfil Básico' da ISO/IEC 29110 foca em quantos processos principais?",
+			"options": [
+				"1 processo",
+				"2 processos",
+				"5 processos",
+				"10 processos"
+			],
+			"answer": "2 processos",
+			"explanation": "O Perfil Básico foca em dois processos essenciais: Gerenciamento de Projeto (GP) e Implementação de Software (IS)."
+		},
+		{
+			"question": "Na ISO/IEC 29110, o processo de 'Implementação de Software' (IS) inclui qual das seguintes atividades?",
+			"options": [
+				"Apenas codificação",
+				"Análise de requisitos, design, construção, integração e testes",
+				"Apenas testes de software",
+				"Apenas documentação"
+			],
+			"answer": "Análise de requisitos, design, construção, integração e testes",
+			"explanation": "O processo IS cobre todo o ciclo técnico de desenvolvimento, desde o entendimento dos requisitos até a entrega do produto testado."
+		},
+		{
+			"question": "Qual é o objetivo principal da ISO/IEC 15504 em termos de melhoria de processos?",
+			"options": [
+				"Certificar empresas",
+				"Determinar a capacidade de processos para orientar a melhoria",
+				"Definir padrões de codificação",
+				"Estabelecer contratos de software"
+			],
+			"answer": "Determinar a capacidade de processos para orientar a melhoria",
+			"explanation": "O SPICE foi desenvolvido para fornecer uma forma estruturada de avaliar a capacidade atual dos processos e identificar oportunidades de melhoria."
+		},
+		{
+			"question": "A ISO/IEC 33000 é considerada a sucessora de qual norma?",
+			"options": ["ISO 9001", "ISO 12207", "ISO 15504", "ISO 29110"],
+			"answer": "ISO 15504",
+			"explanation": "A série ISO/IEC 33000 é a evolução e modernização da família ISO/IEC 15504 (SPICE), mantendo os conceitos fundamentais mas com estrutura reorganizada."
+		},
+		{
+			"question": "No contexto da ISO/IEC 15504, o que significa 'capacidade de processo'?",
+			"options": [
+				"Quantas pessoas trabalham no processo",
+				"A caracterização da habilidade de um processo para atender aos objetivos de negócio atuais ou projetados",
+				"O tempo que o processo demora para ser executado",
+				"O custo de execução do processo"
+			],
+			"answer": "A caracterização da habilidade de um processo para atender aos objetivos de negócio atuais ou projetados",
+			"explanation": "Capacidade de processo na ISO 15504 refere-se ao grau de refinamento e institucionalização com que um processo é executado."
+		},
+		{
+			"question": "Qual das seguintes é uma vantagem específica da ISO/IEC 29110 para pequenas empresas?",
+			"options": [
+				"Elimina a necessidade de documentação",
+				"Fornece um conjunto leve e acessível de práticas adaptadas à realidade de VSEs",
+				"Só funciona para empresas de tecnologia",
+				"Substitui completamente a necessidade de gestão de projetos"
+			],
+			"answer": "Fornece um conjunto leve e acessível de práticas adaptadas à realidade de VSEs",
+			"explanation": "A ISO 29110 foi especificamente desenhada para ser menos burocrática e mais prática para pequenas organizações, sem perder a efetividade."
+		},
+		{
+			"question": "Na ISO/IEC 15504, um processo no nível 3 (Estabelecido) é caracterizado por:",
+			"options": [
+				"Ser executado usando um processo definido baseado em boas práticas de engenharia",
+				"Usar apenas práticas ad-hoc",
+				"Ter controle estatístico",
+				"Estar em constante otimização"
+			],
+			"answer": "Ser executado usando um processo definido baseado em boas práticas de engenharia",
+			"explanation": "O nível 3 representa a implementação de um processo bem definido, baseado em princípios de engenharia de software e adaptado às necessidades da organização."
+		},
+		{
+			"question": "O 'Perfil de Gestão' da ISO/IEC 29110 adiciona quais tipos de processos ao Perfil Básico?",
+			"options": [
+				"Apenas processos técnicos",
+				"Processos organizacionais como gestão de portfólio e melhoria de processos",
+				"Apenas processos de marketing",
+				"Processos de auditoria externa"
+			],
+			"answer": "Processos organizacionais como gestão de portfólio e melhoria de processos",
+			"explanation": "O Perfil de Gestão expande o escopo para incluir processos de nível organizacional, preparando VSEs para uma gestão mais madura."
+		},
+		{
+			"question": "Qual é a principal diferença conceitual entre avaliação 'para melhoria interna' e 'para seleção de fornecedor' na ISO 15504?",
+			"options": [
+				"Não há diferença",
+				"Melhoria interna foca em identificar oportunidades de evolução; seleção de fornecedor avalia adequação para um contrato específico",
+				"Seleção de fornecedor é sempre mais rigorosa",
+				"Melhoria interna não requer documentação"
+			],
+			"answer": "Melhoria interna foca em identificar oportunidades de evolução; seleção de fornecedor avalia adequação para um contrato específico",
+			"explanation": "São dois propósitos distintos: diagnóstico interno para evolução vs. avaliação externa para tomada de decisão de contratação."
+		}
 	],
 	"produto": [
 		{
@@ -1061,7 +1193,7 @@
 				"Instalabilidade"
 			],
 			"answer": "Interoperabilidade",
-			"explanation": "Interoperabilidade, uma subcaracterística da Funcionalidade (na ISO 9126) e da Compatibilidade (na ISO 25010), é a capacidade de trocar informações e operar com outros sistemas."
+			"explanation": "Interoperabilidade é a capacidade de trocar informações e operar com outros sistemas."
 		},
 		{
 			"question": "O modelo de McCall foi pioneiro ao:",
@@ -1072,7 +1204,7 @@
 				"Ser um modelo de processo, não de produto"
 			],
 			"answer": "Introduzir a ideia de decompor o conceito de qualidade em fatores e critérios mensuráveis",
-			"explanation": "McCall foi um dos primeiros a estruturar a qualidade de produto de forma hierárquica, transformando um conceito abstrato em algo mais concreto e gerenciável."
+			"explanation": "McCall foi um dos primeiros a estruturar a qualidade de produto de forma hierárquica."
 		},
 		{
 			"question": "Na ISO 25010, a característica 'Confiabilidade' inclui a subcaracterística 'Tolerância a Falhas', que significa:",
@@ -1083,18 +1215,7 @@
 				"A velocidade com que o sistema reinicia"
 			],
 			"answer": "A capacidade do software de manter um nível de desempenho especificado mesmo em caso de falhas",
-			"explanation": "Tolerância a falhas (ou resiliência) é a habilidade do sistema de continuar operando, talvez de forma degradada, mesmo na presença de falhas de hardware ou software."
-		},
-		{
-			"question": "A 'Utilização de Recursos' é uma subcaracterística de qual característica principal da ISO 25010?",
-			"options": [
-				"Funcionalidade",
-				"Confiabilidade",
-				"Eficiência de Desempenho",
-				"Usabilidade"
-			],
-			"answer": "Eficiência de Desempenho",
-			"explanation": "Eficiência de Desempenho está relacionada aos recursos (CPU, memória, rede) consumidos pelo software em relação ao trabalho realizado."
+			"explanation": "Tolerância a falhas (ou resiliência) é a habilidade do sistema de continuar operando, mesmo na presença de falhas."
 		},
 		{
 			"question": "A 'Apreensibilidade' (learnability) está relacionada a qual característica de qualidade?",
@@ -1117,25 +1238,6 @@
 			],
 			"answer": "O resultado da interação do usuário com o sistema em um contexto específico",
 			"explanation": "Qualidade em uso vai além das características do produto para avaliar a eficácia, eficiência e satisfação do usuário ao realizar tarefas reais no seu ambiente."
-		},
-		{
-			"question": "A característica 'Compatibilidade' na ISO 25010 inclui:",
-			"options": [
-				"Apenas a aparência visual",
-				"Coexistência e Interoperabilidade",
-				"Facilidade de instalação",
-				"Rapidez na execução"
-			],
-			"answer": "Coexistência e Interoperabilidade",
-			"explanation": "Compatibilidade aborda como o software se comporta em um ambiente compartilhado, podendo coexistir com outros softwares sem conflitos e interoperar (trocar dados) com eles."
-		},
-		"Quais subcaracterísticas da confiabilidade são mensuráveis?",
-		"Como a compatibilidade difere de interoperabilidade?",
-		"Explique a subcaracterística 'Maturidade'.",
-		"Por que a atratividade é relevante em usabilidade?",
-		"Como medir 'Comportamento em Relação ao Tempo'?",
-		"Quais são os critérios de 'Capacidade para Substituir'?",
-		"Como a segurança impacta a integridade dos dados?",
-		"Explique a diferença entre portabilidade e adaptabilidade."
+		}
 	]
 }

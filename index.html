@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Estudos: Qualidade de Software</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Academic Calm -->
-    <!-- Application Structure Plan: A single-page application with a fixed top navigation bar for easy access to different thematic sections. This dashboard-like structure is chosen to break down the dense academic content into manageable, interactive modules. The user flow is non-linear, allowing them to jump to any topic (e.g., "Maturity Models" or "ISO Standards") at will. Key interactions include click-to-reveal cards, interactive diagrams (PDCA, Maturity Levels), and dynamic charts to compare concepts, promoting active learning over passive reading. This design prioritizes user exploration and conceptual connection over the linear structure of the source PDF. -->
-    <!-- Visualization & Content Choices: 
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Guia de Estudos: Qualidade de Software</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Chosen Palette: Academic Calm -->
+		<!-- Application Structure Plan: A single-page application with a fixed top navigation bar for easy access to different thematic sections. This dashboard-like structure is chosen to break down the dense academic content into manageable, interactive modules. The user flow is non-linear, allowing them to jump to any topic (e.g., "Maturity Models" or "ISO Standards") at will. Key interactions include click-to-reveal cards, interactive diagrams (PDCA, Maturity Levels), and dynamic charts to compare concepts, promoting active learning over passive reading. This design prioritizes user exploration and conceptual connection over linear content structure. -->
+		<!-- Visualization & Content Choices: 
         - Quality Viewpoints: Goal: Inform/Compare. Method: Interactive card grid. Interaction: Click to flip card and reveal details. Justification: Encourages engagement and simplifies comparison. Library: HTML/CSS/JS.
         - SQA: Goal: Inform. Method: Structured text with highlighted objectives. Justification: Clearly defines a core concept. Library: HTML/CSS.
         - PDCA Cycle & Quality Tools: Goal: Organize/Inform. Method: HTML/CSS diagrams and interactive cards. Interaction: Click on PDCA steps and tool cards to reveal details. Justification: Visually represents core cycles and their components. Library: HTML/CSS/JS.
@@ -21,357 +24,1717 @@
         - ISO Ecosystem: Goal: Relationships. Method: HTML/CSS positioned divs creating a "map". Interaction: Hover over a standard to see its description. Justification: Transforms a list into a visual map of interconnected standards. Library: HTML/CSS/JS.
         - Product Quality (McCall/ISO): Goal: Inform/Compare. Method: Timeline/comparison cards and a Doughnut chart. Interaction: Hover over chart characteristics. Justification: Shows historical evolution and details the modern standard. Library: Chart.js (Canvas) & HTML/CSS/JS.
     -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FDFBF8;
-            color: #4A4A4A;
-        }
-        .nav-link {
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .nav-link:hover {
-            color: #D97706; /* amber-600 */
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #D97706;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-        .card {
-            transform-style: preserve-3d;
-            transition: transform 0.7s;
-            cursor: pointer;
-        }
-        .card.is-flipped {
-            transform: rotateY(180deg);
-        }
-        .card-face {
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
-        .card-face-back {
-            transform: rotateY(180deg);
-        }
-        .section-title {
-            color: #78350F; /* amber-900 */
-        }
-        .section-subtitle {
-            color: #B45309; /* amber-700 */
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 400px;
-            max-height: 60vh;
-        }
-        .maturity-level {
-            transition: all 0.3s ease-in-out;
-        }
-        .maturity-level.active {
-            background-color: #FEF3C7; /* amber-100 */
-            transform: scale(1.03);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        }
-        .iso-map-item {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .iso-map-item:hover {
-            transform: translateY(-5px) scale(1.05);
-            z-index: 10;
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-    </style>
-</head>
-<body class="antialiased">
+		<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+		<style>
+			body {
+				font-family: 'Inter', sans-serif;
+				background-color: #fdfbf8;
+				color: #4a4a4a;
+			}
+			.nav-link {
+				transition: all 0.3s ease;
+				position: relative;
+			}
+			.nav-link:hover {
+				color: #d97706; /* amber-600 */
+			}
+			.nav-link::after {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 2px;
+				bottom: -4px;
+				left: 50%;
+				transform: translateX(-50%);
+				background-color: #d97706;
+				transition: width 0.3s ease;
+			}
+			.nav-link:hover::after,
+			.nav-link.active::after {
+				width: 100%;
+			}
+			.card {
+				transform-style: preserve-3d;
+				transition: transform 0.7s;
+				cursor: pointer;
+			}
+			.card.is-flipped {
+				transform: rotateY(180deg);
+			}
+			.card-face {
+				backface-visibility: hidden;
+				-webkit-backface-visibility: hidden;
+			}
+			.card-face-back {
+				transform: rotateY(180deg);
+			}
+			.section-title {
+				color: #78350f; /* amber-900 */
+			}
+			.section-subtitle {
+				color: #b45309; /* amber-700 */
+			}
+			.chart-container {
+				position: relative;
+				width: 100%;
+				max-width: 800px;
+				margin-left: auto;
+				margin-right: auto;
+				height: 400px;
+				max-height: 60vh;
+			}
+			.maturity-level {
+				transition: all 0.3s ease-in-out;
+			}
+			.maturity-level.active {
+				background-color: #fef3c7; /* amber-100 */
+				transform: scale(1.03);
+				box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+					0 4px 6px -4px rgb(0 0 0 / 0.1);
+			}
+			.iso-map-item {
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			.iso-map-item:hover {
+				transform: translateY(-5px) scale(1.05);
+				z-index: 10;
+				box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+					0 8px 10px -6px rgb(0 0 0 / 0.1);
+			}
+			/* AI Tutor Chat Styles */
+			#ai-tutor-button {
+				position: fixed;
+				bottom: 2rem;
+				right: 2rem;
+				z-index: 1000;
+			}
+			#ai-tutor-chat-window {
+				position: fixed;
+				bottom: 6rem;
+				right: 2rem;
+				width: 90%;
+				max-width: 400px;
+				height: 70%;
+				max-height: 500px;
+				z-index: 1000;
+				transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+			}
+			#ai-tutor-chat-window.hidden {
+				transform: translateY(20px);
+				opacity: 0;
+				pointer-events: none;
+			}
+			.user-message {
+				background-color: #dbeafe; /* blue-200 */
+				align-self: flex-end;
+			}
+			.ai-message {
+				background-color: #f3f4f6; /* gray-100 */
+				align-self: flex-start;
+			}
+			.loading-dots span {
+				animation: blink 1.4s infinite both;
+			}
+			.loading-dots span:nth-child(2) {
+				animation-delay: 0.2s;
+			}
+			.loading-dots span:nth-child(3) {
+				animation-delay: 0.4s;
+			}
+			@keyframes blink {
+				0% {
+					opacity: 0.2;
+				}
+				20% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0.2;
+				}
+			}
+		</style>
+	</head>
+	<body class="antialiased">
+		<header
+			class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-md"
+		>
+			<nav class="container mx-auto px-6 py-4">
+				<div class="flex items-center justify-between">
+					<h1 class="text-xl font-bold text-amber-800">
+						Guia de Qualidade de Software
+					</h1>
+					<div
+						class="hidden lg:flex items-center space-x-4 xl:space-x-6"
+					>
+						<a href="#fundamentos" class="nav-link text-sm"
+							>Fundamentos</a
+						>
+						<a href="#sqa" class="nav-link text-sm">SQA</a>
+						<a href="#melhoria" class="nav-link text-sm"
+							>Melhoria</a
+						>
+						<a href="#modelos" class="nav-link text-sm">Modelos</a>
+						<a href="#maturidade" class="nav-link text-sm"
+							>Maturidade</a
+						>
+						<a href="#avaliacao" class="nav-link text-sm"
+							>Avaliação</a
+						>
+						<a href="#produto" class="nav-link text-sm">Produto</a>
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-md">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <h1 class="text-xl font-bold text-amber-800">Guia de Qualidade de Software</h1>
-                <div class="hidden lg:flex items-center space-x-4 xl:space-x-6">
-                    <a href="#fundamentos" class="nav-link text-sm">Fundamentos</a>
-                    <a href="#sqa" class="nav-link text-sm">SQA</a>
-                    <a href="#melhoria" class="nav-link text-sm">Melhoria</a>
-                    <a href="#modelos" class="nav-link text-sm">Modelos</a>
-                    <a href="#maturidade" class="nav-link text-sm">Maturidade</a>
-                    <a href="#avaliacao" class="nav-link text-sm">Avaliação</a>
-                    <a href="#normas" class="nav-link text-sm">Normas ISO</a>
-                    <a href="#produto" class="nav-link text-sm">Produto</a>
-                    <a href="teste.html" class="nav-link text-sm">TESTES</a>
-                </div>
-                <button id="mobile-menu-button" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-amber-800 hover:bg-amber-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
-            </div>
-            <div id="mobile-menu" class="hidden lg:hidden mt-4 space-y-2">
-                 <a href="#fundamentos" class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800">Fundamentos</a>
-                 <a href="#sqa" class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800">Garantia da Qualidade (SQA)</a>
-                 <a href="#melhoria" class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800">Melhoria Contínua</a>
-                 <a href="#modelos" class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800">Modelos de Processo</a>
-                 <a href="#maturidade" class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800">Jornada da Maturidade</a>
-                 <a href="#avaliacao" class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800">Avaliação de Processos</a>
-                 <a href="#normas" class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800">Normas ISO</a>
-                 <a href="#produto" class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800">Qualidade de Produto</a>
-            </div>
-        </nav>
-    </header>
+						<!-- Separador visual -->
+						<div class="h-6 w-px bg-amber-300"></div>
 
-    <main class="container mx-auto px-6 py-12">
-        
-        <section id="fundamentos" class="mb-24 scroll-mt-24">
-            <h2 class="text-4xl font-bold text-center mb-4 section-title">Fundamentos da Qualidade</h2>
-            <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">A qualidade de software não é um conceito único. Ela é percebida de maneiras diferentes por quem usa, quem desenvolve e quem gerencia. Esta seção explora essas perspectivas e a diferença crucial entre a qualidade do processo (como fazemos) e do produto (o que fazemos).</p>
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="card" onclick="this.classList.toggle('is-flipped')">
-                    <div class="relative w-full h-64"><div class="absolute w-full h-full p-6 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center text-center card-face"><h3 class="text-2xl font-bold section-subtitle">Visão do Usuário</h3><p class="mt-2 text-gray-600">Foco no resultado: o software funciona e é fácil de usar?</p><span class="mt-4 text-sm font-semibold text-amber-600">Clique para saber mais</span></div><div class="absolute w-full h-full p-6 bg-amber-100 rounded-lg shadow-lg flex flex-col justify-center text-center card-face card-face-back"><p class="text-amber-900">O usuário se concentra no uso externo do produto. A qualidade é medida pela funcionalidade, usabilidade, confiabilidade e se a experiência de uso é agradável.</p></div></div>
-                </div>
-                <div class="card" onclick="this.classList.toggle('is-flipped')">
-                    <div class="relative w-full h-64"><div class="absolute w-full h-full p-6 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center text-center card-face"><h3 class="text-2xl font-bold section-subtitle">Visão do Desenvolvedor</h3><p class="mt-2 text-gray-600">Foco na estrutura: o código é bem feito e fácil de manter?</p><span class="mt-4 text-sm font-semibold text-amber-600">Clique para saber mais</span></div><div class="absolute w-full h-full p-6 bg-amber-100 rounded-lg shadow-lg flex flex-col justify-center text-center card-face card-face-back"><p class="text-amber-900">A equipe de desenvolvimento tem uma visão interna. Um software de qualidade é bem projetado, legível, testável e manutenível. A robustez técnica é crucial.</p></div></div>
-                </div>
-                <div class="card" onclick="this.classList.toggle('is-flipped')">
-                    <div class="relative w-full h-64"><div class="absolute w-full h-full p-6 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center text-center card-face"><h3 class="text-2xl font-bold section-subtitle">Visão do Gerente</h3><p class="mt-2 text-gray-600">Foco no negócio: o projeto é viável e cumpre prazos e custos?</p><span class="mt-4 text-sm font-semibold text-amber-600">Clique para saber mais</span></div><div class="absolute w-full h-full p-6 bg-amber-100 rounded-lg shadow-lg flex flex-col justify-center text-center card-face card-face-back"><p class="text-amber-900">O gerente equilibra as visões com as restrições de negócio. A qualidade é inseparável de custo, prazo e retorno sobre o investimento (ROI). Um equilíbrio é fundamental.</p></div></div>
-                </div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8"><div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-amber-500"><h3 class="text-2xl font-bold mb-4 section-subtitle">Qualidade do Processo</h3><p class="text-gray-700">Refere-se ao "como" o software é desenvolvido. Um processo maduro é definido, planejado, medido e controlado. Ele leva a resultados previsíveis em custo, prazo e qualidade, transformando o conhecimento em um ativo da organização, não dependente de "heróis" individuais.</p></div><div class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-teal-500"><h3 class="text-2xl font-bold mb-4 text-teal-700">Qualidade do Produto</h3><p class="text-gray-700">Refere-se ao "o quê" é entregue ao cliente. É definida por características mensuráveis como funcionalidade, confiabilidade, usabilidade, eficiência, manutenibilidade e portabilidade, conforme especificado em normas como a ISO/IEC 25010.</p></div></div>
-        </section>
+						<!-- Páginas Dedicadas -->
+						<span
+							class="text-xs font-semibold text-amber-700 uppercase tracking-wider"
+							>Páginas</span
+						>
+						<a
+							href="cmmi.html"
+							class="nav-link text-sm font-medium text-blue-600"
+							>CMMI</a
+						>
+						<a
+							href="mps-br.html"
+							class="nav-link text-sm font-medium text-green-600"
+							>MPS.BR</a
+						>
+						<a
+							href="isos.html"
+							class="nav-link text-sm font-medium text-orange-600"
+							>Normas ISO</a
+						>
+						<a
+							href="teste.html"
+							class="nav-link text-sm font-bold text-red-600"
+							>TESTES</a
+						>
+					</div>
+					<button
+						id="mobile-menu-button"
+						class="lg:hidden p-2 rounded-md text-gray-600 hover:text-amber-800 hover:bg-amber-100"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-6 w-6"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16m-7 6h7"
+							/>
+						</svg>
+					</button>
+				</div>
+				<div id="mobile-menu" class="hidden lg:hidden mt-4 space-y-2">
+					<a
+						href="#fundamentos"
+						class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800"
+						>Fundamentos</a
+					>
+					<a
+						href="#sqa"
+						class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800"
+						>Garantia da Qualidade (SQA)</a
+					>
+					<a
+						href="#melhoria"
+						class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800"
+						>Melhoria Contínua</a
+					>
+					<a
+						href="#modelos"
+						class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800"
+						>Modelos de Processo</a
+					>
+					<a
+						href="#maturidade"
+						class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800"
+						>Jornada da Maturidade</a
+					>
+					<a
+						href="#avaliacao"
+						class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800"
+						>Avaliação de Processos</a
+					>
+					<a
+						href="#produto"
+						class="mobile-nav-link block py-2 px-4 text-sm rounded-md hover:bg-amber-100 hover:text-amber-800"
+						>Qualidade de Produto</a
+					>
 
-        <section id="sqa" class="mb-24 scroll-mt-24">
-            <h2 class="text-4xl font-bold text-center mb-4 section-title">Garantia da Qualidade (SQA)</h2>
-            <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">A Garantia da Qualidade de Software (SQA) é um conjunto de atividades planejadas e sistemáticas para fornecer à gerência a visibilidade adequada do processo e dos produtos, garantindo que ambos estejam em conformidade com padrões e procedimentos estabelecidos.</p>
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold mb-4 section-subtitle">Objetivos Chave da SQA</h3>
-                <ul class="space-y-4">
-                    <li class="flex items-start"><span class="text-amber-600 font-bold text-xl mr-3">✓</span><div><h4 class="font-semibold">Visibilidade do Processo:</h4><p class="text-gray-600">Garantir que os processos de software definidos sejam seguidos pela equipe do projeto. A SQA realiza auditorias e revisões para verificar a aderência.</p></div></li>
-                    <li class="flex items-start"><span class="text-amber-600 font-bold text-xl mr-3">✓</span><div><h4 class="font-semibold">Visibilidade do Produto:</h4><p class="text-gray-600">Assegurar que os produtos de trabalho (documentos, código, etc.) atendam aos padrões de qualidade especificados antes de serem entregues ou passados para a próxima fase.</p></div></li>
-                    <li class="flex items-start"><span class="text-amber-600 font-bold text-xl mr-3">✓</span><div><h4 class="font-semibold">Independência e Objetividade:</h4><p class="text-gray-600">As atividades de SQA são geralmente realizadas por um grupo independente da equipe de desenvolvimento para garantir uma avaliação objetiva e imparcial.</p></div></li>
-                    <li class="flex items-start"><span class="text-amber-600 font-bold text-xl mr-3">✓</span><div><h4 class="font-semibold">Identificação de Não Conformidades:</h4><p class="text-gray-600">Reportar problemas e não conformidades à gerência para que ações corretivas possam ser tomadas em tempo hábil.</p></div></li>
-                </ul>
-            </div>
-        </section>
+					<!-- Separador para páginas dedicadas -->
+					<div class="border-t border-amber-200 my-3"></div>
+					<div class="px-4 py-1">
+						<span
+							class="text-xs font-semibold text-amber-700 uppercase tracking-wider"
+							>Páginas Dedicadas</span
+						>
+					</div>
 
-        <section id="melhoria" class="mb-24 scroll-mt-24">
-            <h2 class="text-4xl font-bold text-center mb-4 section-title">Melhoria Contínua e MASP</h2>
-            <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">A qualidade não é um estado, mas uma jornada. A melhoria contínua, ou Kaizen, é o motor dessa jornada, impulsionada pelo Método de Análise e Solução de Problemas (MASP) e pelo ciclo PDCA.</p>
-            <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
-                <div class="flex flex-col md:flex-row items-center gap-8"><div id="pdca-diagram" class="w-full md:w-1/2 flex flex-col items-center"><div class="flex items-center justify-center space-x-2"><div id="pdca-p" data-info="plan" class="pdca-item cursor-pointer p-4 rounded-full border-4 border-transparent transition-all duration-300"><div class="w-24 h-24 bg-amber-500 rounded-full flex items-center justify-center text-white text-4xl font-bold">P</div></div><div class="text-4xl text-gray-300">&rarr;</div><div id="pdca-d" data-info="do" class="pdca-item cursor-pointer p-4 rounded-full border-4 border-transparent transition-all duration-300"><div class="w-24 h-24 bg-teal-500 rounded-full flex items-center justify-center text-white text-4xl font-bold">D</div></div></div><div class="flex items-center justify-center my-2"><div class="text-4xl text-gray-300 transform -rotate-90">&rarr;</div><div class="w-40"></div><div class="text-4xl text-gray-300 transform rotate-90">&rarr;</div></div><div class="flex items-center justify-center space-x-2"><div id="pdca-a" data-info="act" class="pdca-item cursor-pointer p-4 rounded-full border-4 border-transparent transition-all duration-300"><div class="w-24 h-24 bg-rose-500 rounded-full flex items-center justify-center text-white text-4xl font-bold">A</div></div><div class="text-4xl text-gray-300 transform rotate-180">&rarr;</div><div id="pdca-c" data-info="check" class="pdca-item cursor-pointer p-4 rounded-full border-4 border-transparent transition-all duration-300"><div class="w-24 h-24 bg-indigo-500 rounded-full flex items-center justify-center text-white text-4xl font-bold">C</div></div></div></div><div id="pdca-info" class="w-full md:w-1/2 p-6 rounded-lg bg-gray-50 min-h-[250px] flex flex-col justify-center"><h3 id="pdca-title" class="text-2xl font-bold section-subtitle mb-2">Ciclo PDCA</h3><p id="pdca-description" class="text-gray-700">Clique em uma letra do ciclo para ver sua descrição. O PDCA (Plan, Do, Check, Act) é um método iterativo para o controle e melhoria contínua de processos e produtos.</p></div></div>
-            </div>
-            
-            <h3 class="text-3xl font-bold text-center mb-8 section-subtitle">Ferramentas da Qualidade</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-sky-500">
-                    <h4 class="font-bold text-lg mb-2 text-sky-800">Fluxograma</h4>
-                    <p class="text-sm text-gray-600">Representação gráfica de um processo. Ajuda a entender o fluxo de trabalho real, identificar gargalos e etapas desnecessárias. Essencial para mapear a situação atual ("as-is") na fase de Planejamento.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-lime-500">
-                    <h4 class="font-bold text-lg mb-2 text-lime-800">Diagrama de Ishikawa</h4>
-                    <p class="text-sm text-gray-600">Também conhecido como "Espinha de Peixe", organiza as possíveis causas de um problema (efeito) em categorias (ex: Método, Mão de Obra, Máquina), facilitando a análise de causa raiz.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-fuchsia-500">
-                    <h4 class="font-bold text-lg mb-2 text-fuchsia-800">Brainstorming</h4>
-                    <p class="text-sm text-gray-600">Técnica para gerar um grande volume de ideias criativas em grupo, sem críticas. O objetivo é explorar todas as possibilidades antes de convergir para uma solução.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-500">
-                    <h4 class="font-bold text-lg mb-2 text-orange-800">Matriz 5W2H</h4>
-                    <p class="text-sm text-gray-600">Transforma uma solução em um plano de ação claro, respondendo: What (O quê?), Why (Por quê?), Where (Onde?), When (Quando?), Who (Quem?), How (Como?) e How Much (Quanto?).</p>
-                </div>
-            </div>
-        </section>
+					<a
+						href="cmmi.html"
+						class="mobile-nav-link block py-2 px-4 text-sm font-medium text-blue-600 rounded-md hover:bg-blue-100"
+						>CMMI Detalhado</a
+					>
+					<a
+						href="mps-br.html"
+						class="mobile-nav-link block py-2 px-4 text-sm font-medium text-green-600 rounded-md hover:bg-green-100"
+						>MPS.BR Detalhado</a
+					>
+					<a
+						href="isos.html"
+						class="mobile-nav-link block py-2 px-4 text-sm font-medium text-orange-600 rounded-md hover:bg-orange-100"
+						>Normas ISO</a
+					>
+					<a
+						href="teste.html"
+						class="mobile-nav-link block py-2 px-4 text-sm font-bold text-red-600 rounded-md hover:bg-red-100"
+						>TESTES</a
+					>
+				</div>
+			</nav>
+		</header>
 
-        <section id="modelos" class="mb-24 scroll-mt-24">
-            <h2 class="text-4xl font-bold text-center mb-4 section-title">Modelos de Processo</h2>
-            <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">A escolha do modelo de ciclo de vida define como um projeto será executado. Não há uma solução única; a decisão depende da estabilidade dos requisitos e da complexidade do projeto. Aqui comparamos os modelos mais comuns.</p>
-            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg"><div class="chart-container"><canvas id="modelsChart"></canvas></div><div class="mt-8 text-center text-gray-600"><p>O gráfico compara os modelos em cinco dimensões chave. O modelo **Cascata** é rígido, mas controlado. **Prototipação** foca em validar requisitos. Modelos como **Incremental** e **XP** oferecem alta flexibilidade. Já o **Espiral** é o mais robusto para gerenciar riscos em projetos complexos.</p></div></div>
-        </section>
-        
-        <section id="maturidade" class="mb-24 scroll-mt-24">
-            <h2 class="text-4xl font-bold text-center mb-4 section-title">A Jornada da Maturidade</h2>
-             <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">Modelos de maturidade como CMMI e MPS.BR oferecem um roteiro para que as organizações evoluam seus processos de um estado caótico para um nível otimizado e previsível. Explore os níveis de cada modelo e entenda suas diferenças.</p>
-            <div class="grid lg:grid-cols-2 gap-12"><div class="text-center"><h3 class="text-3xl font-bold mb-6 section-subtitle">CMMI</h3><div id="cmmi-levels" class="space-y-4"></div></div><div class="text-center"><h3 class="text-3xl font-bold text-center mb-6 section-subtitle">MPS.BR</h3><div id="mpsbr-levels" class="space-y-4"></div></div></div>
-             <div id="maturity-details" class="mt-8 bg-white p-6 rounded-lg shadow-lg min-h-[120px] flex items-center justify-center text-center"><p class="text-gray-700">Clique em um nível de maturidade para ver seus detalhes.</p></div>
-        </section>
+		<main class="container mx-auto px-6 py-12">
+			<section id="fundamentos" class="mb-24 scroll-mt-24">
+				<h2 class="text-4xl font-bold text-center mb-4 section-title">
+					Fundamentos da Qualidade
+				</h2>
+				<p
+					class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12"
+				>
+					A qualidade de software não é um conceito único. Ela é
+					percebida de maneiras diferentes por quem usa, quem
+					desenvolve e quem gerencia. Esta seção explora essas
+					perspectivas e a diferença crucial entre a qualidade do
+					processo (como fazemos) e do produto (o que fazemos).
+				</p>
+				<div class="grid md:grid-cols-3 gap-8 mb-16">
+					<div
+						class="card"
+						onclick="this.classList.toggle('is-flipped')"
+					>
+						<div class="relative w-full h-64">
+							<div
+								class="absolute w-full h-full p-6 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center text-center card-face"
+							>
+								<h3 class="text-2xl font-bold section-subtitle">
+									Visão do Usuário
+								</h3>
+								<p class="mt-2 text-gray-600">
+									Foco no resultado: o software funciona e é
+									fácil de usar?
+								</p>
+								<span
+									class="mt-4 text-sm font-semibold text-amber-600"
+									>Clique para saber mais</span
+								>
+							</div>
+							<div
+								class="absolute w-full h-full p-6 bg-amber-100 rounded-lg shadow-lg flex flex-col justify-center text-center card-face card-face-back"
+							>
+								<p class="text-amber-900">
+									O usuário se concentra no uso externo do
+									produto. A qualidade é medida pela
+									funcionalidade, usabilidade, confiabilidade
+									e se a experiência de uso é agradável.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div
+						class="card"
+						onclick="this.classList.toggle('is-flipped')"
+					>
+						<div class="relative w-full h-64">
+							<div
+								class="absolute w-full h-full p-6 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center text-center card-face"
+							>
+								<h3 class="text-2xl font-bold section-subtitle">
+									Visão do Desenvolvedor
+								</h3>
+								<p class="mt-2 text-gray-600">
+									Foco na estrutura: o código é bem feito e
+									fácil de manter?
+								</p>
+								<span
+									class="mt-4 text-sm font-semibold text-amber-600"
+									>Clique para saber mais</span
+								>
+							</div>
+							<div
+								class="absolute w-full h-full p-6 bg-amber-100 rounded-lg shadow-lg flex flex-col justify-center text-center card-face card-face-back"
+							>
+								<p class="text-amber-900">
+									A equipe de desenvolvimento tem uma visão
+									interna. Um software de qualidade é bem
+									projetado, legível, testável e manutenível.
+									A robustez técnica é crucial.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div
+						class="card"
+						onclick="this.classList.toggle('is-flipped')"
+					>
+						<div class="relative w-full h-64">
+							<div
+								class="absolute w-full h-full p-6 bg-white rounded-lg shadow-lg flex flex-col items-center justify-center text-center card-face"
+							>
+								<h3 class="text-2xl font-bold section-subtitle">
+									Visão do Gerente
+								</h3>
+								<p class="mt-2 text-gray-600">
+									Foco no negócio: o projeto é viável e cumpre
+									prazos e custos?
+								</p>
+								<span
+									class="mt-4 text-sm font-semibold text-amber-600"
+									>Clique para saber mais</span
+								>
+							</div>
+							<div
+								class="absolute w-full h-full p-6 bg-amber-100 rounded-lg shadow-lg flex flex-col justify-center text-center card-face card-face-back"
+							>
+								<p class="text-amber-900">
+									O gerente equilibra as visões com as
+									restrições de negócio. A qualidade é
+									inseparável de custo, prazo e retorno sobre
+									o investimento (ROI). Um equilíbrio é
+									fundamental.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid md:grid-cols-2 gap-8">
+					<div
+						class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-amber-500"
+					>
+						<h3 class="text-2xl font-bold mb-4 section-subtitle">
+							Qualidade do Processo
+						</h3>
+						<p class="text-gray-700">
+							Refere-se ao "como" o software é desenvolvido. Um
+							processo maduro é definido, planejado, medido e
+							controlado. Ele leva a resultados previsíveis em
+							custo, prazo e qualidade, transformando o
+							conhecimento em um ativo da organização, não
+							dependente de "heróis" individuais.
+						</p>
+					</div>
+					<div
+						class="bg-white p-8 rounded-lg shadow-lg border-l-4 border-teal-500"
+					>
+						<h3 class="text-2xl font-bold mb-4 text-teal-700">
+							Qualidade do Produto
+						</h3>
+						<p class="text-gray-700">
+							Refere-se ao "o quê" é entregue ao cliente. É
+							definida por características mensuráveis como
+							funcionalidade, confiabilidade, usabilidade,
+							eficiência, manutenibilidade e portabilidade,
+							conforme especificado em normas como a ISO/IEC
+							25010.
+						</p>
+					</div>
+				</div>
+			</section>
 
-        <section id="avaliacao" class="mb-24 scroll-mt-24">
-            <h2 class="text-4xl font-bold text-center mb-4 section-title">Avaliação de Processos</h2>
-            <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">Avaliar um processo é o passo fundamental para melhorá-lo. Esta seção aborda como a capacidade dos processos é medida e quais são os métodos padrão utilizados para avaliações formais como CMMI e MPS.BR.</p>
-            <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
-                 <h3 class="text-2xl font-bold mb-6 text-center section-subtitle">Métodos de Avaliação: SCAMPI vs MA-MPS</h3>
-                 <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-100"><tr><th scope="col" class="px-6 py-3">Critério</th><th scope="col" class="px-6 py-3">SCAMPI (CMMI)</th><th scope="col" class="px-6 py-3">MA-MPS (MPS.BR)</th></tr></thead>
-                        <tbody>
-                            <tr class="bg-white border-b"><th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Modelo de Referência</th><td class="px-6 py-4">CMMI (Capability Maturity Model Integration)</td><td class="px-6 py-4">MPS.BR (Melhoria de Processo do Software Brasileiro)</td></tr>
-                            <tr class="bg-gray-50 border-b"><th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Objetivo</th><td class="px-6 py-4">Avaliar a maturidade/capacidade para melhoria interna e benchmarking.</td><td class="px-6 py-4">Avaliar a maturidade para certificação e melhoria, com foco em PMEs.</td></tr>
-                            <tr class="bg-white border-b"><th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Condutor</th><td class="px-6 py-4">Avaliador Líder certificado pelo CMMI Institute.</td><td class="px-6 py-4">Avaliador Líder credenciado pela Softex.</td></tr>
-                            <tr class="bg-gray-50"><th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">Validade</th><td class="px-6 py-4">Geralmente 3 anos para publicações.</td><td class="px-6 py-4">3 anos.</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold mb-6 text-center section-subtitle">Medição de Software (Baseado na ISO 15939)</h3>
-                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">A melhoria precisa de dados. A ISO 15939 define um processo para transformar necessidades de negócio em métricas acionáveis.</p>
-                <div class="flex justify-center">
-                    <div class="text-center p-3 border-2 border-dashed border-amber-300 rounded-lg">Planejar Medição</div>
-                    <div class="self-center text-2xl text-amber-400 mx-2">&rarr;</div>
-                    <div class="text-center p-3 border-2 border-dashed border-teal-300 rounded-lg">Realizar Medição</div>
-                    <div class="self-center text-2xl text-teal-400 mx-2">&rarr;</div>
-                    <div class="text-center p-3 border-2 border-dashed border-indigo-300 rounded-lg">Avaliar Medição</div>
-                    <div class="self-center text-2xl text-indigo-400 mx-2">&circlearrowleft;</div>
-                </div>
-                <div class="mt-8 grid md:grid-cols-2 gap-6">
-                    <div><h4 class="font-semibold text-gray-800">Métodos Quantitativos</h4><p class="text-sm text-gray-600">Focados em números e estatísticas. Ex: Contagem de linhas de código, número de defeitos por fase, tempo de ciclo, velocidade da equipe.</p></div>
-                    <div><h4 class="font-semibold text-gray-800">Métodos Qualitativos</h4><p class="text-sm text-gray-600">Focados em percepções e qualidade. Ex: Entrevistas com stakeholders, questionários de satisfação, análise de causa raiz de problemas.</p></div>
-                </div>
-            </div>
-        </section>
+			<section id="sqa" class="mb-24 scroll-mt-24">
+				<h2 class="text-4xl font-bold text-center mb-4 section-title">
+					Garantia da Qualidade (SQA)
+				</h2>
+				<p
+					class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12"
+				>
+					A Garantia da Qualidade de Software (SQA) é um conjunto de
+					atividades planejadas e sistemáticas para fornecer à
+					gerência a visibilidade adequada do processo e dos produtos,
+					garantindo que ambos estejam em conformidade com padrões e
+					procedimentos estabelecidos.
+				</p>
+				<div class="bg-white p-8 rounded-lg shadow-lg">
+					<h3 class="text-2xl font-bold mb-4 section-subtitle">
+						Objetivos Chave da SQA
+					</h3>
+					<ul class="space-y-4">
+						<li class="flex items-start">
+							<span class="text-amber-600 font-bold text-xl mr-3"
+								>✓</span
+							>
+							<div>
+								<h4 class="font-semibold">
+									Visibilidade do Processo:
+								</h4>
+								<p class="text-gray-600">
+									Garantir que os processos de software
+									definidos sejam seguidos pela equipe do
+									projeto. A SQA realiza auditorias e revisões
+									para verificar a aderência.
+								</p>
+							</div>
+						</li>
+						<li class="flex items-start">
+							<span class="text-amber-600 font-bold text-xl mr-3"
+								>✓</span
+							>
+							<div>
+								<h4 class="font-semibold">
+									Visibilidade do Produto:
+								</h4>
+								<p class="text-gray-600">
+									Assegurar que os produtos de trabalho
+									(documentos, código, etc.) atendam aos
+									padrões de qualidade especificados antes de
+									serem entregues ou passados para a próxima
+									fase.
+								</p>
+							</div>
+						</li>
+						<li class="flex items-start">
+							<span class="text-amber-600 font-bold text-xl mr-3"
+								>✓</span
+							>
+							<div>
+								<h4 class="font-semibold">
+									Independência e Objetividade:
+								</h4>
+								<p class="text-gray-600">
+									As atividades de SQA são geralmente
+									realizadas por um grupo independente da
+									equipe de desenvolvimento para garantir uma
+									avaliação objetiva e imparcial.
+								</p>
+							</div>
+						</li>
+						<li class="flex items-start">
+							<span class="text-amber-600 font-bold text-xl mr-3"
+								>✓</span
+							>
+							<div>
+								<h4 class="font-semibold">
+									Identificação de Não Conformidades:
+								</h4>
+								<p class="text-gray-600">
+									Reportar problemas e não conformidades à
+									gerência para que ações corretivas possam
+									ser tomadas em tempo hábil.
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
 
-        <section id="normas" class="mb-24 scroll-mt-24">
-            <h2 class="text-4xl font-bold text-center mb-4 section-title">O Ecossistema de Normas ISO</h2>
-            <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">As normas ISO não são isoladas; elas formam um sistema complementar. A ISO 9001 é a base da gestão, a 12207 define os processos, a 15504 avalia a capacidade, e outras especializam-se em medição, produto e PMEs. Passe o mouse sobre cada norma para entender seu papel.</p>
-            <div class="relative min-h-[500px] bg-gray-50/50 rounded-lg p-4 md:p-10 flex items-center justify-center"><div id="iso-map" class="relative w-full h-full max-w-4xl mx-auto"></div></div>
-        </section>
+			<section id="melhoria" class="mb-24 scroll-mt-24">
+				<h2 class="text-4xl font-bold text-center mb-4 section-title">
+					Melhoria Contínua e MASP
+				</h2>
+				<p
+					class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12"
+				>
+					A qualidade não é um estado, mas uma jornada. A melhoria
+					contínua, ou Kaizen, é o motor dessa jornada, impulsionada
+					pelo Método de Análise e Solução de Problemas (MASP) e pelo
+					ciclo PDCA.
+				</p>
+				<div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+					<div class="flex flex-col md:flex-row items-center gap-8">
+						<div
+							id="pdca-diagram"
+							class="w-full md:w-1/2 flex flex-col items-center"
+						>
+							<div
+								class="flex items-center justify-center space-x-2"
+							>
+								<div
+									id="pdca-p"
+									data-info="plan"
+									class="pdca-item cursor-pointer p-4 rounded-full border-4 border-transparent transition-all duration-300"
+								>
+									<div
+										class="w-24 h-24 bg-amber-500 rounded-full flex items-center justify-center text-white text-4xl font-bold"
+									>
+										P
+									</div>
+								</div>
+								<div class="text-4xl text-gray-300">&rarr;</div>
+								<div
+									id="pdca-d"
+									data-info="do"
+									class="pdca-item cursor-pointer p-4 rounded-full border-4 border-transparent transition-all duration-300"
+								>
+									<div
+										class="w-24 h-24 bg-teal-500 rounded-full flex items-center justify-center text-white text-4xl font-bold"
+									>
+										D
+									</div>
+								</div>
+							</div>
+							<div class="flex items-center justify-center my-2">
+								<div
+									class="text-4xl text-gray-300 transform -rotate-90"
+								>
+									&rarr;
+								</div>
+								<div class="w-40"></div>
+								<div
+									class="text-4xl text-gray-300 transform rotate-90"
+								>
+									&rarr;
+								</div>
+							</div>
+							<div
+								class="flex items-center justify-center space-x-2"
+							>
+								<div
+									id="pdca-a"
+									data-info="act"
+									class="pdca-item cursor-pointer p-4 rounded-full border-4 border-transparent transition-all duration-300"
+								>
+									<div
+										class="w-24 h-24 bg-rose-500 rounded-full flex items-center justify-center text-white text-4xl font-bold"
+									>
+										A
+									</div>
+								</div>
+								<div
+									class="text-4xl text-gray-300 transform rotate-180"
+								>
+									&rarr;
+								</div>
+								<div
+									id="pdca-c"
+									data-info="check"
+									class="pdca-item cursor-pointer p-4 rounded-full border-4 border-transparent transition-all duration-300"
+								>
+									<div
+										class="w-24 h-24 bg-indigo-500 rounded-full flex items-center justify-center text-white text-4xl font-bold"
+									>
+										C
+									</div>
+								</div>
+							</div>
+						</div>
+						<div
+							id="pdca-info"
+							class="w-full md:w-1/2 p-6 rounded-lg bg-gray-50 min-h-[250px] flex flex-col justify-center"
+						>
+							<h3
+								id="pdca-title"
+								class="text-2xl font-bold section-subtitle mb-2"
+							>
+								Ciclo PDCA
+							</h3>
+							<p id="pdca-description" class="text-gray-700">
+								Clique em uma letra do ciclo para ver sua
+								descrição. O PDCA (Plan, Do, Check, Act) é um
+								método iterativo para o controle e melhoria
+								contínua de processos e produtos.
+							</p>
+						</div>
+					</div>
+				</div>
 
-        <section id="produto" class="scroll-mt-24">
-            <h2 class="text-4xl font-bold text-center mb-4 section-title">Qualidade do Produto</h2>
-            <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12">A qualidade de um produto de software pode ser decomposta em características bem definidas. A evolução dos modelos, de McCall à norma ISO/IEC 25010, nos deu um vocabulário para especificar e avaliar a qualidade.</p>
-            
-            <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
-                <h3 class="text-2xl font-bold mb-6 text-center section-subtitle">A Evolução dos Modelos de Qualidade</h3>
-                <div class="grid md:grid-cols-3 gap-4 text-center">
-                    <div class="p-4"><h4 class="font-bold text-lg text-gray-800">1977: Modelo de McCall</h4><p class="text-sm text-gray-600 mt-2">Um dos primeiros modelos. Organiza a qualidade em 3 perspectivas: Operação, Revisão e Transição do Produto. Introduziu a ideia de decompor qualidade em fatores e critérios mensuráveis.</p></div>
-                    <div class="flex items-center justify-center text-4xl text-gray-300">&rarr;</div>
-                    <div class="p-4"><h4 class="font-bold text-lg text-gray-800">1991: ISO/IEC 9126</h4><p class="text-sm text-gray-600 mt-2">Padronizou o modelo de qualidade em 6 características principais: Funcionalidade, Confiabilidade, Usabilidade, Eficiência, Manutenibilidade e Portabilidade. Tornou-se a referência global.</p></div>
-                </div>
-            </div>
+				<h3
+					class="text-3xl font-bold text-center mb-8 section-subtitle"
+				>
+					Ferramentas da Qualidade
+				</h3>
+				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+					<div
+						class="bg-white p-6 rounded-lg shadow-md border-t-4 border-sky-500"
+					>
+						<h4 class="font-bold text-lg mb-2 text-sky-800">
+							Fluxograma
+						</h4>
+						<p class="text-sm text-gray-600">
+							Representação gráfica de um processo. Ajuda a
+							entender o fluxo de trabalho real, identificar
+							gargalos e etapas desnecessárias. Essencial para
+							mapear a situação atual ("as-is") na fase de
+							Planejamento.
+						</p>
+					</div>
+					<div
+						class="bg-white p-6 rounded-lg shadow-md border-t-4 border-lime-500"
+					>
+						<h4 class="font-bold text-lg mb-2 text-lime-800">
+							Diagrama de Ishikawa
+						</h4>
+						<p class="text-sm text-gray-600">
+							Também conhecido como "Espinha de Peixe", organiza
+							as possíveis causas de um problema (efeito) em
+							categorias (ex: Método, Mão de Obra, Máquina),
+							facilitando a análise de causa raiz.
+						</p>
+					</div>
+					<div
+						class="bg-white p-6 rounded-lg shadow-md border-t-4 border-fuchsia-500"
+					>
+						<h4 class="font-bold text-lg mb-2 text-fuchsia-800">
+							Brainstorming
+						</h4>
+						<p class="text-sm text-gray-600">
+							Técnica para gerar um grande volume de ideias
+							criativas em grupo, sem críticas. O objetivo é
+							explorar todas as possibilidades antes de convergir
+							para uma solução.
+						</p>
+					</div>
+					<div
+						class="bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-500"
+					>
+						<h4 class="font-bold text-lg mb-2 text-orange-800">
+							Matriz 5W2H
+						</h4>
+						<p class="text-sm text-gray-600">
+							Transforma uma solução em um plano de ação claro,
+							respondendo: What (O quê?), Why (Por quê?), Where
+							(Onde?), When (Quando?), Who (Quem?), How (Como?) e
+							How Much (Quanto?).
+						</p>
+					</div>
+				</div>
+			</section>
 
-            <h3 class="text-3xl font-bold text-center mb-4 section-subtitle">Modelo Atual: ISO/IEC 25010</h3>
-            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
-                 <div class="flex flex-col lg:flex-row items-center gap-8">
-                    <div class="w-full lg:w-1/2"><div class="chart-container h-[400px] max-h-[50vh]"><canvas id="productQualityChart"></canvas></div></div>
-                    <div class="w-full lg:w-1/2 p-6 rounded-lg bg-gray-50 min-h-[300px] flex flex-col justify-center"><h3 id="quality-char-title" class="text-2xl font-bold section-subtitle mb-2">Características de Qualidade</h3><p id="quality-char-description" class="text-gray-700">A ISO 25010 sucede a 9126, refinando o modelo e adicionando Segurança e Compatibilidade como características principais. Passe o mouse sobre o gráfico para explorar.</p><ul id="quality-char-sub-list" class="mt-4 list-disc list-inside text-gray-600"></ul></div>
-                </div>
-            </div>
-        </section>
-    </main>
+			<section id="modelos" class="mb-24 scroll-mt-24">
+				<h2 class="text-4xl font-bold text-center mb-4 section-title">
+					Modelos de Processo
+				</h2>
+				<p
+					class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12"
+				>
+					A escolha do modelo de ciclo de vida define como um projeto
+					será executado. Não há uma solução única; a decisão depende
+					da estabilidade dos requisitos e da complexidade do projeto.
+					Aqui comparamos os modelos mais comuns.
+				</p>
+				<div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+					<div class="chart-container">
+						<canvas id="modelsChart"></canvas>
+					</div>
+					<div class="mt-8 text-center text-gray-600">
+						<p>
+							O gráfico compara os modelos em cinco dimensões
+							chave. O modelo **Cascata** é rígido, mas
+							controlado. **Prototipação** foca em validar
+							requisitos. Modelos como **Incremental** e **XP**
+							oferecem alta flexibilidade. Já o **Espiral** é o
+							mais robusto para gerenciar riscos em projetos
+							complexos.
+						</p>
+					</div>
+				</div>
+			</section>
 
-    <footer class="bg-amber-800 text-white mt-20">
-        <div class="container mx-auto px-6 py-4 text-center"><p>Guia de estudos interativo criado para fins educacionais.</p></div>
-    </footer>
+			<section id="maturidade" class="mb-24 scroll-mt-24">
+				<h2 class="text-4xl font-bold text-center mb-4 section-title">
+					A Jornada da Maturidade
+				</h2>
+				<p
+					class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12"
+				>
+					Modelos de maturidade como CMMI e MPS.BR oferecem um roteiro
+					para que as organizações evoluam seus processos de um estado
+					caótico para um nível otimizado e previsível. Explore os
+					níveis de cada modelo e entenda suas diferenças.
+				</p>
+				<div class="grid lg:grid-cols-2 gap-12">
+					<div class="text-center">
+						<h3 class="text-3xl font-bold mb-6 section-subtitle">
+							CMMI
+						</h3>
+						<div id="cmmi-levels" class="space-y-4"></div>
+					</div>
+					<div class="text-center">
+						<h3
+							class="text-3xl font-bold text-center mb-6 section-subtitle"
+						>
+							MPS.BR
+						</h3>
+						<div id="mpsbr-levels" class="space-y-4"></div>
+					</div>
+				</div>
+				<div
+					id="maturity-details"
+					class="mt-8 bg-white p-6 rounded-lg shadow-lg min-h-[120px] flex items-center justify-center text-center"
+				>
+					<p class="text-gray-700">
+						Clique em um nível de maturidade para ver seus detalhes.
+					</p>
+				</div>
+			</section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
-            });
+			<section id="avaliacao" class="mb-24 scroll-mt-24">
+				<h2 class="text-4xl font-bold text-center mb-4 section-title">
+					Avaliação de Processos
+				</h2>
+				<p
+					class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12"
+				>
+					Avaliar um processo é o passo fundamental para melhorá-lo.
+					Esta seção aborda como a capacidade dos processos é medida e
+					quais são os métodos padrão utilizados para avaliações
+					formais como CMMI e MPS.BR.
+				</p>
+				<div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+					<h3
+						class="text-2xl font-bold mb-6 text-center section-subtitle"
+					>
+						Métodos de Avaliação: SCAMPI vs MA-MPS
+					</h3>
+					<div class="overflow-x-auto">
+						<table class="w-full text-sm text-left text-gray-500">
+							<thead
+								class="text-xs text-gray-700 uppercase bg-gray-100"
+							>
+								<tr>
+									<th scope="col" class="px-6 py-3">
+										Critério
+									</th>
+									<th scope="col" class="px-6 py-3">
+										SCAMPI (CMMI)
+									</th>
+									<th scope="col" class="px-6 py-3">
+										MA-MPS (MPS.BR)
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="bg-white border-b">
+									<th
+										scope="row"
+										class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+									>
+										Modelo de Referência
+									</th>
+									<td class="px-6 py-4">
+										CMMI (Capability Maturity Model
+										Integration)
+									</td>
+									<td class="px-6 py-4">
+										MPS.BR (Melhoria de Processo do Software
+										Brasileiro)
+									</td>
+								</tr>
+								<tr class="bg-gray-50 border-b">
+									<th
+										scope="row"
+										class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+									>
+										Objetivo
+									</th>
+									<td class="px-6 py-4">
+										Avaliar a maturidade/capacidade para
+										melhoria interna e benchmarking.
+									</td>
+									<td class="px-6 py-4">
+										Avaliar a maturidade para certificação e
+										melhoria, com foco em PMEs.
+									</td>
+								</tr>
+								<tr class="bg-white border-b">
+									<th
+										scope="row"
+										class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+									>
+										Condutor
+									</th>
+									<td class="px-6 py-4">
+										Avaliador Líder certificado pelo CMMI
+										Institute.
+									</td>
+									<td class="px-6 py-4">
+										Avaliador Líder credenciado pela Softex.
+									</td>
+								</tr>
+								<tr class="bg-gray-50">
+									<th
+										scope="row"
+										class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+									>
+										Validade
+									</th>
+									<td class="px-6 py-4">
+										Geralmente 3 anos para publicações.
+									</td>
+									<td class="px-6 py-4">3 anos.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="bg-white p-8 rounded-lg shadow-lg">
+					<h3
+						class="text-2xl font-bold mb-6 text-center section-subtitle"
+					>
+						Medição de Software (Baseado na ISO 15939)
+					</h3>
+					<p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+						A melhoria precisa de dados. A ISO 15939 define um
+						processo para transformar necessidades de negócio em
+						métricas acionáveis.
+					</p>
+					<div class="flex justify-center">
+						<div
+							class="text-center p-3 border-2 border-dashed border-amber-300 rounded-lg"
+						>
+							Planejar Medição
+						</div>
+						<div class="self-center text-2xl text-amber-400 mx-2">
+							&rarr;
+						</div>
+						<div
+							class="text-center p-3 border-2 border-dashed border-teal-300 rounded-lg"
+						>
+							Realizar Medição
+						</div>
+						<div class="self-center text-2xl text-teal-400 mx-2">
+							&rarr;
+						</div>
+						<div
+							class="text-center p-3 border-2 border-dashed border-indigo-300 rounded-lg"
+						>
+							Avaliar Medição
+						</div>
+						<div class="self-center text-2xl text-indigo-400 mx-2">
+							&circlearrowleft;
+						</div>
+					</div>
+					<div class="mt-8 grid md:grid-cols-2 gap-6">
+						<div>
+							<h4 class="font-semibold text-gray-800">
+								Métodos Quantitativos
+							</h4>
+							<p class="text-sm text-gray-600">
+								Focados em números e estatísticas. Ex: Contagem
+								de linhas de código, número de defeitos por
+								fase, tempo de ciclo, velocidade da equipe.
+							</p>
+						</div>
+						<div>
+							<h4 class="font-semibold text-gray-800">
+								Métodos Qualitativos
+							</h4>
+							<p class="text-sm text-gray-600">
+								Focados em percepções e qualidade. Ex:
+								Entrevistas com stakeholders, questionários de
+								satisfação, análise de causa raiz de problemas.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
-            const pdcaItems = document.querySelectorAll('.pdca-item');
-            const pdcaInfo = {
-                plan: { title: 'P - Plan (Planejar)', description: 'Identificar o problema, estabelecer metas e criar um plano de ação. É a fase mais crítica.' },
-                do: { title: 'D - Do (Executar)', description: 'Implementar o plano de ação desenvolvido. É a fase de colocar em prática o que foi planejado.' },
-                check: { title: 'C - Check (Checar)', description: 'Medir os resultados da execução e compará-los com as metas planejadas. Responde: "O plano funcionou?".' },
-                act: { title: 'A - Act (Agir)', description: 'Com base na checagem, tomar ações. Se o plano foi bem-sucedido, padronizar. Se não, reiniciar o ciclo.' }
-            };
-            
-            pdcaItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    pdcaItems.forEach(i => i.classList.remove('border-amber-400', 'scale-110'));
-                    item.classList.add('border-amber-400', 'scale-110');
-                    const infoKey = item.dataset.info;
-                    const infoData = pdcaInfo[infoKey];
-                    document.getElementById('pdca-title').textContent = infoData.title;
-                    document.getElementById('pdca-description').textContent = infoData.description;
-                });
-            });
+			<section id="normas" class="mb-24 scroll-mt-24">
+				<h2 class="text-4xl font-bold text-center mb-4 section-title">
+					O Ecossistema de Normas ISO
+				</h2>
+				<p
+					class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12"
+				>
+					As normas ISO não são isoladas; elas formam um sistema
+					complementar. A ISO 9001 é a base da gestão, a 12207 define
+					os processos, a 15504 avalia a capacidade, e outras
+					especializam-se em medição, produto e PMEs. Passe o mouse
+					sobre cada norma para entender seu papel.
+				</p>
+				<div
+					class="relative min-h-[500px] bg-gray-50/50 rounded-lg p-4 md:p-10 flex items-center justify-center"
+				>
+					<div
+						id="iso-map"
+						class="relative w-full h-full max-w-4xl mx-auto"
+					></div>
+				</div>
+			</section>
 
-            const modelsData = {
-                labels: ['Cascata', 'Prototipação', 'Incremental', 'XP', 'Espiral'],
-                datasets: [{ label: 'Flexibilidade', data: [1, 3, 4, 5, 4], borderColor: 'rgba(217, 119, 6, 0.8)', backgroundColor: 'rgba(217, 119, 6, 0.2)' }, { label: 'Gestão de Risco', data: [1, 3, 3, 4, 5], borderColor: 'rgba(5, 150, 105, 0.8)', backgroundColor: 'rgba(5, 150, 105, 0.2)' }, { label: 'Envolvimento do Cliente', data: [1, 5, 4, 5, 4], borderColor: 'rgba(99, 102, 241, 0.8)', backgroundColor: 'rgba(99, 102, 241, 0.2)' }, { label: 'Complexidade do Modelo', data: [1, 2, 2, 4, 5], borderColor: 'rgba(225, 29, 72, 0.8)', backgroundColor: 'rgba(225, 29, 72, 0.2)' }]
-            };
-            new Chart(document.getElementById('modelsChart').getContext('2d'), { type: 'bar', data: modelsData, options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 5, ticks: { stepSize: 1 }}}, plugins: { title: { display: true, text: 'Análise Comparativa de Modelos de Processo', font: { size: 18, weight: 'bold' }, padding: { top: 10, bottom: 20 }}, tooltip: { callbacks: { title: (tooltipItems) => tooltipItems[0].label, label: (context) => `${context.dataset.label}: ${context.raw}` }}} }});
-            
-            const cmmiLevelsData = [ { level: '1', name: 'Inicial', desc: 'Processo imprevisível e reativo. O sucesso depende de heróis individuais.' }, { level: '2', name: 'Gerenciado', desc: 'Práticas de gerência de projetos estabelecidas. Processo reativo, mas controlado no nível do projeto.' }, { level: '3', name: 'Definido', desc: 'Processo proativo. Um conjunto de processos padrão é definido e institucionalizado para toda a organização.' }, { level: '4', name: 'Gerenciado Quantitativamente', desc: 'A organização estabelece objetivos quantitativos para qualidade e desempenho, usando controle estatístico.' }, { level: '5', name: 'Em Otimização', desc: 'Foco na melhoria contínua do desempenho através de melhorias incrementais e inovadoras.' }];
-            const mpsbrLevelsData = [ { level: 'G', name: 'Parcialmente Gerenciado', desc: 'Foco em Gerência de Projetos e Engenharia de Requisitos.' }, { level: 'F', name: 'Gerenciado', desc: 'Adiciona Gerência de Configuração, Medição e Aquisição.' }, { level: 'E', name: 'Parcialmente Definido', desc: 'Introduz Gerência de Recursos Humanos e Processos Organizacionais.' }, { level: 'D', name: 'Definido', desc: 'Introduz processos técnicos como Projeto, Construção, Verificação e Validação.' }, { level: 'C', name: 'Totalmente Definido', desc: 'Adiciona Gerência de Decisões e evolução de outros processos.' }, { level: 'B', name: 'Gerenciado Quantitativamente', desc: 'Foco na gestão quantitativa, análogo ao CMMI 4.' }, { level: 'A', name: 'Em Otimização', desc: 'Foco na otimização e inovação, análogo ao CMMI 5.' }];
-            const cmmiContainer = document.getElementById('cmmi-levels');
-            const mpsbrContainer = document.getElementById('mpsbr-levels');
-            const detailsContainer = document.getElementById('maturity-details');
-            const createLevelElement = (data) => {
-                const div = document.createElement('div');
-                div.className = 'maturity-level p-4 border rounded-lg cursor-pointer bg-white shadow-sm hover:bg-amber-50';
-                div.innerHTML = `<h4 class="font-bold text-lg text-amber-800">Nível ${data.level}: ${data.name}</h4>`;
-                div.addEventListener('click', () => {
-                    document.querySelectorAll('.maturity-level').forEach(el => el.classList.remove('active'));
-                    div.classList.add('active');
-                    detailsContainer.innerHTML = `<p class="text-gray-800 text-lg">${data.desc}</p>`;
-                });
-                return div;
-            };
-            cmmiLevelsData.forEach(level => cmmiContainer.appendChild(createLevelElement(level)));
-            mpsbrLevelsData.forEach(level => mpsbrContainer.appendChild(createLevelElement(level)));
-            
-            const isoStandardsData = [{ id: '9001', name: 'ISO 9001', desc: 'Sistema de Gestão da Qualidade (SGQ). Genérica, baseada no PDCA, foco no cliente.', pos: 'top-0 left-1/2 -translate-x-1/2', color: 'bg-red-200' }, { id: '12207', name: 'ISO 12207', desc: 'Processos de Ciclo de Vida do Software. Define "o que" fazer, não "como".', pos: 'top-1/4 left-1/4 -translate-x-1/2', color: 'bg-blue-200' }, { id: '15504', name: 'ISO 15504 (SPICE)', desc: 'Avaliação da Capacidade de Processo. Mede "quão bem" um processo é executado.', pos: 'top-1/4 right-1/4 translate-x-1/2', color: 'bg-green-200' }, { id: '29110', name: 'ISO 29110', desc: 'Para Pequenas Empresas (VSEs). Perfis leves e acessíveis de processos.', pos: 'bottom-1/4 left-1/4 -translate-x-1/2', color: 'bg-yellow-200' }, { id: '15939', name: 'ISO 15939', desc: 'Processo de Medição de Software. Transforma dados em informação para melhoria.', pos: 'bottom-1/4 right-1/4 translate-x-1/2', color: 'bg-purple-200' }, { id: '25010', name: 'ISO 25010', desc: 'Qualidade de Produto. Define características como funcionalidade, confiabilidade, etc.', pos: 'bottom-0 left-1/2 -translate-x-1/2', color: 'bg-pink-200' }];
-            const isoMap = document.getElementById('iso-map');
-            isoStandardsData.forEach(std => {
-                const item = document.createElement('div');
-                item.className = `absolute p-3 rounded-lg shadow-md iso-map-item w-40 h-24 flex items-center justify-center text-center cursor-pointer ${std.pos} ${std.color}`;
-                item.innerHTML = `<h4 class="font-bold text-gray-800">${std.name}</h4>`;
-                const tooltip = document.createElement('div');
-                tooltip.className = 'absolute bottom-full mb-2 w-64 p-2 text-sm text-white bg-gray-800 rounded-md shadow-lg opacity-0 invisible transition-opacity duration-300';
-                tooltip.textContent = std.desc;
-                item.appendChild(tooltip);
-                item.addEventListener('mouseenter', () => { tooltip.classList.remove('opacity-0', 'invisible'); });
-                item.addEventListener('mouseleave', () => { tooltip.classList.add('opacity-0', 'invisible'); });
-                isoMap.appendChild(item);
-            });
-            
-            const qualityData = {
-                labels: ['Funcionalidade', 'Confiabilidade', 'Usabilidade', 'Eficiência', 'Manutenibilidade', 'Portabilidade', 'Segurança', 'Compatibilidade'],
-                datasets: [{ label: 'Qualidade do Produto', data: [1, 1, 1, 1, 1, 1, 1, 1], backgroundColor: ['rgba(255, 99, 132, 0.7)', 'rgba(54, 162, 235, 0.7)', 'rgba(255, 206, 86, 0.7)', 'rgba(75, 192, 192, 0.7)', 'rgba(153, 102, 255, 0.7)', 'rgba(255, 159, 64, 0.7)', 'rgba(199, 199, 199, 0.7)', 'rgba(83, 102, 255, 0.7)'], borderColor: '#FDFBF8', borderWidth: 3 }]
-            };
-            const qualityDetails = { 'Funcionalidade': { desc: "Capacidade do software de prover funções que atendam às necessidades explícitas e implícitas.", sub: ['Adequação', 'Acurácia', 'Interoperabilidade', 'Conformidade'] }, 'Confiabilidade': { desc: "Capacidade do software de manter um nível de desempenho especificado sob condições especificadas.", sub: ['Maturidade', 'Tolerância a Falhas', 'Recuperabilidade'] }, 'Usabilidade': { desc: "O esforço necessário para o uso por um conjunto de usuários especificado.", sub: ['Inteligibilidade', 'Apreensibilidade', 'Operacionalidade', 'Atratividade'] }, 'Eficiência': { desc: "A relação entre o nível de desempenho do software e a quantidade de recursos usados.", sub: ['Comportamento em Relação ao Tempo', 'Utilização de Recursos'] }, 'Manutenibilidade': { desc: "O esforço necessário para fazer modificações especificadas.", sub: ['Analisabilidade', 'Modificabilidade', 'Estabilidade', 'Testabilidade'] }, 'Portabilidade': { desc: "A capacidade do software de ser transferido de um ambiente para outro.", sub: ['Adaptabilidade', 'Instalabilidade', 'Coexistência', 'Capacidade para Substituir'] }, 'Segurança': { desc: "Capacidade de proteger informação e dados contra acesso não autorizado.", sub: ['Confidencialidade', 'Integridade', 'Não repúdio', 'Autenticidade'] }, 'Compatibilidade': { desc: "Capacidade do produto de trocar informações e/ou realizar suas funções requeridas enquanto compartilha o mesmo ambiente e recursos.", sub: ['Coexistência', 'Interoperabilidade'] }};
-            
-            const qualityChartCtx = document.getElementById('productQualityChart').getContext('2d');
-            new Chart(qualityChartCtx, { type: 'doughnut', data: qualityData, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right' }, tooltip: { enabled: false }}, onHover: (event, chartElement) => { const canvas = event.native.target; canvas.style.cursor = chartElement[0] ? 'pointer' : 'default'; if(chartElement.length > 0) { const index = chartElement[0].index; const label = qualityData.labels[index]; const details = qualityDetails[label]; document.getElementById('quality-char-title').textContent = label; document.getElementById('quality-char-description').textContent = details.desc; const subList = document.getElementById('quality-char-sub-list'); subList.innerHTML = ''; details.sub.forEach(item => { const li = document.createElement('li'); li.textContent = item; subList.appendChild(li); }); } } }});
-            
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (pageYOffset >= sectionTop - 150) { current = section.getAttribute('id'); }
-                });
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) { link.classList.add('active'); }
-                });
-            });
-        });
-    </script>
-</body>
+			<section id="produto" class="scroll-mt-24">
+				<h2 class="text-4xl font-bold text-center mb-4 section-title">
+					Qualidade do Produto
+				</h2>
+				<p
+					class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-12"
+				>
+					A qualidade de um produto de software pode ser decomposta em
+					características bem definidas. A evolução dos modelos, de
+					McCall à norma ISO/IEC 25010, nos deu um vocabulário para
+					especificar e avaliar a qualidade.
+				</p>
+
+				<div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+					<h3
+						class="text-2xl font-bold mb-6 text-center section-subtitle"
+					>
+						A Evolução dos Modelos de Qualidade
+					</h3>
+					<div class="grid md:grid-cols-3 gap-4 text-center">
+						<div class="p-4">
+							<h4 class="font-bold text-lg text-gray-800">
+								1977: Modelo de McCall
+							</h4>
+							<p class="text-sm text-gray-600 mt-2">
+								Um dos primeiros modelos. Organiza a qualidade
+								em 3 perspectivas: Operação, Revisão e Transição
+								do Produto. Introduziu a ideia de decompor
+								qualidade em fatores e critérios mensuráveis.
+							</p>
+						</div>
+						<div
+							class="flex items-center justify-center text-4xl text-gray-300"
+						>
+							&rarr;
+						</div>
+						<div class="p-4">
+							<h4 class="font-bold text-lg text-gray-800">
+								1991: ISO/IEC 9126
+							</h4>
+							<p class="text-sm text-gray-600 mt-2">
+								Padronizou o modelo de qualidade em 6
+								características principais: Funcionalidade,
+								Confiabilidade, Usabilidade, Eficiência,
+								Manutenibilidade e Portabilidade. Tornou-se a
+								referência global.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<h3
+					class="text-3xl font-bold text-center mb-4 section-subtitle"
+				>
+					Modelo Atual: ISO/IEC 25010
+				</h3>
+				<div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+					<div class="flex flex-col lg:flex-row items-center gap-8">
+						<div class="w-full lg:w-1/2">
+							<div class="chart-container h-[400px] max-h-[50vh]">
+								<canvas id="productQualityChart"></canvas>
+							</div>
+						</div>
+						<div
+							class="w-full lg:w-1/2 p-6 rounded-lg bg-gray-50 min-h-[300px] flex flex-col justify-center"
+						>
+							<h3
+								id="quality-char-title"
+								class="text-2xl font-bold section-subtitle mb-2"
+							>
+								Características de Qualidade
+							</h3>
+							<p
+								id="quality-char-description"
+								class="text-gray-700"
+							>
+								A ISO 25010 sucede a 9126, refinando o modelo e
+								adicionando Segurança e Compatibilidade como
+								características principais. Passe o mouse sobre
+								o gráfico para explorar.
+							</p>
+							<ul
+								id="quality-char-sub-list"
+								class="mt-4 list-disc list-inside text-gray-600"
+							></ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="bg-amber-800 text-white mt-20">
+			<div class="container mx-auto px-6 py-4 text-center">
+				<p>Guia de estudos interativo criado para fins educacionais.</p>
+			</div>
+		</footer>
+
+		<!-- AI Tutor Button and Chat Window -->
+		<div id="ai-tutor-container">
+			<button
+				id="ai-tutor-button"
+				class="bg-amber-600 text-white p-4 rounded-full shadow-lg hover:bg-amber-700 transition-transform hover:scale-110"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-8 w-8"
+					viewBox="0 0 20 20"
+					fill="currentColor"
+				>
+					<path
+						d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 1.49 1.49 0 01.458.985 3.007 3.007 0 01-2.024 2.923.79.79 0 01-.884-.047zM10 18a3 3 0 01-3-3v-1.25a.75.75 0 01.75-.75h4.5a.75.75 0 01.75.75V15a3 3 0 01-3 3zM16 8a2 2 0 11-4 0 2 2 0 014 0zM18.51 15.326a.78.78 0 01-.884.047 3.007 3.007 0 01-2.024-2.923 1.49 1.49 0 01.458-.985 3 3 0 014.308 3.516.78.78 0 01-.358.442z"
+					/>
+				</svg>
+			</button>
+			<div
+				id="ai-tutor-chat-window"
+				class="hidden bg-white rounded-lg shadow-2xl flex flex-col"
+			>
+				<div
+					class="p-4 bg-amber-800 text-white rounded-t-lg flex justify-between items-center"
+				>
+					<h3 class="font-bold text-lg">
+						Tutor de IA - Qualidade de Software
+					</h3>
+					<button
+						id="close-chat-button"
+						class="text-white hover:text-amber-200"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-6 w-6"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M6 18L18 6M6 6l12 12"
+							/>
+						</svg>
+					</button>
+				</div>
+				<div
+					id="chat-messages"
+					class="flex-1 p-4 overflow-y-auto flex flex-col space-y-2"
+				>
+					<!-- Chat messages will be appended here -->
+					<div class="p-3 rounded-lg ai-message max-w-xs md:max-w-md">
+						<p>
+							Olá! Sou seu tutor de IA. Pergunte-me qualquer coisa
+							sobre Qualidade de Software, CMMI, ISO, SQA, etc.
+						</p>
+					</div>
+				</div>
+				<div class="p-4 border-t border-gray-200">
+					<div class="flex space-x-2">
+						<input
+							type="text"
+							id="chat-input"
+							class="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+							placeholder="Digite sua pergunta..."
+						/>
+						<button
+							id="send-chat-button"
+							class="bg-amber-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-700 transition-colors"
+						>
+							Enviar
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const mobileMenuButton =
+					document.getElementById('mobile-menu-button');
+				const mobileMenu = document.getElementById('mobile-menu');
+				mobileMenuButton.addEventListener('click', () => {
+					mobileMenu.classList.toggle('hidden');
+				});
+
+				document
+					.querySelectorAll('.mobile-nav-link')
+					.forEach((link) => {
+						link.addEventListener('click', () => {
+							mobileMenu.classList.add('hidden');
+						});
+					});
+
+				const pdcaItems = document.querySelectorAll('.pdca-item');
+				const pdcaInfo = {
+					plan: {
+						title: 'P - Plan (Planejar)',
+						description:
+							'Identificar o problema, estabelecer metas e criar um plano de ação. É a fase mais crítica.',
+					},
+					do: {
+						title: 'D - Do (Executar)',
+						description:
+							'Implementar o plano de ação desenvolvido. É a fase de colocar em prática o que foi planejado.',
+					},
+					check: {
+						title: 'C - Check (Checar)',
+						description:
+							'Medir os resultados da execução e compará-los com as metas planejadas. Responde: "O plano funcionou?".',
+					},
+					act: {
+						title: 'A - Act (Agir)',
+						description:
+							'Com base na checagem, tomar ações. Se o plano foi bem-sucedido, padronizar. Se não, reiniciar o ciclo.',
+					},
+				};
+
+				pdcaItems.forEach((item) => {
+					item.addEventListener('click', () => {
+						pdcaItems.forEach((i) =>
+							i.classList.remove('border-amber-400', 'scale-110')
+						);
+						item.classList.add('border-amber-400', 'scale-110');
+						const infoKey = item.dataset.info;
+						const infoData = pdcaInfo[infoKey];
+						document.getElementById('pdca-title').textContent =
+							infoData.title;
+						document.getElementById(
+							'pdca-description'
+						).textContent = infoData.description;
+					});
+				});
+
+				const modelsData = {
+					labels: [
+						'Cascata',
+						'Prototipação',
+						'Incremental',
+						'XP',
+						'Espiral',
+					],
+					datasets: [
+						{
+							label: 'Flexibilidade',
+							data: [1, 3, 4, 5, 4],
+							borderColor: 'rgba(217, 119, 6, 0.8)',
+							backgroundColor: 'rgba(217, 119, 6, 0.2)',
+						},
+						{
+							label: 'Gestão de Risco',
+							data: [1, 3, 3, 4, 5],
+							borderColor: 'rgba(5, 150, 105, 0.8)',
+							backgroundColor: 'rgba(5, 150, 105, 0.2)',
+						},
+						{
+							label: 'Envolvimento do Cliente',
+							data: [1, 5, 4, 5, 4],
+							borderColor: 'rgba(99, 102, 241, 0.8)',
+							backgroundColor: 'rgba(99, 102, 241, 0.2)',
+						},
+						{
+							label: 'Complexidade do Modelo',
+							data: [1, 2, 2, 4, 5],
+							borderColor: 'rgba(225, 29, 72, 0.8)',
+							backgroundColor: 'rgba(225, 29, 72, 0.2)',
+						},
+					],
+				};
+				new Chart(
+					document.getElementById('modelsChart').getContext('2d'),
+					{
+						type: 'bar',
+						data: modelsData,
+						options: {
+							responsive: true,
+							maintainAspectRatio: false,
+							scales: {
+								y: {
+									beginAtZero: true,
+									max: 5,
+									ticks: { stepSize: 1 },
+								},
+							},
+							plugins: {
+								title: {
+									display: true,
+									text: 'Análise Comparativa de Modelos de Processo',
+									font: { size: 18, weight: 'bold' },
+									padding: { top: 10, bottom: 20 },
+								},
+								tooltip: {
+									callbacks: {
+										title: (tooltipItems) =>
+											tooltipItems[0].label,
+										label: (context) =>
+											`${context.dataset.label}: ${context.raw}`,
+									},
+								},
+							},
+						},
+					}
+				);
+
+				const cmmiLevelsData = [
+					{
+						level: '1',
+						name: 'Inicial',
+						desc: 'Processo imprevisível e reativo. O sucesso depende de heróis individuais.',
+					},
+					{
+						level: '2',
+						name: 'Gerenciado',
+						desc: 'Práticas de gerência de projetos estabelecidas. Processo reativo, mas controlado no nível do projeto.',
+					},
+					{
+						level: '3',
+						name: 'Definido',
+						desc: 'Processo proativo. Um conjunto de processos padrão é definido e institucionalizado para toda a organização.',
+					},
+					{
+						level: '4',
+						name: 'Gerenciado Quantitativamente',
+						desc: 'A organização estabelece objetivos quantitativos para qualidade e desempenho, usando controle estatístico.',
+					},
+					{
+						level: '5',
+						name: 'Em Otimização',
+						desc: 'Foco na melhoria contínua do desempenho através de melhorias incrementais e inovadoras.',
+					},
+				];
+				const mpsbrLevelsData = [
+					{
+						level: 'G',
+						name: 'Parcialmente Gerenciado',
+						desc: 'Foco em Gerência de Projetos e Engenharia de Requisitos.',
+					},
+					{
+						level: 'F',
+						name: 'Gerenciado',
+						desc: 'Adiciona Gerência de Configuração, Medição e Aquisição.',
+					},
+					{
+						level: 'E',
+						name: 'Parcialmente Definido',
+						desc: 'Introduz Gerência de Recursos Humanos e Processos Organizacionais.',
+					},
+					{
+						level: 'D',
+						name: 'Definido',
+						desc: 'Introduz processos técnicos como Projeto, Construção, Verificação e Validação.',
+					},
+					{
+						level: 'C',
+						name: 'Totalmente Definido',
+						desc: 'Adiciona Gerência de Decisões e evolução de outros processos.',
+					},
+					{
+						level: 'B',
+						name: 'Gerenciado Quantitativamente',
+						desc: 'Foco na gestão quantitativa, análogo ao CMMI 4.',
+					},
+					{
+						level: 'A',
+						name: 'Em Otimização',
+						desc: 'Foco na otimização e inovação, análogo ao CMMI 5.',
+					},
+				];
+				const cmmiContainer = document.getElementById('cmmi-levels');
+				const mpsbrContainer = document.getElementById('mpsbr-levels');
+				const detailsContainer =
+					document.getElementById('maturity-details');
+				const createLevelElement = (data) => {
+					const div = document.createElement('div');
+					div.className =
+						'maturity-level p-4 border rounded-lg cursor-pointer bg-white shadow-sm hover:bg-amber-50';
+					div.innerHTML = `<h4 class="font-bold text-lg text-amber-800">Nível ${data.level}: ${data.name}</h4>`;
+					div.addEventListener('click', () => {
+						document
+							.querySelectorAll('.maturity-level')
+							.forEach((el) => el.classList.remove('active'));
+						div.classList.add('active');
+						detailsContainer.innerHTML = `<p class="text-gray-800 text-lg">${data.desc}</p>`;
+					});
+					return div;
+				};
+				cmmiLevelsData.forEach((level) =>
+					cmmiContainer.appendChild(createLevelElement(level))
+				);
+				mpsbrLevelsData.forEach((level) =>
+					mpsbrContainer.appendChild(createLevelElement(level))
+				);
+
+				const isoStandardsData = [
+					{
+						id: '9001',
+						name: 'ISO 9001',
+						desc: 'Sistema de Gestão da Qualidade (SGQ). Genérica, baseada no PDCA, foco no cliente.',
+						pos: 'top-0 left-1/2 -translate-x-1/2',
+						color: 'bg-red-200',
+					},
+					{
+						id: '12207',
+						name: 'ISO 12207',
+						desc: 'Processos de Ciclo de Vida do Software. Define "o que" fazer, não "como".',
+						pos: 'top-1/4 left-1/4 -translate-x-1/2',
+						color: 'bg-blue-200',
+					},
+					{
+						id: '15504',
+						name: 'ISO 15504 (SPICE)',
+						desc: 'Avaliação da Capacidade de Processo. Mede "quão bem" um processo é executado.',
+						pos: 'top-1/4 right-1/4 translate-x-1/2',
+						color: 'bg-green-200',
+					},
+					{
+						id: '29110',
+						name: 'ISO 29110',
+						desc: 'Para Pequenas Empresas (VSEs). Perfis leves e acessíveis de processos.',
+						pos: 'bottom-1/4 left-1/4 -translate-x-1/2',
+						color: 'bg-yellow-200',
+					},
+					{
+						id: '15939',
+						name: 'ISO 15939',
+						desc: 'Processo de Medição de Software. Transforma dados em informação para melhoria.',
+						pos: 'bottom-1/4 right-1/4 translate-x-1/2',
+						color: 'bg-purple-200',
+					},
+					{
+						id: '25010',
+						name: 'ISO 25010',
+						desc: 'Qualidade de Produto. Define características como funcionalidade, confiabilidade, etc.',
+						pos: 'bottom-0 left-1/2 -translate-x-1/2',
+						color: 'bg-pink-200',
+					},
+				];
+				const isoMap = document.getElementById('iso-map');
+				isoStandardsData.forEach((std) => {
+					const item = document.createElement('div');
+					item.className = `absolute p-3 rounded-lg shadow-md iso-map-item w-40 h-24 flex items-center justify-center text-center cursor-pointer ${std.pos} ${std.color}`;
+					item.innerHTML = `<h4 class="font-bold text-gray-800">${std.name}</h4>`;
+					const tooltip = document.createElement('div');
+					tooltip.className =
+						'absolute bottom-full mb-2 w-64 p-2 text-sm text-white bg-gray-800 rounded-md shadow-lg opacity-0 invisible transition-opacity duration-300';
+					tooltip.textContent = std.desc;
+					item.appendChild(tooltip);
+					item.addEventListener('mouseenter', () => {
+						tooltip.classList.remove('opacity-0', 'invisible');
+					});
+					item.addEventListener('mouseleave', () => {
+						tooltip.classList.add('opacity-0', 'invisible');
+					});
+					isoMap.appendChild(item);
+				});
+
+				const qualityData = {
+					labels: [
+						'Funcionalidade',
+						'Confiabilidade',
+						'Usabilidade',
+						'Eficiência',
+						'Manutenibilidade',
+						'Portabilidade',
+						'Segurança',
+						'Compatibilidade',
+					],
+					datasets: [
+						{
+							label: 'Qualidade do Produto',
+							data: [1, 1, 1, 1, 1, 1, 1, 1],
+							backgroundColor: [
+								'rgba(255, 99, 132, 0.7)',
+								'rgba(54, 162, 235, 0.7)',
+								'rgba(255, 206, 86, 0.7)',
+								'rgba(75, 192, 192, 0.7)',
+								'rgba(153, 102, 255, 0.7)',
+								'rgba(255, 159, 64, 0.7)',
+								'rgba(199, 199, 199, 0.7)',
+								'rgba(83, 102, 255, 0.7)',
+							],
+							borderColor: '#FDFBF8',
+							borderWidth: 3,
+						},
+					],
+				};
+				const qualityDetails = {
+					Funcionalidade: {
+						desc: 'Capacidade do software de prover funções que atendam às necessidades explícitas e implícitas.',
+						sub: [
+							'Adequação',
+							'Acurácia',
+							'Interoperabilidade',
+							'Conformidade',
+						],
+					},
+					Confiabilidade: {
+						desc: 'Capacidade do software de manter um nível de desempenho especificado sob condições especificadas.',
+						sub: [
+							'Maturidade',
+							'Tolerância a Falhas',
+							'Recuperabilidade',
+						],
+					},
+					Usabilidade: {
+						desc: 'O esforço necessário para o uso por um conjunto de usuários especificado.',
+						sub: [
+							'Inteligibilidade',
+							'Apreensibilidade',
+							'Operacionalidade',
+							'Atratividade',
+						],
+					},
+					Eficiência: {
+						desc: 'A relação entre o nível de desempenho do software e a quantidade de recursos usados.',
+						sub: [
+							'Comportamento em Relação ao Tempo',
+							'Utilização de Recursos',
+						],
+					},
+					Manutenibilidade: {
+						desc: 'O esforço necessário para fazer modificações especificadas.',
+						sub: [
+							'Analisabilidade',
+							'Modificabilidade',
+							'Estabilidade',
+							'Testabilidade',
+						],
+					},
+					Portabilidade: {
+						desc: 'A capacidade do software de ser transferido de um ambiente para outro.',
+						sub: [
+							'Adaptabilidade',
+							'Instalabilidade',
+							'Coexistência',
+							'Capacidade para Substituir',
+						],
+					},
+					Segurança: {
+						desc: 'Capacidade de proteger informação e dados contra acesso não autorizado.',
+						sub: [
+							'Confidencialidade',
+							'Integridade',
+							'Não repúdio',
+							'Autenticidade',
+						],
+					},
+					Compatibilidade: {
+						desc: 'Capacidade do produto de trocar informações e/ou realizar suas funções requeridas enquanto compartilha o mesmo ambiente e recursos.',
+						sub: ['Coexistência', 'Interoperabilidade'],
+					},
+				};
+
+				const qualityChartCtx = document
+					.getElementById('productQualityChart')
+					.getContext('2d');
+				new Chart(qualityChartCtx, {
+					type: 'doughnut',
+					data: qualityData,
+					options: {
+						responsive: true,
+						maintainAspectRatio: false,
+						plugins: {
+							legend: { position: 'right' },
+							tooltip: { enabled: false },
+						},
+						onHover: (event, chartElement) => {
+							const canvas = event.native.target;
+							canvas.style.cursor = chartElement[0]
+								? 'pointer'
+								: 'default';
+							if (chartElement.length > 0) {
+								const index = chartElement[0].index;
+								const label = qualityData.labels[index];
+								const details = qualityDetails[label];
+								document.getElementById(
+									'quality-char-title'
+								).textContent = label;
+								document.getElementById(
+									'quality-char-description'
+								).textContent = details.desc;
+								const subList = document.getElementById(
+									'quality-char-sub-list'
+								);
+								subList.innerHTML = '';
+								details.sub.forEach((item) => {
+									const li = document.createElement('li');
+									li.textContent = item;
+									subList.appendChild(li);
+								});
+							}
+						},
+					},
+				});
+
+				const sections = document.querySelectorAll('section');
+				const navLinks = document.querySelectorAll('.nav-link');
+				window.addEventListener('scroll', () => {
+					let current = '';
+					sections.forEach((section) => {
+						const sectionTop = section.offsetTop;
+						if (pageYOffset >= sectionTop - 150) {
+							current = section.getAttribute('id');
+						}
+					});
+					navLinks.forEach((link) => {
+						link.classList.remove('active');
+						if (link.getAttribute('href').includes(current)) {
+							link.classList.add('active');
+						}
+					});
+				});
+
+				// AI Tutor Chat Functionality
+				const tutorButton = document.getElementById('ai-tutor-button');
+				const chatWindow = document.getElementById(
+					'ai-tutor-chat-window'
+				);
+				const closeChatButton =
+					document.getElementById('close-chat-button');
+				const chatMessages = document.getElementById('chat-messages');
+				const chatInput = document.getElementById('chat-input');
+				const sendChatButton =
+					document.getElementById('send-chat-button');
+
+				tutorButton.addEventListener('click', () => {
+					chatWindow.classList.toggle('hidden');
+				});
+
+				closeChatButton.addEventListener('click', () => {
+					chatWindow.classList.add('hidden');
+				});
+
+				sendChatButton.addEventListener('click', sendMessage);
+				chatInput.addEventListener('keypress', (e) => {
+					if (e.key === 'Enter') {
+						sendMessage();
+					}
+				});
+
+				function appendMessage(text, sender) {
+					const messageDiv = document.createElement('div');
+					messageDiv.className = `p-3 rounded-lg max-w-xs md:max-w-md ${
+						sender === 'user' ? 'user-message' : 'ai-message'
+					}`;
+					messageDiv.textContent = text;
+					chatMessages.appendChild(messageDiv);
+					chatMessages.scrollTop = chatMessages.scrollHeight;
+				}
+
+				function showLoadingIndicator() {
+					const loadingDiv = document.createElement('div');
+					loadingDiv.id = 'loading-indicator';
+					loadingDiv.className =
+						'p-3 rounded-lg ai-message max-w-xs md:max-w-md';
+					loadingDiv.innerHTML = `<div class="loading-dots"><span>.</span><span>.</span><span>.</span></div>`;
+					chatMessages.appendChild(loadingDiv);
+					chatMessages.scrollTop = chatMessages.scrollHeight;
+				}
+
+				function removeLoadingIndicator() {
+					const indicator =
+						document.getElementById('loading-indicator');
+					if (indicator) {
+						indicator.remove();
+					}
+				}
+				async function sendMessage() {
+					const userText = chatInput.value.trim();
+
+					if (!userText) return;
+
+					// Show user message
+					appendMessage(userText, 'user');
+
+					chatInput.value = '';
+					showLoadingIndicator();
+
+					// Try to send message with retry logic
+					const maxRetries = 3;
+					let attempt = 0;
+
+					while (attempt < maxRetries) {
+						try {
+							attempt++;
+							updateLoadingMessage(attempt, maxRetries);
+
+							const response = await sendToGemini(userText);
+
+							removeLoadingIndicator();
+							appendMessage(response, 'ai');
+							return;
+						} catch (error) {
+							console.error(`Attempt ${attempt} failed:`, error);
+
+							if (attempt === maxRetries) {
+								// All attempts failed
+								removeLoadingIndicator();
+								const errorMessage = getErrorMessage(error);
+								appendMessage(errorMessage, 'ai');
+								return;
+							}
+
+							// Wait before retry (exponential backoff)
+							const waitTime = Math.pow(2, attempt) * 1000; // 2s, 4s, 8s
+							await new Promise((resolve) =>
+								setTimeout(resolve, waitTime)
+							);
+						}
+					}
+				}
+
+				function updateLoadingMessage(attempt, maxAttempts) {
+					const indicator =
+						document.getElementById('loading-indicator');
+					if (indicator && attempt > 1) {
+						indicator.innerHTML = `<div class="loading-dots">Tentativa ${attempt}/${maxAttempts} <span>.</span><span>.</span><span>.</span></div>`;
+					}
+				}
+
+				function getErrorMessage(error) {
+					const status = error.message.match(/status (\d+)/)?.[1];
+
+					switch (status) {
+						case '503':
+							return '🔧 O servidor está temporariamente sobrecarregado. Tente novamente em alguns minutos.';
+						case '429':
+							return '⏱️ Muitas requisições. Aguarde um momento antes de tentar novamente.';
+						case '401':
+							return '🔑 Problema de autenticação. Verifique a chave da API.';
+						case '400':
+							return '❌ Requisição inválida. Verifique o formato da pergunta.';
+						default:
+							return '🌐 Erro de conexão. Verifique sua internet e tente novamente.';
+					}
+				}
+
+				async function sendToGemini(userText) {
+					const fullPrompt = `Você é um tutor especialista em Qualidade de Software com conhecimento especializado em: Fundamentos da Qualidade, SQA (Software Quality Assurance), Melhoria Contínua, Modelos de Processo (Cascata, Ágil, XP, Espiral), Modelos de Maturidade (CMMI, MPS.BR), Avaliação de Processos (SCAMPI, MA-MPS), Normas ISO (9001, 12207, 15504, 25010), PDCA, Ferramentas da Qualidade, Métricas e Indicadores. Responda à seguinte pergunta do aluno de forma clara, didática e detalhada, como um professor experiente:\n\n"${userText}"`;
+
+					const payload = {
+						contents: [
+							{
+								parts: [{ text: fullPrompt }],
+							},
+						],
+					};
+
+					const apiKey = 'AIzaSyDH49nCVlDJU_j7H7Layg4hqgCNu_iQxWQ';
+					const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+
+					const response = await fetch(apiUrl, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify(payload),
+					});
+
+					if (!response.ok) {
+						throw new Error(
+							`API request failed with status ${response.status}`
+						);
+					}
+
+					const result = await response.json();
+
+					if (
+						result.candidates &&
+						result.candidates.length > 0 &&
+						result.candidates[0].content &&
+						result.candidates[0].content.parts.length > 0
+					) {
+						return result.candidates[0].content.parts[0].text;
+					} else {
+						throw new Error('No valid response from API');
+					}
+				}
+			});
+		</script>
+	</body>
 </html>

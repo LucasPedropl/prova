@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Guia Aprofundado do CMMI</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: 'Inter', sans-serif;
+				background-color: #f8fafc; /* slate-50 */
+			}
+			.main-content {
+				padding-left: 20rem; /* Space for the fixed sidebar */
+			}
+			.sidebar {
+				width: 20rem;
+			}
+			@media (max-width: 1024px) {
+				.main-content {
+					padding-left: 0;
+				}
+				.sidebar {
+					position: relative;
+					width: 100%;
+					height: auto;
+				}
+			}
+			.sidebar-link {
+				transition: all 0.2s ease-in-out;
+				border-left-width: 4px;
+				border-color: transparent;
+			}
+			.sidebar-link.active {
+				border-color: #3b82f6; /* blue-500 */
+				background-color: #eff6ff; /* blue-50 */
+				color: #1d4ed8; /* blue-700 */
+				font-weight: 600;
+			}
+			.sidebar-link:hover {
+				background-color: #f1f5f9; /* slate-100 */
+				border-color: #cbd5e1; /* slate-300 */
+			}
+			.content-section {
+				scroll-margin-top: 2rem;
+			}
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: -2.6rem;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 1.25rem;
+				height: 1.25rem;
+				border-radius: 9999px;
+				background-color: #ffffff;
+				border: 4px solid #93c5fd; /* blue-300 */
+			}
+			.accordion-content {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease-in-out,
+					padding 0.5s ease-in-out;
+			}
+			.accordion-content.open {
+				max-height: 1000px; /* Adjust as needed */
+				padding-top: 1rem;
+				padding-bottom: 1rem;
+			}
+		</style>
+	</head>
+	<body class="bg-slate-50">
+		<div class="flex flex-col lg:flex-row">
+			<!-- Sidebar Navigation -->
+			<aside
+				id="sidebar"
+				class="sidebar lg:fixed lg:h-screen lg:overflow-y-auto bg-white border-r border-slate-200 p-6"
+			>
+				<h1 class="text-2xl font-bold text-slate-800 mb-8">
+					Guia CMMI
+				</h1>
+				<a
+					href="index.html"
+					class="inline-flex items-center px-3 py-2 mb-6 text-sm font-medium text-amber-700 bg-amber-50 border border-amber-200 rounded-lg hover:bg-amber-100 transition-colors"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-4 w-4 mr-2"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M10 19l-7-7m0 0l7-7m-7 7h18"
+						/>
+					</svg>
+					Voltar ao Guia Principal
+				</a>
+				<nav>
+					<ul class="space-y-2">
+						<li>
+							<a
+								href="#introducao"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Introdução</a
+							>
+						</li>
+						<li>
+							<a
+								href="#evolucao"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Evolução do CMMI</a
+							>
+						</li>
+						<li>
+							<a
+								href="#cmmi1-3"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>CMMI v1.3</a
+							>
+						</li>
+						<li>
+							<a
+								href="#niveis-maturidade"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Níveis de Maturidade</a
+							>
+						</li>
+						<li>
+							<a
+								href="#cmmi2-0"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>CMMI v2.0</a
+							>
+							<ul class="pl-6 mt-1 space-y-1 text-sm">
+								<li>
+									<a
+										href="#cmmi2-categorias"
+										class="sidebar-link block py-1 px-2 text-slate-500"
+										>Categorias</a
+									>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a
+								href="#aplicacao"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Processo de Aplicação</a
+							>
+						</li>
+						<li>
+							<a
+								href="#avaliacao"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Tipos de Avaliação</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="main-content flex-1 p-6 md:p-10">
+				<div class="max-w-4xl mx-auto">
+					<header id="introducao" class="content-section mb-12">
+						<h1 class="text-5xl font-extrabold text-slate-900">
+							Guia Aprofundado do CMMI
+						</h1>
+						<p class="mt-4 text-lg text-slate-600">
+							Uma exploração detalhada do Capability Maturity
+							Model Integration, desde seus conceitos fundamentais
+							e níveis de maturidade até sua evolução para a
+							versão 2.0.
+						</p>
+					</header>
+
+					<section class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-blue-400 pb-2 mb-6"
+						>
+							O Que é o CMMI?
+						</h2>
+						<p class="text-slate-700 mb-4">
+							O CMMI (Capability Maturity Model Integration) é um
+							modelo de referência globalmente reconhecido que
+							contém as melhores práticas para impulsionar o
+							desempenho organizacional. Ele ajuda as organizações
+							a construir e avaliar suas capacidades, ou seja,
+							tudo aquilo que elas precisam fazer bem para gerar
+							resultados de negócio significativos. O CMMI
+							descreve "o que" fazer para melhorar, mas não
+							prescreve "como" fazê-lo, oferecendo flexibilidade
+							na implementação.
+						</p>
+						<div class="grid md:grid-cols-2 gap-8 mt-6">
+							<div
+								class="bg-red-50 p-6 rounded-lg border-l-4 border-red-400"
+							>
+								<h4 class="font-bold text-lg text-red-800 mb-2">
+									Processo Imaturo
+								</h4>
+								<ul
+									class="list-disc list-inside space-y-1 text-slate-600 text-sm"
+								>
+									<li>Ad-hoc e improvisado.</li>
+									<li>Fortemente dependente de "heróis".</li>
+									<li>
+										Indisciplinado, com baixa produtividade.
+									</li>
+									<li>
+										Qualidade imprevisível e alto custo de
+										manutenção.
+									</li>
+								</ul>
+							</div>
+							<div
+								class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500"
+							>
+								<h4
+									class="font-bold text-lg text-green-800 mb-2"
+								>
+									Processo Maduro
+								</h4>
+								<ul
+									class="list-disc list-inside space-y-1 text-slate-600 text-sm"
+								>
+									<li>
+										Processo conhecido por todos e apoiado
+										pela gestão.
+									</li>
+									<li>Medição de produto e processo.</li>
+									<li>
+										Resultados previsíveis em custo, prazo e
+										qualidade.
+									</li>
+									<li>
+										Adoção disciplinada de novas
+										tecnologias.
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<section id="evolucao" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-blue-400 pb-2 mb-6"
+						>
+							Evolução do CMM para o CMMI
+						</h2>
+						<div
+							class="relative pl-12 border-l-4 border-blue-200 space-y-10 py-4"
+						>
+							<div class="timeline-item">
+								<h3
+									class="text-xl font-semibold text-slate-700"
+								>
+									1986 - Origem do CMM
+								</h3>
+								<p class="text-slate-600 mt-1">
+									O Departamento de Defesa dos EUA contrata o
+									SEI (Software Engineering Institute) para
+									criar um modelo que ajude a avaliar a
+									capacidade de seus fornecedores de software.
+									Nasce o CMM (Capability Maturity Model).
+								</p>
+							</div>
+							<div class="timeline-item">
+								<h3
+									class="text-xl font-semibold text-slate-700"
+								>
+									Anos 90 - Expansão de Modelos
+								</h3>
+								<p class="text-slate-600 mt-1">
+									O sucesso do CMM para Software (SW-CMM)
+									inspira a criação de outros modelos para
+									diferentes áreas, como Engenharia de
+									Sistemas (SE-CMM) e Aquisição (SA-CMM),
+									gerando inconsistências.
+								</p>
+							</div>
+							<div class="timeline-item">
+								<h3
+									class="text-xl font-semibold text-slate-700"
+								>
+									2002 - Nasce o CMMI
+								</h3>
+								<p class="text-slate-600 mt-1">
+									O SEI lança o CMMI (Capability Maturity
+									Model Integration) para unificar os
+									diferentes modelos, criando um framework
+									integrado, consistente e mais abrangente.
+								</p>
+							</div>
+							<div class="timeline-item">
+								<h3
+									class="text-xl font-semibold text-slate-700"
+								>
+									2010 - CMMI v1.3
+								</h3>
+								<p class="text-slate-600 mt-1">
+									Uma versão madura e amplamente adotada do
+									modelo, com as representações "Staged" e
+									"Continuous" bem definidas e constelações
+									para DEV, SVC e ACQ.
+								</p>
+							</div>
+							<div class="timeline-item">
+								<h3
+									class="text-xl font-semibold text-slate-700"
+								>
+									2018 - CMMI v2.0
+								</h3>
+								<p class="text-slate-600 mt-1">
+									Lançado pelo CMMI Institute (adquirido pela
+									ISACA), a v2.0 simplifica a estrutura, foca
+									em desempenho e resultados, e melhora a
+									integração com práticas ágeis.
+								</p>
+							</div>
+						</div>
+					</section>
+
+					<section id="cmmi1-3" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-blue-400 pb-2 mb-6"
+						>
+							CMMI v1.3: Estrutura Clássica
+						</h2>
+						<p class="text-slate-700 mb-4">
+							A versão 1.3 do CMMI introduziu uma estrutura
+							robusta que se tornou referência no mercado. Ela
+							oferecia duas formas de visualização e
+							implementação, permitindo que as organizações
+							escolhessem o caminho que melhor se alinhasse aos
+							seus objetivos de negócio.
+						</p>
+						<div class="grid md:grid-cols-2 gap-8 mt-6">
+							<div class="bg-white p-6 rounded-lg shadow-md">
+								<h4
+									class="font-bold text-lg text-slate-800 mb-2"
+								>
+									Representação por Estágios (Staged)
+								</h4>
+								<p class="text-slate-600">
+									Um caminho prescritivo. A organização avança
+									através de 5 Níveis de Maturidade (NM). Para
+									alcançar um nível, é preciso implementar um
+									conjunto pré-definido de Áreas de Processo
+									(PAs). É a abordagem mais comum para
+									benchmarking.
+								</p>
+							</div>
+							<div class="bg-white p-6 rounded-lg shadow-md">
+								<h4
+									class="font-bold text-lg text-slate-800 mb-2"
+								>
+									Representação Contínua (Continuous)
+								</h4>
+								<p class="text-slate-600">
+									Um caminho flexível. Permite que a
+									organização escolha quais Áreas de Processo
+									melhorar, de acordo com suas prioridades. A
+									capacidade de cada PA é avaliada
+									individualmente em uma escala de 0 a 3.
+								</p>
+							</div>
+						</div>
+					</section>
+
+					<section
+						id="niveis-maturidade"
+						class="content-section mb-16"
+					>
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-blue-400 pb-2 mb-6"
+						>
+							Níveis de Maturidade (Abordagem por Estágios)
+						</h2>
+						<p class="text-slate-700 mb-6">
+							A jornada de melhoria do CMMI é mais conhecida por
+							seus 5 níveis de maturidade. Cada nível é uma
+							plataforma para o próximo, criando uma base sólida
+							para a institucionalização de processos e a melhoria
+							contínua. Clique em cada nível para ver os detalhes.
+						</p>
+						<div id="maturity-level-container" class="space-y-3">
+							<!-- Accordion items will be generated by JS -->
+						</div>
+					</section>
+
+					<section id="cmmi2-0" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-blue-400 pb-2 mb-6"
+						>
+							CMMI v2.0: Foco em Desempenho e Agilidade
+						</h2>
+						<p class="text-slate-700 mb-4">
+							A versão 2.0 representa uma evolução significativa,
+							simplificando a estrutura e mudando o foco da
+							conformidade estrita com processos para o alcance de
+							**resultados de negócio** e a **melhoria do
+							desempenho**. Ela é mais flexível e melhor integrada
+							com práticas modernas, como o desenvolvimento ágil.
+						</p>
+
+						<div id="cmmi2-categorias" class="mt-8">
+							<h3
+								class="text-2xl font-semibold text-slate-800 mb-4"
+							>
+								Categorias e Áreas de Capacidade
+							</h3>
+							<p class="text-slate-700 mb-6">
+								O CMMI 2.0 agrupa as práticas em 4 categorias
+								principais. Clique em uma categoria para
+								explorar suas Áreas de Capacidade e Áreas de
+								Prática.
+							</p>
+							<div
+								id="cmmi-v2-container"
+								class="bg-white p-6 rounded-lg shadow-md"
+							>
+								<!-- CMMI 2.0 interactive diagram will be generated here -->
+							</div>
+						</div>
+					</section>
+
+					<section id="aplicacao" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-blue-400 pb-2 mb-6"
+						>
+							Processo de Aplicação do CMMI
+						</h2>
+						<p class="text-slate-700 mb-6">
+							A adoção do CMMI segue um ciclo de melhoria
+							estruturado. As etapas a seguir fornecem um roteiro
+							para que uma organização possa implementar o modelo
+							de forma eficaz.
+						</p>
+						<div id="application-steps-container" class="space-y-3">
+							<!-- Application steps accordion will be generated here -->
+						</div>
+					</section>
+
+					<section id="avaliacao" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-blue-400 pb-2 mb-6"
+						>
+							Tipos de Avaliação CMMI
+						</h2>
+						<p class="text-slate-700 mb-6">
+							O Documento de Definição do Método de Avaliação CMMI
+							descreve quatro tipos de avaliações, cada uma com um
+							propósito específico para apoiar a jornada de
+							melhoria.
+						</p>
+						<div class="grid md:grid-cols-2 gap-6">
+							<div
+								class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-500"
+							>
+								<h4
+									class="font-bold text-lg mb-2 text-blue-800"
+								>
+									Avaliação de Referência (Benchmark)
+								</h4>
+								<p class="text-sm text-slate-600">
+									A avaliação mais formal e rigorosa. Usada
+									para identificar oportunidades de melhoria e
+									para benchmarking, resultando em um nível de
+									maturidade oficial.
+								</p>
+							</div>
+							<div
+								class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-500"
+							>
+								<h4
+									class="font-bold text-lg mb-2 text-green-800"
+								>
+									Avaliação de Sustentação (Sustainment)
+								</h4>
+								<p class="text-sm text-slate-600">
+									Um "check-up" realizado após uma avaliação
+									de referência para verificar se a
+									organização está a manter o seu nível de
+									capacidade e as suas práticas.
+								</p>
+							</div>
+							<div
+								class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-500"
+							>
+								<h4
+									class="font-bold text-lg mb-2 text-yellow-800"
+								>
+									Reavaliação do Plano de Ação
+								</h4>
+								<p class="text-sm text-slate-600">
+									Uma "segunda oportunidade" focada nas áreas
+									que por pouco não atingiram o nível desejado
+									numa avaliação anterior.
+								</p>
+							</div>
+							<div
+								class="bg-white p-6 rounded-lg shadow-md border-t-4 border-purple-500"
+							>
+								<h4
+									class="font-bold text-lg mb-2 text-purple-800"
+								>
+									Avaliação de Evolução (Evaluation)
+								</h4>
+								<p class="text-sm text-slate-600">
+									Uma abordagem mais informal e flexível,
+									usada para preparar a organização para uma
+									avaliação formal e identificar rapidamente
+									oportunidades de melhoria.
+								</p>
+							</div>
+						</div>
+					</section>
+				</div>
+			</main>
+		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				// --- Sidebar Active Link on Scroll ---
+				const sections = document.querySelectorAll('.content-section');
+				const navLinks = document.querySelectorAll('.sidebar-link');
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								navLinks.forEach((link) => {
+									const linkHref = link
+										.getAttribute('href')
+										.substring(1);
+									link.classList.toggle(
+										'active',
+										linkHref === entry.target.id
+									);
+								});
+							}
+						});
+					},
+					{ rootMargin: '0% 0px -75% 0px' }
+				);
+				sections.forEach((section) => observer.observe(section));
+
+				// --- Accordion Logic ---
+				const createAccordionItem = (title, content, container) => {
+					const itemDiv = document.createElement('div');
+					itemDiv.className =
+						'border border-slate-200 rounded-lg bg-white';
+
+					const button = document.createElement('button');
+					button.className =
+						'w-full flex justify-between items-center p-4 text-left font-semibold text-slate-700 hover:bg-slate-50';
+					button.innerHTML = `<span>${title}</span><svg class="w-5 h-5 transition-transform transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
+
+					const contentDiv = document.createElement('div');
+					contentDiv.className =
+						'accordion-content px-4 text-slate-600';
+					contentDiv.innerHTML = content;
+
+					button.addEventListener('click', () => {
+						const icon = button.querySelector('svg');
+						icon.classList.toggle('rotate-180');
+						contentDiv.classList.toggle('open');
+					});
+
+					itemDiv.appendChild(button);
+					itemDiv.appendChild(contentDiv);
+					container.appendChild(itemDiv);
+				};
+
+				// --- CMMI Maturity Levels Data ---
+				const maturityLevels = [
+					{
+						title: 'Nível 1: Inicial',
+						content:
+							'O trabalho é concluído, mas frequentemente atrasa e ultrapassa o orçamento. O resultado é imprevisível e reativo.',
+					},
+					{
+						title: 'Nível 2: Gerenciado',
+						content:
+							'O trabalho é gerenciado a nível de projeto. Os projetos são planeados, realizados, medidos e controlados, trazendo alguma disciplina.',
+					},
+					{
+						title: 'Nível 3: Definido',
+						content:
+							'A organização adota uma abordagem proativa. Existem padrões de processo definidos para toda a organização, fornecendo orientação consistente entre projetos.',
+					},
+					{
+						title: 'Nível 4: Gerenciado Quantitativamente',
+						content:
+							'Atinge-se a alta maturidade. A organização usa análise estatística para entender e controlar a variação do processo, tornando os resultados previsíveis.',
+					},
+					{
+						title: 'Nível 5: Em Otimização',
+						content:
+							'O foco é a melhoria contínua. A organização é flexível, estável e capaz de responder a mudanças e implementar inovações de forma controlada.',
+					},
+				];
+				const maturityContainer = document.getElementById(
+					'maturity-level-container'
+				);
+				maturityLevels.forEach((level) =>
+					createAccordionItem(
+						level.title,
+						level.content,
+						maturityContainer
+					)
+				);
+
+				// --- CMMI Application Steps Data ---
+				const applicationSteps = [
+					{
+						title: '1. Aprender (Learn)',
+						content:
+							'Compreender o CMMI, seus benefícios e como pode ser aplicado ao negócio. Obter o apoio e patrocínio da alta administração.',
+					},
+					{
+						title: '2. Estabelecer Objetivos',
+						content:
+							'Identificar os objetivos de negócio mais críticos e estabelecer metas de melhoria de desempenho. Comunicar esses objetivos a todas as partes interessadas.',
+					},
+					{
+						title: '3. Analisar (Analyze)',
+						content:
+							'Mapear os processos atuais da organização em relação às práticas do CMMI. Identificar lacunas e pontos a serem melhorados.',
+					},
+					{
+						title: '4. Desenvolver Plano de Ação',
+						content:
+							'Criar uma estratégia de melhoria e planos de ação detalhados para fechar as lacunas identificadas na análise.',
+					},
+					{
+						title: '5. Implementar Melhorias (Deploy)',
+						content:
+							'Colocar os processos novos ou alterados em prática, inicialmente em projetos-piloto. Medir o desempenho em relação aos objetivos estabelecidos.',
+					},
+					{
+						title: '6. Avaliar Capacidade (Assess)',
+						content:
+							'Realizar avaliações formais ou informais para medir o progresso, avaliar a capacidade dos processos e continuar a jornada de melhoria.',
+					},
+				];
+				const applicationContainer = document.getElementById(
+					'application-steps-container'
+				);
+				applicationSteps.forEach((step) =>
+					createAccordionItem(
+						step.title,
+						step.content,
+						applicationContainer
+					)
+				);
+
+				// --- CMMI 2.0 Interactive Diagram ---
+				const cmmiV2Data = {
+					Fazendo: {
+						color: 'bg-orange-100',
+						areas: {
+							'Engenharia e Desenvolvimento de Produtos (EDP)': [
+								'Integração do Produto (PI)',
+								'Solução Técnica (TS)',
+							],
+							'Garantindo a Qualidade (ENQ)': [
+								'Revisão por Pares (PR)',
+								'Garantia de Qualidade do Processo (PQA)',
+								'Desenvolvimento e Gestão de Requisitos (RDM)',
+								'Verificação e Validação (VV)',
+							],
+							'Entrega e Gerenciamento de Serviços (DMS)': [
+								'Gestão de Entrega de Serviços (SDM)',
+								'Gestão Estratégica de Serviços (STSM)',
+							],
+							'Selecionando e Gerenciando Fornecedores (SMS)': [
+								'Gestão de Contratos de Fornecedores (SAM)',
+							],
+						},
+					},
+					Gerenciando: {
+						color: 'bg-green-100',
+						areas: {
+							'Planejamento e Gerenciamento de Trabalho (PMW)': [
+								'Estimativa (EST)',
+								'Monitoramento e Controle (MC)',
+								'Planejamento (PLAN)',
+							],
+							'Gerenciando a Força de Trabalho (MWF)': [
+								'Habilitando Trabalho Virtual (EVW)',
+								'Treinamento Organizacional (OT)',
+								'Capacitação da Força de Trabalho (WE)',
+							],
+							'Gerenciando a Resiliência do Negócio (MBR)': [
+								'Continuidade (CONT)',
+								'Solução e Prevenção de Incidentes (IRP)',
+								'Gestão de Riscos e Oportunidades (RSK)',
+							],
+						},
+					},
+					Possibilitando: {
+						color: 'bg-blue-100',
+						areas: {
+							'Apoiando a Implementação (SI)': [
+								'Análise Causal e Resolução (CAR)',
+								'Gestão de Configuração (CM)',
+								'Análise de Decisão e Resolução (DAR)',
+							],
+							'Gerenciando Segurança e Proteção (MSS)': [
+								'Habilitando a Proteção (ESAF)',
+								'Habilitando a Segurança (ESEC)',
+								'Gerenciando Ameaças e Vulnerabilidades (MST)',
+							],
+							'Gerenciando Dados (MD)': [
+								'Gestão de Dados (DM)',
+								'Qualidade de Dados (DQ)',
+							],
+						},
+					},
+					Melhorando: {
+						color: 'bg-purple-100',
+						areas: {
+							'Melhorando o Desempenho (IMP)': [
+								'Gestão de Desempenho e Medição (MPM)',
+								'Desenvolvimento de Ativos de Processos (PAD)',
+								'Gestão de Processos (PCM)',
+							],
+							'Sustentando o Hábito e a Persistência (SHP)': [
+								'Governança (GOV)',
+								'Infraestrutura de Implementação (II)',
+							],
+						},
+					},
+				};
+				const cmmiV2Container =
+					document.getElementById('cmmi-v2-container');
+				let html =
+					'<div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
+				for (const category in cmmiV2Data) {
+					html += `<div><button class="w-full text-left p-4 rounded-lg font-bold text-slate-800 ${
+						cmmiV2Data[category].color
+					}" onclick="toggleDetails('${category.replace(
+						/\s/g,
+						'-'
+					)}')">${category}</button><div id="${category.replace(
+						/\s/g,
+						'-'
+					)}-details" class="hidden mt-2 pl-4 space-y-2">`;
+					for (const area in cmmiV2Data[category].areas) {
+						html += `<div><button class="w-full text-left text-sm font-semibold text-slate-700" onclick="toggleDetails('${area.replace(
+							/\s/g,
+							'-'
+						)}')">${area}</button><div id="${area.replace(
+							/\s/g,
+							'-'
+						)}-details" class="hidden mt-1 pl-4 text-xs text-slate-600 list-disc list-inside">`;
+						cmmiV2Data[category].areas[area].forEach((pa) => {
+							html += `<li>${pa}</li>`;
+						});
+						html += `</div></div>`;
+					}
+					html += '</div></div>';
+				}
+				html += '</div>';
+				cmmiV2Container.innerHTML = html;
+			});
+
+			// Function to toggle visibility for CMMI 2.0 diagram
+			window.toggleDetails = (id) => {
+				const element = document.getElementById(id + '-details');
+				if (element) {
+					element.classList.toggle('hidden');
+				}
+			};
+		</script>
+	</body>
+</html>

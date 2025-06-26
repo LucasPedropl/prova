@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Guia Aprofundado do MPS.BR</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				font-family: 'Inter', sans-serif;
+				background-color: #f8fafc; /* slate-50 */
+			}
+			.main-content {
+				padding-left: 20rem; /* Space for the fixed sidebar */
+			}
+			.sidebar {
+				width: 20rem;
+			}
+			@media (max-width: 1024px) {
+				.main-content {
+					padding-left: 0;
+				}
+				.sidebar {
+					position: relative;
+					width: 100%;
+					height: auto;
+				}
+			}
+			.sidebar-link {
+				transition: all 0.2s ease-in-out;
+				border-left-width: 4px;
+				border-color: transparent;
+			}
+			.sidebar-link.active {
+				border-color: #22c55e; /* green-500 */
+				background-color: #f0fdf4; /* green-50 */
+				color: #15803d; /* green-700 */
+				font-weight: 600;
+			}
+			.sidebar-link:hover {
+				background-color: #f1f5f9; /* slate-100 */
+				border-color: #cbd5e1; /* slate-300 */
+			}
+			.content-section {
+				scroll-margin-top: 2rem;
+			}
+			.maturity-path-item {
+				position: relative;
+				padding-left: 2.5rem;
+				padding-bottom: 2.5rem;
+				border-left: 4px solid #e2e8f0;
+			}
+			.maturity-path-item:last-child {
+				border-left: 4px solid transparent;
+				padding-bottom: 0;
+			}
+			.maturity-path-item::before {
+				content: attr(data-level);
+				position: absolute;
+				left: -1.25rem;
+				top: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 2.5rem;
+				height: 2.5rem;
+				border-radius: 9999px;
+				font-weight: 700;
+				color: white;
+				background-color: #94a3b8; /* slate-400 */
+				border: 4px solid #f8fafc;
+				transition: all 0.3s ease;
+			}
+			.maturity-path-item.active::before {
+				background-color: #22c55e; /* green-500 */
+				transform: scale(1.1);
+			}
+		</style>
+	</head>
+	<body class="bg-slate-50">
+		<div class="flex flex-col lg:flex-row">
+			<!-- Sidebar Navigation -->
+			<aside
+				id="sidebar"
+				class="sidebar lg:fixed lg:h-screen lg:overflow-y-auto bg-white border-r border-slate-200 p-6"
+			>
+				<h1 class="text-2xl font-bold text-slate-800 mb-4">
+					Guia MPS.BR
+				</h1>
+				<a
+					href="index.html"
+					class="inline-flex items-center px-3 py-2 mb-6 text-sm font-medium text-green-700 bg-green-50 border border-green-200 rounded-lg hover:bg-green-100 transition-colors"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-4 w-4 mr-2"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M15 19l-7-7 7-7"
+						/>
+					</svg>
+					Voltar ao Guia Principal
+				</a>
+				<nav>
+					<ul class="space-y-2">
+						<li>
+							<a
+								href="#introducao"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Introdução ao MPS.BR</a
+							>
+						</li>
+						<li>
+							<a
+								href="#componentes"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Componentes (SW, SV, RH)</a
+							>
+						</li>
+						<li>
+							<a
+								href="#maturidade"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Trilha de Maturidade MPS-SW</a
+							>
+						</li>
+						<li>
+							<a
+								href="#processos"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Detalhes dos Processos</a
+							>
+						</li>
+						<li>
+							<a
+								href="#capacidade"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>Níveis de Capacidade</a
+							>
+						</li>
+						<li>
+							<a
+								href="#comparativo"
+								class="sidebar-link block py-2 px-4 text-slate-600"
+								>MPS.BR vs CMMI</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="main-content flex-1 p-6 md:p-10">
+				<div class="max-w-4xl mx-auto">
+					<header id="introducao" class="content-section mb-12">
+						<h1 class="text-5xl font-extrabold text-slate-900">
+							Guia Aprofundado do MPS.BR
+						</h1>
+						<p class="mt-4 text-lg text-slate-600">
+							Uma exploração detalhada do modelo de Melhoria de
+							Processo do Software Brasileiro, sua estrutura,
+							níveis de maturidade e seu papel no ecossistema de
+							qualidade nacional.
+						</p>
+					</header>
+
+					<section class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-green-400 pb-2 mb-6"
+						>
+							Origem e Objetivos
+						</h2>
+						<p class="text-slate-700 mb-4">
+							O MPS.BR (Melhoria de Processo do Software
+							Brasileiro) foi criado no início dos anos 2000 como
+							uma iniciativa da Softex, com apoio do governo, para
+							atender a uma demanda crescente do mercado
+							brasileiro. Com o sucesso de modelos internacionais
+							como CMMI, as empresas nacionais precisavam de uma
+							alternativa que fosse ao mesmo tempo robusta,
+							compatível com os padrões globais e, crucialmente,
+							com um custo de implementação e avaliação mais
+							acessível à realidade das pequenas e médias empresas
+							(PMEs) do país.
+						</p>
+						<div class="bg-white p-6 rounded-lg shadow-md mt-6">
+							<h3
+								class="text-xl font-semibold text-slate-700 mb-3"
+							>
+								Objetivos Estratégicos do MPS.BR:
+							</h3>
+							<ul
+								class="list-disc list-inside space-y-2 text-slate-600"
+							>
+								<li>
+									Desenvolver um modelo de referência para
+									software **compatível com o CMMI** e em
+									**conformidade com as normas ISO/IEC 12207 e
+									ISO/IEC 15504**.
+								</li>
+								<li>
+									Criar um método de avaliação e implementação
+									com **custo acessível**, com foco especial
+									em PMEs.
+								</li>
+								<li>
+									Melhorar a capacidade de desenvolvimento e a
+									competitividade da indústria de TIC
+									brasileira.
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<section id="componentes" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-green-400 pb-2 mb-6"
+						>
+							Os Três Componentes do Programa MPS
+						</h2>
+						<p class="text-slate-700 mb-6">
+							O programa MPS.BR é mais amplo do que apenas
+							software. Ele é composto por três modelos de
+							referência distintos, cada um focado numa área
+							crítica para as empresas de tecnologia:
+						</p>
+						<div class="grid md:grid-cols-3 gap-6">
+							<div
+								class="bg-white p-6 rounded-lg shadow-lg text-center"
+							>
+								<div
+									class="mx-auto bg-green-500 text-white rounded-full h-16 w-16 flex items-center justify-center font-bold text-2xl mb-4"
+								>
+									SW
+								</div>
+								<h3 class="font-bold text-xl text-slate-800">
+									MR-MPS-SW
+								</h3>
+								<p class="text-slate-600 mt-2">
+									O modelo para **Software**. É o mais
+									conhecido e estabelece uma trilha de
+									maturidade para a melhoria dos processos de
+									desenvolvimento e manutenção de software.
+								</p>
+							</div>
+							<div
+								class="bg-white p-6 rounded-lg shadow-lg text-center"
+							>
+								<div
+									class="mx-auto bg-blue-500 text-white rounded-full h-16 w-16 flex items-center justify-center font-bold text-2xl mb-4"
+								>
+									SV
+								</div>
+								<h3 class="font-bold text-xl text-slate-800">
+									MR-MPS-SV
+								</h3>
+								<p class="text-slate-600 mt-2">
+									O modelo para **Serviços**. Focado em
+									melhorar os processos de prestação de
+									serviços de TI, complementando o modelo de
+									software.
+								</p>
+							</div>
+							<div
+								class="bg-white p-6 rounded-lg shadow-lg text-center"
+							>
+								<div
+									class="mx-auto bg-orange-500 text-white rounded-full h-16 w-16 flex items-center justify-center font-bold text-2xl mb-4"
+								>
+									RH
+								</div>
+								<h3 class="font-bold text-xl text-slate-800">
+									MR-MPS-RH
+								</h3>
+								<p class="text-slate-600 mt-2">
+									O modelo para **Gestão de Pessoas**. Orienta
+									as empresas na implementação de práticas
+									para selecionar, desenvolver e reter
+									talentos.
+								</p>
+							</div>
+						</div>
+					</section>
+
+					<section id="maturidade" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-green-400 pb-2 mb-6"
+						>
+							A Trilha de Maturidade do MPS-SW
+						</h2>
+						<p class="text-slate-700 mb-6">
+							O coração do MR-MPS-SW é sua trilha de evolução,
+							composta por 7 níveis de maturidade. Essa estrutura
+							foi desenhada para ser uma "escada" gradual,
+							permitindo que as empresas, especialmente as PMEs,
+							evoluam passo a passo. Clique em cada nível para ver
+							os processos introduzidos.
+						</p>
+						<div class="flex flex-col md:flex-row gap-8">
+							<div
+								id="maturity-path-container"
+								class="w-full md:w-1/3"
+							>
+								<!-- Maturity path items will be dynamically generated by JS -->
+							</div>
+							<div
+								id="maturity-details-container"
+								class="w-full md:w-2/3 p-6 bg-white rounded-lg shadow-md min-h-[300px]"
+							>
+								<h3
+									id="details-title"
+									class="text-2xl font-bold text-slate-800"
+								>
+									Selecione um Nível
+								</h3>
+								<p
+									id="details-description"
+									class="text-slate-600 mt-2"
+								>
+									Clique em um nível de maturidade à esquerda
+									para ver os processos associados e a sua
+									descrição.
+								</p>
+								<div id="details-processes" class="mt-4"></div>
+							</div>
+						</div>
+					</section>
+
+					<section id="processos" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-green-400 pb-2 mb-6"
+						>
+							Categorias de Processos
+						</h2>
+						<p class="text-slate-700 mb-6">
+							Os processos do MR-MPS-SW são divididos em duas
+							categorias principais, que trabalham em conjunto:
+						</p>
+						<div class="grid md:grid-cols-2 gap-8 mt-6">
+							<div
+								class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400"
+							>
+								<h4
+									class="font-bold text-lg text-blue-800 mb-2"
+								>
+									Processos de Projeto
+								</h4>
+								<p class="text-slate-600">
+									São executados no âmbito de cada projeto de
+									software (desenvolvimento, manutenção ou
+									evolução). Incluem processos como Gerência
+									de Projetos (GPR) e Engenharia de Requisitos
+									(ERE).
+								</p>
+							</div>
+							<div
+								class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-400"
+							>
+								<h4
+									class="font-bold text-lg text-orange-800 mb-2"
+								>
+									Processos Organizacionais
+								</h4>
+								<p class="text-slate-600">
+									Fornecem os recursos e a estrutura para que
+									os projetos possam ter sucesso. Incluem
+									processos como Gerência de Recursos Humanos
+									(GRH) e Gerência de Processos (GPRC).
+								</p>
+							</div>
+						</div>
+					</section>
+
+					<section id="capacidade" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-green-400 pb-2 mb-6"
+						>
+							Níveis de Capacidade de Processo
+						</h2>
+						<p class="text-slate-700 mb-6">
+							Assim como na ISO 15504, o MPS.BR avalia não apenas
+							*quais* processos existem, mas *quão bem* eles são
+							executados. A capacidade de um processo evolui junto
+							com a maturidade da organização. Cada nível de
+							maturidade exige um nível de capacidade
+							correspondente para os seus processos.
+						</p>
+						<div class="space-y-4">
+							<div class="bg-white p-4 rounded-lg shadow-sm">
+								<strong class="font-semibold text-slate-800"
+									>CP-G:</strong
+								>
+								A execução do processo é gerenciada (planeada e
+								monitorizada).
+							</div>
+							<div class="bg-white p-4 rounded-lg shadow-sm">
+								<strong class="font-semibold text-slate-800"
+									>CP-F:</strong
+								>
+								Além de gerenciado, os produtos de trabalho são
+								verificados objetivamente.
+							</div>
+							<div class="bg-white p-4 rounded-lg shadow-sm">
+								<strong class="font-semibold text-slate-800"
+									>CP-E/D/C:</strong
+								>
+								O processo é definido, ou seja, implementado a
+								partir de um processo padrão da organização.
+							</div>
+							<div class="bg-white p-4 rounded-lg shadow-sm">
+								<strong class="font-semibold text-slate-800"
+									>CP-B:</strong
+								>
+								O processo é previsível, gerenciado com base em
+								análise estatística e quantitativa.
+							</div>
+							<div class="bg-white p-4 rounded-lg shadow-sm">
+								<strong class="font-semibold text-slate-800"
+									>CP-A:</strong
+								>
+								O processo é melhorado continuamente, com base
+								na análise de dados e alinhado aos objetivos de
+								negócio.
+							</div>
+						</div>
+					</section>
+
+					<section id="comparativo" class="content-section mb-16">
+						<h2
+							class="text-3xl font-bold text-slate-800 border-b-4 border-green-400 pb-2 mb-6"
+						>
+							MPS.BR vs CMMI: Uma Análise Comparativa
+						</h2>
+						<p class="text-slate-700 mb-6">
+							Embora compatíveis, os modelos têm focos e
+							estruturas distintas. Entender essas diferenças é
+							fundamental.
+						</p>
+						<div
+							class="overflow-x-auto bg-white rounded-lg shadow-md"
+						>
+							<table class="w-full text-left">
+								<thead class="bg-slate-100">
+									<tr>
+										<th
+											class="p-4 font-semibold text-slate-800"
+										>
+											Critério
+										</th>
+										<th
+											class="p-4 font-semibold text-slate-800"
+										>
+											MPS.BR
+										</th>
+										<th
+											class="p-4 font-semibold text-slate-800"
+										>
+											CMMI
+										</th>
+									</tr>
+								</thead>
+								<tbody class="divide-y divide-slate-200">
+									<tr>
+										<td
+											class="p-4 font-medium text-slate-700"
+										>
+											Origem
+										</td>
+										<td class="p-4 text-slate-600">
+											Brasil (Softex), focado no mercado
+											nacional.
+										</td>
+										<td class="p-4 text-slate-600">
+											EUA (SEI), com adoção e
+											reconhecimento global.
+										</td>
+									</tr>
+									<tr class="bg-slate-50">
+										<td
+											class="p-4 font-medium text-slate-700"
+										>
+											Público-Alvo
+										</td>
+										<td class="p-4 text-slate-600">
+											Projetado para ser acessível a
+											Pequenas e Médias Empresas (PMEs).
+										</td>
+										<td class="p-4 text-slate-600">
+											Aplicável a todos os portes, mas
+											historicamente mais adotado por
+											grandes corporações.
+										</td>
+									</tr>
+									<tr>
+										<td
+											class="p-4 font-medium text-slate-700"
+										>
+											Estrutura de Níveis
+										</td>
+										<td class="p-4 text-slate-600">
+											7 níveis de maturidade (G a A),
+											criando uma "escada" de melhoria
+											mais gradual.
+										</td>
+										<td class="p-4 text-slate-600">
+											5 níveis de maturidade (1 a 5), com
+											saltos maiores de capacidade entre
+											os níveis.
+										</td>
+									</tr>
+									<tr class="bg-slate-50">
+										<td
+											class="p-4 font-medium text-slate-700"
+										>
+											Conformidade ISO
+										</td>
+										<td class="p-4 text-slate-600">
+											Desenvolvido desde o início em
+											conformidade com ISO/IEC 12207 e
+											15504.
+										</td>
+										<td class="p-4 text-slate-600">
+											Framework independente, embora
+											existam mapeamentos para as normas
+											ISO.
+										</td>
+									</tr>
+									<tr>
+										<td
+											class="p-4 font-medium text-slate-700"
+										>
+											Custo
+										</td>
+										<td class="p-4 text-slate-600">
+											Custo de implementação e avaliação
+											geralmente mais baixo, adaptado à
+											realidade brasileira.
+										</td>
+										<td class="p-4 text-slate-600">
+											Custos tipicamente mais elevados,
+											associados a consultorias e
+											avaliadores internacionais.
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+				</div>
+			</main>
+		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const sections = document.querySelectorAll('.content-section');
+				const navLinks = document.querySelectorAll('.sidebar-link');
+
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								const id = entry.target.id;
+								navLinks.forEach((link) => {
+									link.classList.toggle(
+										'active',
+										link.getAttribute('href') === `#${id}`
+									);
+								});
+							}
+						});
+					},
+					{ threshold: 0.1, rootMargin: '0px 0px -50% 0px' }
+				);
+
+				sections.forEach((section) => {
+					observer.observe(section);
+				});
+
+				// --- Maturity Path Interactive Logic ---
+				const maturityData = [
+					{
+						level: 'G',
+						name: 'Parcialmente Gerenciado',
+						description:
+							'O ponto de partida. Foco em estabelecer o controle básico do projeto.',
+						processes: [
+							'Gerência de Projetos (GPR)',
+							'Engenharia de Requisitos (ERE)',
+						],
+					},
+					{
+						level: 'F',
+						name: 'Gerenciado',
+						description:
+							'Adiciona processos de apoio essenciais para a gestão de ativos e medições básicas.',
+						processes: [
+							'Gerência de Configuração (GCO)',
+							'Medição (MED)',
+							'Aquisição (AQU)',
+							'Garantia da Qualidade (GQA)',
+						],
+					},
+					{
+						level: 'E',
+						name: 'Parcialmente Definido',
+						description:
+							'Começa a olhar para a organização como um todo, introduzindo processos organizacionais.',
+						processes: [
+							'Gerência de Recursos Humanos (GRH)',
+							'Gerência de Processos (GPRC)',
+							'Gerência Organizacional (GOR)',
+						],
+					},
+					{
+						level: 'D',
+						name: 'Definido',
+						description:
+							'Solidifica os processos técnicos de desenvolvimento, indo além da gestão.',
+						processes: [
+							'Projeto e Construção do Produto (PCP)',
+							'Integração do Produto (IPD)',
+							'Verificação (VER)',
+							'Validação (VAL)',
+						],
+					},
+					{
+						level: 'C',
+						name: 'Totalmente Definido',
+						description:
+							'Atinge uma base de processos robusta, adicionando a análise formal de decisões.',
+						processes: ['Gerência de Decisões (GDE)'],
+					},
+					{
+						level: 'B',
+						name: 'Gerenciado Quantitativamente',
+						description:
+							'Equivalente ao CMMI Nível 4. O foco muda para o uso de dados e estatísticas para prever o desempenho.',
+						processes: ['Gerência de Projetos Quantitativa'],
+					},
+					{
+						level: 'A',
+						name: 'Em Otimização',
+						description:
+							'Equivalente ao CMMI Nível 5. O foco é a melhoria contínua e a inovação, baseada na análise de dados.',
+						processes: [
+							'Análise de Desempenho do Processo',
+							'Gerência de Inovação',
+						],
+					},
+				];
+
+				const pathContainer = document.getElementById(
+					'maturity-path-container'
+				);
+				const detailsTitle = document.getElementById('details-title');
+				const detailsDescription = document.getElementById(
+					'details-description'
+				);
+				const detailsProcesses =
+					document.getElementById('details-processes');
+
+				maturityData.forEach((item, index) => {
+					const div = document.createElement('div');
+					div.className = 'maturity-path-item';
+					div.setAttribute('data-level', item.level);
+
+					const title = document.createElement('h4');
+					title.className =
+						'font-bold text-lg text-slate-700 cursor-pointer hover:text-green-600';
+					title.textContent = `Nível ${item.level}: ${item.name}`;
+
+					div.appendChild(title);
+					pathContainer.appendChild(div);
+
+					div.addEventListener('click', () => {
+						document
+							.querySelectorAll('.maturity-path-item')
+							.forEach((el) => el.classList.remove('active'));
+						div.classList.add('active');
+
+						detailsTitle.textContent = `Nível ${item.level}: ${item.name}`;
+						detailsDescription.textContent = item.description;
+						detailsProcesses.innerHTML =
+							'<h4 class="font-semibold text-slate-700 mt-4 mb-2">Processos Introduzidos ou Evoluídos:</h4>';
+						const ul = document.createElement('ul');
+						ul.className =
+							'list-disc list-inside space-y-1 text-slate-600';
+						item.processes.forEach((proc) => {
+							const li = document.createElement('li');
+							li.textContent = proc;
+							ul.appendChild(li);
+						});
+						detailsProcesses.appendChild(ul);
+					});
+				});
+
+				// Set the first item as active by default
+				const firstItem = pathContainer.querySelector(
+					'.maturity-path-item'
+				);
+				if (firstItem) {
+					firstItem.click();
+				}
+			});
+		</script>
+	</body>
+</html>
