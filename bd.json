@@ -1,0 +1,1141 @@
+{
+	"fundamentos": [
+		{
+			"question": "Qual ponto de vista de qualidade foca em características como manutenibilidade, testabilidade e legibilidade do código?",
+			"options": [
+				"Visão do Usuário",
+				"Visão do Desenvolvedor",
+				"Visão do Gerente",
+				"Visão do Cliente"
+			],
+			"answer": "Visão do Desenvolvedor",
+			"explanation": "A visão do desenvolvedor é interna e se concentra nos aspectos técnicos e estruturais do software, como a facilidade de manutenção."
+		},
+		{
+			"question": "O que melhor define 'Qualidade de Processo'?",
+			"options": [
+				"O software atender às necessidades do cliente",
+				"O software ser livre de bugs",
+				"A forma como o software é desenvolvido, de maneira controlada e previsível",
+				"A quantidade de funcionalidades entregues"
+			],
+			"answer": "A forma como o software é desenvolvido, de maneira controlada e previsível",
+			"explanation": "Qualidade de Processo refere-se ao 'como' o software é feito, garantindo previsibilidade e controle sobre o desenvolvimento."
+		},
+		{
+			"question": "A frase 'O grau em que o sistema atende as necessidades e expectativas do cliente' refere-se a qual conceito?",
+			"options": [
+				"Qualidade de Processo",
+				"Qualidade de Produto",
+				"Maturidade do Processo",
+				"Ciclo de Vida do Software"
+			],
+			"answer": "Qualidade de Produto",
+			"explanation": "Qualidade de Produto foca no resultado final entregue ao cliente e se ele atende às suas necessidades."
+		},
+		{
+			"question": "Para um gerente de projetos, qual aspecto da qualidade é frequentemente balanceado com custo e prazo?",
+			"options": [
+				"Apenas a usabilidade",
+				"Apenas a performance",
+				"Todas as visões (usuário, desenvolvedor, negócio)",
+				"Apenas a segurança"
+			],
+			"answer": "Todas as visões (usuário, desenvolvedor, negócio)",
+			"explanation": "O gerente precisa equilibrar a qualidade técnica, a satisfação do usuário e as restrições de negócio (custo, prazo, ROI)."
+		},
+		{
+			"question": "Um processo de software considerado 'imaturo' é tipicamente:",
+			"options": [
+				"Proativo e controlado",
+				"Ad hoc e reativo",
+				"Documentado e padronizado",
+				"Gerenciado quantitativamente"
+			],
+			"answer": "Ad hoc e reativo",
+			"explanation": "Processos imaturos são caóticos, improvisados (ad hoc) e reagem aos problemas em vez de preveni-los, dependendo de 'heróis'."
+		},
+		{
+			"question": "Qual das seguintes é uma consequência de um processo de software maduro?",
+			"options": [
+				"Resultados imprevisíveis",
+				"Custos de manutenção altos",
+				"Prazos e orçamentos rotineiramente estourados",
+				"Expectativas de custo e cronograma usualmente alcançadas"
+			],
+			"answer": "Expectativas de custo e cronograma usualmente alcançadas",
+			"explanation": "Um processo maduro leva a resultados previsíveis, onde custos, prazos e qualidade são gerenciados e geralmente atendidos."
+		},
+		{
+			"question": "O conhecimento sobre como construir e manter o software ser um 'ativo organizacional' é uma característica de:",
+			"options": [
+				"Uma organização com processo imaturo",
+				"Uma organização focada apenas em heróis",
+				"Uma organização com processo maduro",
+				"Uma organização sem documentação"
+			],
+			"answer": "Uma organização com processo maduro",
+			"explanation": "Em organizações maduras, o conhecimento é institucionalizado no processo, tornando-se um ativo da empresa, não de indivíduos."
+		},
+		{
+			"question": "A dependência excessiva de 'heróis' para o sucesso dos projetos é um sintoma de:",
+			"options": [
+				"Alta qualidade de processo",
+				"Maturidade de processo",
+				"Processo imaturo",
+				"Boa gestão de riscos"
+			],
+			"answer": "Processo imaturo",
+			"explanation": "Em processos imaturos, a falta de disciplina e padronização faz com que o sucesso dependa do talento e esforço extraordinário de indivíduos específicos."
+		},
+		{
+			"question": "Qual visão de qualidade se preocupa mais com a 'experiência do usuário' (UX)?",
+			"options": [
+				"Visão do Desenvolvedor",
+				"Visão do Gerente",
+				"Visão do Usuário",
+				"Visão do Auditor"
+			],
+			"answer": "Visão do Usuário",
+			"explanation": "A experiência do usuário, incluindo facilidade de uso e satisfação, é o cerne da qualidade sob a perspectiva de quem utiliza o software."
+		},
+		{
+			"question": "O que significa dizer que um processo de software é 'proativo'?",
+			"options": [
+				"Que ele reage rapidamente aos problemas",
+				"Que ele antecipa e previne problemas antes que ocorram",
+				"Que ele ignora o planejamento",
+				"Que ele foca apenas na codificação"
+			],
+			"answer": "Que ele antecipa e previne problemas antes que ocorram",
+			"explanation": "Um processo proativo, típico de organizações maduras, tem mecanismos para identificar riscos e prevenir defeitos, em vez de apenas corrigi-los."
+		},
+		{
+			"question": "A frase 'se não podemos medir, não podemos controlar' aplica-se melhor a qual conceito?",
+			"options": [
+				"Qualidade de Produto",
+				"Qualidade de Processo",
+				"Maturidade do Processo",
+				"Todas as anteriores"
+			],
+			"answer": "Maturidade do Processo",
+			"explanation": "A capacidade de medir o processo e o produto é um pilar da maturidade, permitindo o controle e a melhoria contínua."
+		},
+		{
+			"question": "Qual das alternativas abaixo NÃO é um impacto direto da má qualidade de software?",
+			"options": [
+				"Perda de reputação da empresa",
+				"Aumento dos custos de manutenção",
+				"Redução do tempo de desenvolvimento",
+				"Insatisfação do cliente"
+			],
+			"answer": "Redução do tempo de desenvolvimento",
+			"explanation": "A má qualidade geralmente leva a mais retrabalho, bugs e problemas, o que aumenta, e não reduz, o tempo total de desenvolvimento."
+		},
+		{
+			"question": "A definição formal de qualidade pelo IEEE enfatiza o atendimento a requisitos e a...",
+			"options": [
+				"Velocidade de entrega",
+				"Expectativas e necessidades do cliente/usuário",
+				"Margem de lucro",
+				"Tecnologia utilizada"
+			],
+			"answer": "Expectativas e necessidades do cliente/usuário",
+			"explanation": "A definição do IEEE é clara ao afirmar que qualidade é atender tanto aos requisitos especificados quanto às necessidades e expectativas do cliente."
+		},
+		{
+			"question": "O 'trilema de engenharia' na gestão da qualidade de software refere-se ao equilíbrio entre:",
+			"options": [
+				"Funcionalidade, Performance e Segurança",
+				"Custo, Prazo e Qualidade (Escopo)",
+				"Desenvolvedores, Testadores e Gerentes",
+				"Requisitos, Código e Testes"
+			],
+			"answer": "Custo, Prazo e Qualidade (Escopo)",
+			"explanation": "O trilema clássico da gerência de projetos mostra que não se pode alterar um desses três fatores (custo, prazo, escopo/qualidade) sem impactar os outros."
+		},
+		{
+			"question": "Um software com código 'macarrônico', difícil de entender e modificar, tem baixa qualidade sob a ótica:",
+			"options": [
+				"Do usuário final",
+				"Do gerente de marketing",
+				"Do desenvolvedor",
+				"Do investidor"
+			],
+			"answer": "Do desenvolvedor",
+			"explanation": "A qualidade interna do código, como legibilidade e manutenibilidade, é uma preocupação primária da equipe de desenvolvimento."
+		},
+		"Explique a diferença entre legibilidade e manutenibilidade.",
+		"O que é qualidade percebida pelo usuário final?",
+		"Cite três fatores que influenciam a qualidade de software.",
+		"Como a visão do gerente difere da visão do desenvolvedor?",
+		"Por que a padronização do processo reduz a dependência de 'heróis'?",
+		"Defina usabilidade segundo a ISO/IEC 25010.",
+		"Quais são os principais pontos de vista sobre qualidade de software?",
+		"Como a eficiência se relaciona com o desempenho do software?"
+	],
+	"sqa": [
+		{
+			"question": "Qual é o principal objetivo da Garantia da Qualidade de Software (SQA)?",
+			"options": [
+				"Corrigir todos os bugs do software",
+				"Dar visibilidade à gerência sobre o processo e os produtos",
+				"Acelerar o desenvolvimento",
+				"Definir a arquitetura do software"
+			],
+			"answer": "Dar visibilidade à gerência sobre o processo e os produtos",
+			"explanation": "A principal função da SQA é prover uma visão objetiva para a gerência, garantindo que processos e produtos estão em conformidade."
+		},
+		{
+			"question": "Por que o grupo de SQA deve ser, idealmente, independente da equipe de desenvolvimento?",
+			"options": [
+				"Para que possam trabalhar menos",
+				"Para garantir uma avaliação objetiva e imparcial",
+				"Para que possam definir os requisitos",
+				"Porque eles não sabem programar"
+			],
+			"answer": "Para garantir uma avaliação objetiva e imparcial",
+			"explanation": "A independência do grupo de SQA evita conflitos de interesse e assegura que as avaliações sejam objetivas e focadas na qualidade."
+		},
+		{
+			"question": "Uma atividade central da SQA é:",
+			"options": [
+				"Escrever o código fonte",
+				"Realizar auditorias e revisões de conformidade",
+				"Negociar prazos com o cliente",
+				"Treinar novos desenvolvedores"
+			],
+			"answer": "Realizar auditorias e revisões de conformidade",
+			"explanation": "Auditorias são uma ferramenta chave da SQA para verificar se a equipe está seguindo os processos e padrões definidos."
+		},
+		{
+			"question": "'Assegurar que os produtos de trabalho atendam aos padrões antes de serem entregues' é um exemplo de:",
+			"options": [
+				"Visibilidade de Custo",
+				"Visibilidade do Processo",
+				"Visibilidade do Produto",
+				"Visibilidade de Mercado"
+			],
+			"answer": "Visibilidade do Produto",
+			"explanation": "Verificar a conformidade dos artefatos (código, documentos) é o foco da visibilidade do produto dentro da SQA."
+		},
+		{
+			"question": "A SQA está principalmente preocupada com:",
+			"options": [
+				"A prevenção de defeitos",
+				"A detecção de defeitos",
+				"A correção de defeitos",
+				"Apenas a documentação"
+			],
+			"answer": "A prevenção de defeitos",
+			"explanation": "Embora a SQA ajude a identificar problemas, seu foco principal é garantir que os processos corretos estejam em vigor para prevenir a introdução de defeitos."
+		},
+		{
+			"question": "Quando a SQA identifica uma não conformidade, a primeira ação deve ser:",
+			"options": [
+				"Corrigir o problema imediatamente",
+				"Ignorar o problema se for pequeno",
+				"Reportar a não conformidade à gerência e às partes interessadas",
+				"Demitir o responsável"
+			],
+			"answer": "Reportar a não conformidade à gerência e às partes interessadas",
+			"explanation": "O papel da SQA é identificar e reportar. A responsabilidade pela ação corretiva é da gerência do projeto."
+		},
+		{
+			"question": "A 'visibilidade do processo' em SQA significa:",
+			"options": [
+				"Que o cliente pode ver o código a qualquer momento",
+				"Garantir que a equipe está seguindo os procedimentos e padrões definidos",
+				"Tornar o software famoso no mercado",
+				"Que o código é fácil de ler"
+			],
+			"answer": "Garantir que a equipe está seguindo os procedimentos e padrões definidos",
+			"explanation": "A visibilidade do processo se refere à verificação da aderência da equipe aos processos de trabalho estabelecidos pela organização."
+		},
+		{
+			"question": "Qual a diferença fundamental entre Garantia da Qualidade (SQA) e Controle de Qualidade (QC/Teste)?",
+			"options": [
+				"Não há diferença",
+				"SQA é sobre o processo, enquanto QC é sobre o produto",
+				"QC é mais importante que SQA",
+				"SQA é feito apenas no final do projeto"
+			],
+			"answer": "SQA é sobre o processo, enquanto QC é sobre o produto",
+			"explanation": "SQA foca em garantir que o processo de desenvolvimento é correto para prevenir defeitos, enquanto QC (teste) foca em encontrar defeitos no produto final."
+		},
+		{
+			"question": "Um 'Plano de SQA' deve ser criado em qual fase do projeto?",
+			"options": [
+				"Apenas durante a fase de testes",
+				"No final do projeto, para documentar o que foi feito",
+				"No início do projeto, como parte do planejamento",
+				"Apenas se o cliente exigir"
+			],
+			"answer": "No início do projeto, como parte do planejamento",
+			"explanation": "As atividades de SQA devem ser planejadas desde o início para serem eficazes ao longo de todo o ciclo de vida do projeto."
+		},
+		{
+			"question": "Qual das seguintes atividades NÃO é tipicamente responsabilidade da SQA?",
+			"options": [
+				"Auditar a conformidade com os processos",
+				"Relatar desvios à gerência",
+				"Definir a arquitetura técnica do software",
+				"Participar de revisões técnicas formais"
+			],
+			"answer": "Definir a arquitetura técnica do software",
+			"explanation": "A definição da arquitetura é uma responsabilidade da equipe de desenvolvimento/engenharia, não do grupo de SQA."
+		},
+		{
+			"question": "A SQA ajuda uma organização a alcançar a maturidade do processo ao:",
+			"options": [
+				"Escrever todo o código",
+				"Fornecer feedback objetivo para a melhoria contínua dos processos",
+				"Apenas apontar erros",
+				"Substituir a gerência de projetos"
+			],
+			"answer": "Fornecer feedback objetivo para a melhoria contínua dos processos",
+			"explanation": "Ao identificar desvios e não conformidades, a SQA fornece os insumos necessários para que a organização possa analisar e melhorar seus processos."
+		},
+		{
+			"question": "A SQA é uma área de processo em modelos como CMMI e MPS.BR. Isso indica que ela é:",
+			"options": [
+				"Uma atividade opcional",
+				"Uma prática fundamental para processos maduros",
+				"Relevante apenas para a indústria militar",
+				"Uma moda passageira"
+			],
+			"answer": "Uma prática fundamental para processos maduros",
+			"explanation": "A inclusão da SQA como uma área de processo chave nos principais modelos de maturidade ressalta sua importância para a qualidade e controle."
+		},
+		"Descreva o papel de auditorias em SQA.",
+		"Como a SQA garante independência na avaliação de qualidade?",
+		"O que é uma não conformidade em SQA e como deve ser tratada?",
+		"Cite dois benefícios da visibilidade do produto.",
+		"Por que a objetividade é importante em SQA?",
+		"Como a SQA se relaciona com o Gerenciamento de Configuração?",
+		"Qual a diferença entre revisão por pares e auditoria formal?",
+		"Como medir a eficácia das atividades de SQA?"
+	],
+	"melhoria": [
+		{
+			"question": "No ciclo PDCA, em qual fase são identificados os problemas e estabelecidas as metas?",
+			"options": [
+				"Do (Executar)",
+				"Check (Checar)",
+				"Act (Agir)",
+				"Plan (Planejar)"
+			],
+			"answer": "Plan (Planejar)",
+			"explanation": "A fase de Planejamento (Plan) é onde se define o problema, analisa-se as causas e se cria um plano de ação."
+		},
+		{
+			"question": "Qual ferramenta da qualidade é mais indicada para organizar visualmente as possíveis causas de um problema em categorias?",
+			"options": [
+				"Fluxograma",
+				"Diagrama de Ishikawa (Espinha de Peixe)",
+				"Histograma",
+				"5W2H"
+			],
+			"answer": "Diagrama de Ishikawa (Espinha de Peixe)",
+			"explanation": "O Diagrama de Ishikawa é projetado especificamente para explorar e categorizar as causas raiz de um efeito ou problema."
+		},
+		{
+			"question": "A matriz 5W2H é utilizada principalmente para:",
+			"options": [
+				"Gerar ideias de soluções",
+				"Transformar uma solução em um plano de ação detalhado",
+				"Mapear o fluxo de um processo",
+				"Analisar a frequência de defeitos"
+			],
+			"answer": "Transformar uma solução em um plano de ação detalhado",
+			"explanation": "O 5W2H detalha 'O quê, Por quê, Onde, Quando, Quem, Como e Quanto Custa', criando um plano claro para implementação."
+		},
+		{
+			"question": "Qual é o princípio fundamental do Kaizen, ou Melhoria Contínua?",
+			"options": [
+				"Fazer grandes mudanças revolucionárias",
+				"Atingir a perfeição e parar",
+				"Realizar pequenas melhorias incrementais e constantes",
+				"Focar apenas em tecnologia"
+			],
+			"answer": "Realizar pequenas melhorias incrementais e constantes",
+			"explanation": "Kaizen significa 'mudar para melhor' e baseia-se na filosofia de que a melhoria contínua vem de pequenas e constantes mudanças."
+		},
+		{
+			"question": "Na fase 'Check' do PDCA, qual é a atividade principal?",
+			"options": [
+				"Executar o plano",
+				"Padronizar a solução",
+				"Comparar os resultados obtidos com as metas planejadas",
+				"Identificar um problema"
+			],
+			"answer": "Comparar os resultados obtidos com as metas planejadas",
+			"explanation": "A fase de Checagem é sobre monitoramento e verificação, comparando os dados coletados com os objetivos definidos no Planejamento."
+		},
+		{
+			"question": "Um fluxograma é uma ferramenta útil para qual finalidade?",
+			"options": [
+				"Priorizar tarefas",
+				"Entender o fluxo real de um processo e identificar gargalos",
+				"Gerar ideias criativas",
+				"Medir a satisfação do cliente"
+			],
+			"answer": "Entender o fluxo real de um processo e identificar gargalos",
+			"explanation": "O fluxograma fornece uma representação visual de um processo, facilitando a análise de suas etapas, decisões e pontos de ineficiência."
+		},
+		{
+			"question": "O MASP (Método de Análise e Solução de Problemas) é uma abordagem:",
+			"options": [
+				"Reativa e improvisada",
+				"Estruturada e disciplinada",
+				"Focada apenas em brainstorming",
+				"Exclusiva para a indústria japonesa"
+			],
+			"answer": "Estruturada e disciplinada",
+			"explanation": "O MASP é um método sistemático que guia a equipe através de passos lógicos para resolver problemas de forma eficaz, tratando as causas raiz."
+		},
+		{
+			"question": "A estrutura da norma ISO 9001 está fortemente alinhada com qual ciclo de melhoria?",
+			"options": [
+				"Ciclo de Vida Espiral",
+				"Ciclo PDCA",
+				"Ciclo de Hype Tecnológico",
+				"Ciclo de Vendas"
+			],
+			"answer": "Ciclo PDCA",
+			"explanation": "A ISO 9001 é estruturada com seções que correspondem diretamente às fases de Planejar, Executar, Checar e Agir do ciclo PDCA."
+		},
+		{
+			"question": "No Diagrama de Ishikawa, os '6 M's' (Método, Máquina, Medida, Mão de Obra, Meio Ambiente, Material) representam:",
+			"options": [
+				"Os problemas a serem resolvidos",
+				"Categorias de possíveis causas de um problema",
+				"As soluções propostas",
+				"As etapas do processo"
+			],
+			"answer": "Categorias de possíveis causas de um problema",
+			"explanation": "Os 'M's' são categorias padrão usadas para organizar as possíveis causas em um Diagrama de Causa e Efeito, facilitando o brainstorming e a análise."
+		},
+		{
+			"question": "Se um plano de melhoria não atinge os resultados esperados na fase 'Check', o que a fase 'Act' do PDCA sugere?",
+			"options": [
+				"Abandonar o projeto",
+				"Punir a equipe",
+				"Analisar as causas da falha e reiniciar o ciclo com um novo plano",
+				"Implementar a solução em toda a empresa mesmo assim"
+			],
+			"answer": "Analisar as causas da falha e reiniciar o ciclo com um novo plano",
+			"explanation": "A fase 'Act' envolve aprender com os resultados. Se o plano falhou, a ação é entender por que e usar esse aprendizado para um novo ciclo de planejamento."
+		},
+		{
+			"question": "Qual ferramenta é mais útil para detalhar RESPONSABILIDADES e PRAZOS de um plano de ação?",
+			"options": [
+				"Brainstorming",
+				"Fluxograma",
+				"Diagrama de Ishikawa",
+				"Matriz 5W2H"
+			],
+			"answer": "Matriz 5W2H",
+			"explanation": "O 'Who' (Quem) e o 'When' (Quando) da matriz 5W2H são especificamente projetados para definir claramente as responsabilidades e os prazos."
+		},
+		{
+			"question": "O brainstorming do tipo 'escrito' ou 'silencioso' é vantajoso por quê?",
+			"options": [
+				"É mais rápido que o aberto",
+				"Incentiva a participação de pessoas mais introvertidas e reduz a influência de personalidades dominantes",
+				"Gera menos ideias",
+				"Não requer um facilitador"
+			],
+			"answer": "Incentiva a participação de pessoas mais introvertidas e reduz a influência de personalidades dominantes",
+			"explanation": "Ao permitir que todos escrevam suas ideias antes de discuti-las, o brainstorming escrito garante uma gama mais ampla de contribuições."
+		},
+		"Explique o propósito do brainstorming no MASP.",
+		"Como o 5W2H auxilia na fase de ação do MASP?",
+		"Descreva o que é Kaizen.",
+		"Qual a ordem correta das fases do PDCA?",
+		"Dê um exemplo de aplicação de diagrama de Ishikawa.",
+		"Como identificar gargalos usando fluxograma?",
+		"Explique a importância do ciclo PDCA em projetos ágeis.",
+		"Quais são as limitações do MASP em projetos complexos?"
+	],
+	"modelos": [
+		{
+			"question": "Qual modelo de processo é mais adequado para projetos com requisitos instáveis e onde a flexibilidade é crucial?",
+			"options": [
+				"Cascata",
+				"Modelo V",
+				"XP (Extreme Programming)",
+				"Prototipação"
+			],
+			"answer": "XP (Extreme Programming)",
+			"explanation": "XP é um método ágil projetado para lidar com requisitos que mudam, priorizando a entrega de valor em ciclos curtos e a colaboração com o cliente."
+		},
+		{
+			"question": "O Modelo Espiral é conhecido por sua ênfase em:",
+			"options": [
+				"Documentação extensiva",
+				"Entrega rápida de funcionalidades",
+				"Análise e gestão de riscos",
+				"Simplicidade de implementação"
+			],
+			"answer": "Análise e gestão de riscos",
+			"explanation": "A principal característica do Modelo Espiral é a inclusão da análise de riscos em cada um de seus ciclos, tornando-o robusto para projetos complexos e arriscados."
+		},
+		{
+			"question": "A principal desvantagem do modelo Cascata é:",
+			"options": [
+				"Sua flexibilidade excessiva",
+				"A falta de documentação",
+				"Sua rigidez e dificuldade em lidar com mudanças de requisitos",
+				"O alto custo de implementação"
+			],
+			"answer": "Sua rigidez e dificuldade em lidar com mudanças de requisitos",
+			"explanation": "O modelo Cascata é sequencial e rígido, o que o torna inadequado para projetos onde os requisitos não são bem compreendidos desde o início."
+		},
+		{
+			"question": "Qual modelo foca em construir versões sucessivas e operacionais do software, agregando funcionalidades a cada ciclo?",
+			"options": ["Prototipação", "Incremental", "Cascata", "Modelo V"],
+			"answer": "Incremental",
+			"explanation": "O modelo Incremental desenvolve o produto em partes (incrementos), onde cada incremento adiciona novas funcionalidades ao anterior."
+		},
+		{
+			"question": "O objetivo principal do Modelo de Prototipação é:",
+			"options": [
+				"Entregar o produto final o mais rápido possível",
+				"Validar e refinar os requisitos com o cliente",
+				"Gerenciar os riscos do projeto",
+				"Minimizar a documentação"
+			],
+			"answer": "Validar e refinar os requisitos com o cliente",
+			"explanation": "A prototipação é uma ferramenta de descoberta, usada para esclarecer requisitos ambíguos através de um modelo funcional que o cliente pode experimentar."
+		},
+		{
+			"question": "A prática de 'programação em pares' é um dos pilares de qual modelo?",
+			"options": [
+				"Modelo Espiral",
+				"Modelo Incremental",
+				"XP (Extreme Programming)",
+				"Modelo em Cascata"
+			],
+			"answer": "XP (Extreme Programming)",
+			"explanation": "A programação em pares (pair programming) é uma das práticas fundamentais da XP, visando melhorar a qualidade do código e a disseminação de conhecimento."
+		},
+		{
+			"question": "Para qual tipo de projeto o Modelo em Cascata seria uma escolha razoável?",
+			"options": [
+				"Projetos com requisitos que mudam a todo momento",
+				"Projetos de pesquisa e desenvolvimento",
+				"Projetos pequenos, com requisitos bem definidos e estáveis",
+				"Projetos de software para startups"
+			],
+			"answer": "Projetos pequenos, com requisitos bem definidos e estáveis",
+			"explanation": "A rigidez do Cascata só é viável quando há um alto grau de certeza sobre o que precisa ser construído desde o início."
+		},
+		{
+			"question": "Modelos 'evolucionários' de software, como o Incremental e o Espiral, são caracterizados por serem:",
+			"options": [
+				"Lineares e sequenciais",
+				"Iterativos e adaptativos",
+				"Focados apenas em documentação",
+				"Rápidos e sem planejamento"
+			],
+			"answer": "Iterativos e adaptativos",
+			"explanation": "Modelos evolucionários desenvolvem o software em ciclos (iterações), permitindo que ele evolua e se adapte às mudanças e ao feedback."
+		},
+		{
+			"question": "O 'Test-Driven Development' (TDD) é uma prática central em qual metodologia?",
+			"options": [
+				"Modelo em Cascata",
+				"Modelo V",
+				"XP (Extreme Programming)",
+				"Modelo de Prototipação"
+			],
+			"answer": "XP (Extreme Programming)",
+			"explanation": "TDD, a prática de escrever o teste antes do código, é uma disciplina chave da XP para garantir a qualidade e um design limpo."
+		},
+		{
+			"question": "A principal diferença entre o modelo Incremental e o em Cascata é que:",
+			"options": [
+				"O Incremental não tem fases de teste",
+				"O Incremental entrega valor ao cliente mais cedo e em partes",
+				"O Cascata é mais flexível",
+				"O Incremental não requer planejamento"
+			],
+			"answer": "O Incremental entrega valor ao cliente mais cedo e em partes",
+			"explanation": "Ao entregar funcionalidades operacionais a cada incremento, o modelo Incremental permite que o cliente comece a usar (e a se beneficiar) do software antes do final do projeto."
+		},
+		{
+			"question": "Em qual quadrante do Modelo Espiral a atividade mais importante do modelo ocorre?",
+			"options": [
+				"Definição de Objetivos",
+				"Avaliação e Redução de Riscos",
+				"Desenvolvimento e Validação",
+				"Planejamento"
+			],
+			"answer": "Avaliação e Redução de Riscos",
+			"explanation": "A gestão de riscos é o coração do Modelo Espiral, e é neste quadrante que as principais ameaças ao projeto são identificadas e tratadas."
+		},
+		{
+			"question": "Refatoração (Refactoring) é a prática de:",
+			"options": [
+				"Adicionar novas funcionalidades",
+				"Melhorar a estrutura interna do código sem alterar seu comportamento externo",
+				"Corrigir bugs de produção",
+				"Reescrever o sistema do zero"
+			],
+			"answer": "Melhorar a estrutura interna do código sem alterar seu comportamento externo",
+			"explanation": "Refatoração é uma limpeza contínua do código para mantê-lo legível, simples e fácil de manter, sendo uma prática crucial em métodos ágeis como XP."
+		},
+		"Quando é indicado usar o modelo em espiral?",
+		"Cite três vantagens do modelo incremental.",
+		"Como o XP lida com mudanças de requisitos?",
+		"Quais são as fases do modelo de prototipação?",
+		"Compare Cascata e Prototipação em termos de flexibilidade.",
+		"Por que o modelo Cascata pode falhar em projetos dinâmicos?",
+		"Qual o papel do feedback do cliente em cada modelo?",
+		"Como o modelo incremental reduz riscos?"
+	],
+	"maturidade": [
+		{
+			"question": "No CMMI, uma organização cujo processo é imprevisível e reativo está em qual nível de maturidade?",
+			"options": [
+				"Nível 2: Gerenciado",
+				"Nível 1: Inicial",
+				"Nível 3: Definido",
+				"Nível 5: Em Otimização"
+			],
+			"answer": "Nível 1: Inicial",
+			"explanation": "O Nível 1 (Inicial) é caracterizado por processos caóticos e reativos, onde o sucesso depende de 'heróis' individuais."
+		},
+		{
+			"question": "Qual é a principal diferença entre o Nível 2 (Gerenciado) e o Nível 3 (Definido) do CMMI?",
+			"options": [
+				"No Nível 3, não há gerência de projetos",
+				"No Nível 3, os processos são padronizados para toda a organização, não apenas por projeto",
+				"O Nível 2 utiliza controle estatístico",
+				"O Nível 3 foca apenas em testes"
+			],
+			"answer": "No Nível 3, os processos são padronizados para toda a organização, não apenas por projeto",
+			"explanation": "A grande mudança para o Nível 3 é a institucionalização de um conjunto padrão de processos para toda a organização, tornando o processo proativo."
+		},
+		{
+			"question": "O MPS.BR foi desenvolvido com um foco especial em qual tipo de organização?",
+			"options": [
+				"Apenas grandes multinacionais",
+				"Pequenas e Médias Empresas (PMEs)",
+				"Apenas empresas governamentais",
+				"Apenas startups de tecnologia"
+			],
+			"answer": "Pequenas e Médias Empresas (PMEs)",
+			"explanation": "O MPS.BR foi projetado para ser mais acessível e adequado à realidade das pequenas e médias empresas brasileiras."
+		},
+		{
+			"question": "O Nível A do MPS.BR é equivalente a qual nível do CMMI?",
+			"options": [
+				"Nível 2: Gerenciado",
+				"Nível 3: Definido",
+				"Nível 4: Gerenciado Quantitativamente",
+				"Nível 5: Em Otimização"
+			],
+			"answer": "Nível 5: Em Otimização",
+			"explanation": "Ambos, Nível A do MPS.BR e Nível 5 do CMMI, representam o topo da maturidade, focando em melhoria contínua e otimização de processos."
+		},
+		{
+			"question": "Uma organização no Nível 4 do CMMI (Gerenciado Quantitativamente) se diferencia por:",
+			"options": [
+				"Ter processos padronizados",
+				"Usar controle estatístico para gerenciar o processo e prever o desempenho",
+				"Apenas seguir os planos do projeto",
+				"Focar em inovação disruptiva"
+			],
+			"answer": "Usar controle estatístico para gerenciar o processo e prever o desempenho",
+			"explanation": "O Nível 4 é caracterizado pelo uso de métricas e técnicas estatísticas para entender a variação do processo e fazer previsões quantitativas."
+		},
+		{
+			"question": "O primeiro nível de maturidade do MPS.BR (Nível G) foca em quais processos?",
+			"options": [
+				"Gerência de Recursos Humanos e Medição",
+				"Gerência de Projetos e Engenharia de Requisitos",
+				"Otimização de Processos e Análise de Riscos",
+				"Apenas Testes"
+			],
+			"answer": "Gerência de Projetos e Engenharia de Requisitos",
+			"explanation": "O Nível G é o ponto de partida do MPS.BR, focando em estabelecer o controle básico do projeto e entender o que o cliente quer."
+		},
+		{
+			"question": "O que significa 'institucionalizar' um processo em um modelo de maturidade?",
+			"options": [
+				"Apenas escrever um documento sobre ele",
+				"Torná-lo parte da cultura da organização, com treinamento, recursos e verificação",
+				"Fazer o processo apenas uma vez",
+				"Contratar uma consultoria"
+			],
+			"answer": "Torná-lo parte da cultura da organização, com treinamento, recursos e verificação",
+			"explanation": "Institucionalizar vai além de documentar; significa garantir que o processo seja ensinado, apoiado pela gerência e efetivamente seguido por todos."
+		},
+		{
+			"question": "A abordagem 'Contínua' do CMMI permite que uma organização:",
+			"options": [
+				"Atinja o nível 5 mais rapidamente",
+				"Ignore as áreas de processo",
+				"Foque na melhoria de áreas de processo específicas, de acordo com seus objetivos de negócio",
+				"Implemente todos os processos de uma vez"
+			],
+			"answer": "Foque na melhoria de áreas de processo específicas, de acordo com seus objetivos de negócio",
+			"explanation": "A representação contínua oferece flexibilidade, permitindo que a organização melhore processos individualmente, sem a necessidade de atingir um nível de maturidade completo."
+		},
+		{
+			"question": "No CMMI, uma 'Área de Processo' (PA) é:",
+			"options": [
+				"Um departamento da empresa",
+				"Um conjunto de práticas relacionadas que, quando executadas coletivamente, atingem um conjunto de objetivos",
+				"Um software de gestão",
+				"Um nível de maturidade"
+			],
+			"answer": "Um conjunto de práticas relacionadas que, quando executadas coletivamente, atingem um conjunto de objetivos",
+			"explanation": "Uma Área de Processo (ex: Gerenciamento de Requisitos) agrupa práticas específicas que visam atingir um objetivo comum."
+		},
+		{
+			"question": "Qual o principal benefício de um modelo de maturidade para uma organização?",
+			"options": [
+				"Garante que nenhum bug será produzido",
+				"Apenas marketing e publicidade",
+				"Fornece um roteiro estruturado para a melhoria contínua e previsibilidade",
+				"Aumenta a burocracia desnecessariamente"
+			],
+			"answer": "Fornece um roteiro estruturado para a melhoria contínua e previsibilidade",
+			"explanation": "Modelos de maturidade guiam as organizações em sua jornada para processos mais capazes, controlados e previsíveis, resultando em melhor desempenho."
+		},
+		{
+			"question": "O Nível C do MPS.BR ('Totalmente Definido') é um marco importante porque:",
+			"options": [
+				"É quando a empresa começa a usar gestão de projetos",
+				"Introduz a gestão quantitativa",
+				"É o nível máximo do modelo",
+				"Solidifica a base de processos da organização antes de passar para a gestão quantitativa"
+			],
+			"answer": "Solidifica a base de processos da organização antes de passar para a gestão quantitativa",
+			"explanation": "O nível C representa uma base de processos organizacionais bem definida e robusta, que é pré-requisito para as medições e análises estatísticas dos níveis B e A."
+		},
+		{
+			"question": "No CMMI, a transição do nível 3 para o 4 representa uma mudança de foco de:",
+			"options": [
+				"Caótico para Gerenciado",
+				"Qualitativo para Quantitativo",
+				"Reativo para Proativo",
+				"Individual para Organizacional"
+			],
+			"answer": "Qualitativo para Quantitativo",
+			"explanation": "Enquanto o Nível 3 estabelece processos definidos (qualitativos), o Nível 4 introduz o controle estatístico e a gestão baseada em métricas (quantitativo)."
+		},
+		"Descreva o foco do nível 3 do CMMI.",
+		"O que caracteriza o nível G do MPS.BR?",
+		"Como o nível 5 do CMMI promove inovação?",
+		"Compare quantitativo em CMMI nível 4 com MPS.BR nível B.",
+		"Por que o nível 1 do CMMI é chamado de 'Inicial'?",
+		"Quais subprocessos são adicionados no nível E do MPS.BR?",
+		"Como uma organização evolui do nível D ao C em MPS.BR?",
+		"Quais são os benefícios de alcançar o nível A do MPS.BR?"
+	],
+	"avaliacao": [
+		{
+			"question": "Qual método de avaliação é oficialmente associado ao modelo CMMI?",
+			"options": ["MA-MPS", "SPICE", "SCAMPI", "ISO 9001 Audit"],
+			"answer": "SCAMPI",
+			"explanation": "SCAMPI (Standard CMMI Appraisal Method for Process Improvement) é o método oficial usado para realizar avaliações formais contra o modelo CMMI."
+		},
+		{
+			"question": "A norma ISO 15939 está relacionada a qual aspecto da avaliação de processos?",
+			"options": [
+				"Definição do ciclo de vida",
+				"Processo de Medição de Software",
+				"Certificação de auditores",
+				"Qualidade do produto final"
+			],
+			"answer": "Processo de Medição de Software",
+			"explanation": "A ISO 15939 define um processo para transformar necessidades de negócio em métricas quantitativas e qualitativas para apoiar a tomada de decisão."
+		},
+		{
+			"question": "Entrevistas com stakeholders e questionários de satisfação são exemplos de qual tipo de medição?",
+			"options": [
+				"Quantitativa",
+				"Automática",
+				"Qualitativa",
+				"Financeira"
+			],
+			"answer": "Qualitativa",
+			"explanation": "Medições qualitativas focam em percepções, opiniões e qualidades que não são facilmente expressas por números, como a satisfação."
+		},
+		{
+			"question": "O MA-MPS é o método de avaliação correspondente a qual modelo de maturidade?",
+			"options": ["CMMI", "ISO 9001", "SPICE (ISO 15504)", "MPS.BR"],
+			"answer": "MPS.BR",
+			"explanation": "O MA-MPS (Método de Avaliação para Melhoria de Processo do Software Brasileiro) é o procedimento oficial para avaliações do modelo MPS.BR."
+		},
+		{
+			"question": "Qual a principal diferença entre uma 'avaliação' (appraisal) e uma 'auditoria'?",
+			"options": [
+				"Não há diferença",
+				"Uma auditoria é mais longa",
+				"Uma auditoria foca em conformidade (passa/não passa), enquanto uma avaliação é diagnóstica e foca em melhoria",
+				"Uma avaliação só pode ser feita internamente"
+			],
+			"answer": "Uma auditoria foca em conformidade (passa/não passa), enquanto uma avaliação é diagnóstica e foca em melhoria",
+			"explanation": "A auditoria verifica a aderência a um padrão, enquanto a avaliação (como SCAMPI) identifica pontos fortes e fracos para guiar a melhoria contínua."
+		},
+		{
+			"question": "Qual é a primeira etapa em um processo de avaliação formal, como SCAMPI ou MA-MPS?",
+			"options": [
+				"Coleta de dados",
+				"Entrevistar a equipe",
+				"Planejamento da Avaliação",
+				"Emitir o relatório final"
+			],
+			"answer": "Planejamento da Avaliação",
+			"explanation": "Toda avaliação disciplinada começa com uma fase de planejamento para definir o escopo, os objetivos, a equipe e os recursos necessários."
+		},
+		{
+			"question": "Coletar 'evidências objetivas' durante uma avaliação significa:",
+			"options": [
+				"Apenas ouvir a opinião do gerente",
+				"Analisar documentos, artefatos de trabalho e registros que demonstrem a execução de um processo",
+				"Apenas realizar entrevistas",
+				"Usar um software para gerar um relatório"
+			],
+			"answer": "Analisar documentos, artefatos de trabalho e registros que demonstrem a execução de um processo",
+			"explanation": "Evidências objetivas são provas concretas e verificáveis (documentos, logs, atas de reunião) de que as práticas do modelo estão sendo seguidas."
+		},
+		{
+			"question": "Quem lidera uma avaliação SCAMPI formal?",
+			"options": [
+				"O gerente do projeto",
+				"Um Avaliador Líder certificado pelo CMMI Institute",
+				"Qualquer membro da equipe",
+				"Um auditor da ISO 9001"
+			],
+			"answer": "Um Avaliador Líder certificado pelo CMMI Institute",
+			"explanation": "Para garantir a qualidade e a consistência das avaliações, o CMMI exige que elas sejam conduzidas por um profissional certificado e experiente."
+		},
+		{
+			"question": "O resultado principal de uma avaliação de processo é:",
+			"options": [
+				"Um certificado para pendurar na parede",
+				"A demissão dos funcionários com baixo desempenho",
+				"Um conjunto de descobertas (pontos fortes e oportunidades de melhoria) para guiar o plano de melhoria",
+				"Um novo software de gestão"
+			],
+			"answer": "Um conjunto de descobertas (pontos fortes e oportunidades de melhoria) para guiar o plano de melhoria",
+			"explanation": "O valor real de uma avaliação está no diagnóstico que ela fornece, que serve como entrada para o próximo ciclo de melhoria de processo."
+		},
+		{
+			"question": "Qual o propósito da 'validação de dados' em uma avaliação?",
+			"options": [
+				"Garantir que os dados sejam favoráveis à empresa",
+				"Assegurar que as evidências coletadas são consistentes, precisas e suficientes",
+				"Apenas verificar a ortografia dos documentos",
+				"Descartar as evidências negativas"
+			],
+			"answer": "Assegurar que as evidências coletadas são consistentes, precisas e suficientes",
+			"explanation": "A validação é um passo crucial para garantir que as conclusões da avaliação são baseadas em informações confiáveis e bem fundamentadas."
+		},
+		{
+			"question": "A norma ISO/IEC 33014, que guia a melhoria de processo, mostra que a avaliação é:",
+			"options": [
+				"Uma atividade única e final",
+				"Uma etapa dentro de um ciclo contínuo de melhoria",
+				"Algo a ser feito apenas por consultores externos",
+				"Opcional para a melhoria"
+			],
+			"answer": "Uma etapa dentro de um ciclo contínuo de melhoria",
+			"explanation": "A norma posiciona a avaliação como a fase de 'Check' do ciclo PDCA organizacional, fornecendo o feedback necessário para planejar as próximas melhorias."
+		},
+		{
+			"question": "Um dos subprocessos do MA-MPS é 'Realizar a avaliação final (presencial)'. Por que a parte presencial é importante?",
+			"options": [
+				"Para fazer turismo",
+				"Para confirmar as evidências documentais através de entrevistas e observação direta",
+				"Apenas para socializar com a equipe",
+				"Para instalar softwares"
+			],
+			"answer": "Para confirmar as evidências documentais através de entrevistas e observação direta",
+			"explanation": "A fase presencial é crucial para validar o que está nos documentos, entendendo o contexto e confirmando se as práticas são realmente seguidas no dia a dia."
+		},
+		"O que diferencia SCAMPI A de SCAMPI B?",
+		"Como o MA-MPS aborda a avaliação para PMEs?",
+		"Por que a validade de 3 anos é importante em avaliações?",
+		"Qual o papel do avaliador líder em SCAMPI?",
+		"Como as evidências são coletadas em uma avaliação SCAMPI?",
+		"Explique as etapas de preparação no MA-MPS.",
+		"Como definir critérios de aceitação em avaliação?",
+		"Quais são desafios comuns em avaliações formais?"
+	],
+	"normas": [
+		{
+			"question": "Qual norma ISO é a base para Sistemas de Gestão da Qualidade e é aplicável a qualquer tipo de organização, não apenas de software?",
+			"options": ["ISO 12207", "ISO 9001", "ISO 25010", "ISO 29110"],
+			"answer": "ISO 9001",
+			"explanation": "A ISO 9001 estabelece os requisitos para um Sistema de Gestão da Qualidade (SGQ) genérico, focado na satisfação do cliente e na melhoria contínua."
+		},
+		{
+			"question": "A norma ISO/IEC 12207 define:",
+			"options": [
+				"As características de qualidade de um produto",
+				"Um conjunto de processos de ciclo de vida do software",
+				"Como auditar uma empresa",
+				"Requisitos para pequenas empresas"
+			],
+			"answer": "Um conjunto de processos de ciclo de vida do software",
+			"explanation": "A ISO 12207 fornece uma estrutura comum para os processos ao longo do ciclo de vida do software, definindo 'o que' fazer, mas não 'como'."
+		},
+		{
+			"question": "Qual norma faz parte da família SPICE (Software Process Improvement and Capability Determination) e trata da avaliação da capacidade de processos?",
+			"options": ["ISO 9001", "ISO 15504", "ISO 29110", "ISO 12207"],
+			"answer": "ISO 15504",
+			"explanation": "A ISO/IEC 15504, conhecida como SPICE, fornece uma estrutura para a avaliação da capacidade e maturidade dos processos de software."
+		},
+		{
+			"question": "A norma ISO/IEC 29110 foi criada para atender qual necessidade específica?",
+			"options": [
+				"Projetos de software de grande porte",
+				"Desenvolvimento de hardware",
+				"Pequenas e Médias Empresas (Very Small Entities - VSEs)",
+				"A indústria automobilística"
+			],
+			"answer": "Pequenas e Médias Empresas (Very Small Entities - VSEs)",
+			"explanation": "A ISO 29110 oferece perfis e guias leves e acessíveis, adaptando as melhores práticas para a realidade de empresas muito pequenas."
+		},
+		{
+			"question": "Se uma empresa quer definir um processo formal para coletar e analisar métricas de software, qual norma ISO seria o melhor guia?",
+			"options": ["ISO 9001", "ISO 25010", "ISO 15939", "ISO 12207"],
+			"answer": "ISO 15939",
+			"explanation": "A ISO 15939 é especificamente dedicada a definir um processo de medição, desde a identificação das necessidades de informação até a análise dos dados."
+		},
+		{
+			"question": "A estrutura da norma ISO 9001 é fortemente baseada em qual ciclo de melhoria?",
+			"options": [
+				"Ciclo de Vida em Cascata",
+				"Ciclo PDCA (Plan-Do-Check-Act)",
+				"Ciclo de Vida Espiral",
+				"Ciclo de Deming"
+			],
+			"answer": "Ciclo PDCA (Plan-Do-Check-Act)",
+			"explanation": "A estrutura da ISO 9001:2015 está alinhada com o ciclo PDCA, com cláusulas para Planejamento (P), Apoio e Operação (D), Avaliação de Desempenho (C) e Melhoria (A)."
+		},
+		{
+			"question": "A relação entre a ISO 12207 e a ISO 15504 é que:",
+			"options": [
+				"Elas são concorrentes diretas",
+				"A ISO 12207 define os processos, e a ISO 15504 define como avaliar a capacidade desses processos",
+				"A ISO 15504 substituiu a ISO 12207",
+				"A ISO 12207 é apenas para hardware"
+			],
+			"answer": "A ISO 12207 define os processos, e a ISO 15504 define como avaliar a capacidade desses processos",
+			"explanation": "Elas são complementares: a 12207 pode ser usada como o modelo de referência de processos (a dimensão de processo) para uma avaliação de capacidade conduzida usando o framework da 15504 (a dimensão de capacidade)."
+		},
+		{
+			"question": "O que significa dizer que a ISO 12207 especifica 'o que' mas não 'como'?",
+			"options": [
+				"Que a norma é incompleta",
+				"Que ela permite flexibilidade para ser usada com diferentes modelos de ciclo de vida (Cascata, Ágil, etc.)",
+				"Que ela não tem valor prático",
+				"Que ela só se aplica a projetos teóricos"
+			],
+			"answer": "Que ela permite flexibilidade para ser usada com diferentes modelos de ciclo de vida (Cascata, Ágil, etc.)",
+			"explanation": "Ao não prescrever a maneira exata de executar um processo, a norma permite que cada organização adapte a implementação à sua realidade e ao modelo de desenvolvimento escolhido."
+		},
+		{
+			"question": "Uma organização que busca a certificação ISO 9001 deve demonstrar, entre outras coisas:",
+			"options": [
+				"Que possui o maior lucro do mercado",
+				"Um forte foco no cliente e uma abordagem de processo para a gestão",
+				"Que usa apenas a tecnologia mais recente",
+				"Que tem mais de 1000 funcionários"
+			],
+			"answer": "Um forte foco no cliente e uma abordagem de processo para a gestão",
+			"explanation": "Foco no cliente, liderança, abordagem de processo e melhoria contínua são alguns dos princípios fundamentais da gestão da qualidade da ISO 9001."
+		},
+		{
+			"question": "A 'dimensão de capacidade' na ISO 15504 é usada para:",
+			"options": [
+				"Contar o número de processos na empresa",
+				"Medir o quão bem um determinado processo é executado",
+				"Definir quais processos devem existir",
+				"Avaliar a satisfação do cliente"
+			],
+			"answer": "Medir o quão bem um determinado processo é executado",
+			"explanation": "A dimensão de capacidade fornece uma escala (Níveis 0 a 5) para avaliar a maturidade e a eficácia de qualquer processo que esteja sendo analisado."
+		},
+		{
+			"question": "A principal motivação para a criação da ISO 29110 foi:",
+			"options": [
+				"Criar uma norma mais complexa que a ISO 9001",
+				"A dificuldade e o custo para pequenas empresas implementarem as normas completas",
+				"A necessidade de uma norma específica para a indústria espacial",
+				"Substituir o CMMI"
+			],
+			"answer": "A dificuldade e o custo para pequenas empresas implementarem as normas completas",
+			"explanation": "A ISO 29110 visa democratizar o acesso à qualidade de processo, oferecendo um caminho mais simples e acessível para as VSEs (Very Small Entities)."
+		},
+		{
+			"question": "O conjunto de normas ISO/IEC 25000, conhecido como SQuaRE, trata de:",
+			"options": [
+				"Gestão ambiental",
+				"Segurança da informação",
+				"Requisitos e avaliação da Qualidade de Produto de Software",
+				"Processos de ciclo de vida"
+			],
+			"answer": "Requisitos e avaliação da Qualidade de Produto de Software",
+			"explanation": "A série SQuaRE (System and Software Quality Requirements and Evaluation), que inclui a ISO 25010, é o framework principal da ISO para definir, medir e avaliar a qualidade do produto."
+		},
+		"Qual norma ISO define requisitos de segurança?",
+		"Como a ISO 9001 se relaciona com a ISO 25010?",
+		"O que é SPICE em ISO 15504?",
+		"Por que a ISO 29110 é voltada a VSEs?",
+		"Como a ISO 15939 integra métodos qualitativos e quantitativos?",
+		"Explique o conceito de 'mapa de normas' ISO.",
+		"Quais normas ISO tratam diretamente de software?",
+		"Como a ISO 12207 e a ISO 12207:2017 diferem?"
+	],
+	"produto": [
+		{
+			"question": "No modelo de qualidade de McCall, qual das seguintes NÃO é uma das três principais perspectivas?",
+			"options": [
+				"Operação do Produto",
+				"Revisão do Produto",
+				"Transição do Produto",
+				"Comercialização do Produto"
+			],
+			"answer": "Comercialização do Produto",
+			"explanation": "O modelo de McCall se concentra em aspectos técnicos e de uso, divididos nas perspectivas de Operação, Revisão e Transição."
+		},
+		{
+			"question": "A norma ISO/IEC 25010 é a sucessora de qual norma anterior?",
+			"options": [
+				"ISO 9001",
+				"ISO 12207",
+				"ISO 9126",
+				"Modelo de McCall"
+			],
+			"answer": "ISO 9126",
+			"explanation": "A ISO 25010 (parte da série SQuaRE) atualizou e substituiu a ISO 9126, refinando as características de qualidade de produto."
+		},
+		{
+			"question": "Na ISO 25010, a 'capacidade de um produto de ser transferido de um ambiente para outro' refere-se a qual característica?",
+			"options": [
+				"Confiabilidade",
+				"Usabilidade",
+				"Manutenibilidade",
+				"Portabilidade"
+			],
+			"answer": "Portabilidade",
+			"explanation": "Portabilidade é, por definição, a facilidade com que um software pode ser migrado para diferentes ambientes de hardware ou software."
+		},
+		{
+			"question": "Qual das seguintes características foi formalmente adicionada como uma característica principal no modelo da ISO 25010, em comparação com a ISO 9126?",
+			"options": [
+				"Funcionalidade",
+				"Segurança",
+				"Eficiência",
+				"Usabilidade"
+			],
+			"answer": "Segurança",
+			"explanation": "Embora a segurança pudesse ser considerada parte da funcionalidade na ISO 9126, a ISO 25010 a elevou a uma característica de qualidade principal e independente."
+		},
+		{
+			"question": "'Analisabilidade' e 'Modificabilidade' são subcaracterísticas de qual característica principal da qualidade de produto?",
+			"options": [
+				"Usabilidade",
+				"Confiabilidade",
+				"Manutenibilidade",
+				"Funcionalidade"
+			],
+			"answer": "Manutenibilidade",
+			"explanation": "Analisabilidade (facilidade de diagnosticar) e Modificabilidade (facilidade de alterar) são essenciais para determinar quão fácil é manter o software."
+		},
+		{
+			"question": "A 'capacidade de um produto de interagir com outros sistemas' é chamada de:",
+			"options": [
+				"Coexistência",
+				"Interoperabilidade",
+				"Adaptabilidade",
+				"Instalabilidade"
+			],
+			"answer": "Interoperabilidade",
+			"explanation": "Interoperabilidade, uma subcaracterística da Funcionalidade (na ISO 9126) e da Compatibilidade (na ISO 25010), é a capacidade de trocar informações e operar com outros sistemas."
+		},
+		{
+			"question": "O modelo de McCall foi pioneiro ao:",
+			"options": [
+				"Ser uma norma ISO oficial",
+				"Introduzir a ideia de decompor o conceito de qualidade em fatores e critérios mensuráveis",
+				"Focar apenas em performance",
+				"Ser um modelo de processo, não de produto"
+			],
+			"answer": "Introduzir a ideia de decompor o conceito de qualidade em fatores e critérios mensuráveis",
+			"explanation": "McCall foi um dos primeiros a estruturar a qualidade de produto de forma hierárquica, transformando um conceito abstrato em algo mais concreto e gerenciável."
+		},
+		{
+			"question": "Na ISO 25010, a característica 'Confiabilidade' inclui a subcaracterística 'Tolerância a Falhas', que significa:",
+			"options": [
+				"Que o software nunca falha",
+				"A capacidade do software de manter um nível de desempenho especificado mesmo em caso de falhas",
+				"A facilidade de corrigir uma falha",
+				"A velocidade com que o sistema reinicia"
+			],
+			"answer": "A capacidade do software de manter um nível de desempenho especificado mesmo em caso de falhas",
+			"explanation": "Tolerância a falhas (ou resiliência) é a habilidade do sistema de continuar operando, talvez de forma degradada, mesmo na presença de falhas de hardware ou software."
+		},
+		{
+			"question": "A 'Utilização de Recursos' é uma subcaracterística de qual característica principal da ISO 25010?",
+			"options": [
+				"Funcionalidade",
+				"Confiabilidade",
+				"Eficiência de Desempenho",
+				"Usabilidade"
+			],
+			"answer": "Eficiência de Desempenho",
+			"explanation": "Eficiência de Desempenho está relacionada aos recursos (CPU, memória, rede) consumidos pelo software em relação ao trabalho realizado."
+		},
+		{
+			"question": "A 'Apreensibilidade' (learnability) está relacionada a qual característica de qualidade?",
+			"options": [
+				"Manutenibilidade",
+				"Portabilidade",
+				"Usabilidade",
+				"Segurança"
+			],
+			"answer": "Usabilidade",
+			"explanation": "Apreensibilidade refere-se à facilidade e rapidez com que um usuário pode aprender a utilizar o software, sendo um pilar da Usabilidade."
+		},
+		{
+			"question": "A 'qualidade em uso' (quality in use) na série ISO 25000 foca em:",
+			"options": [
+				"Características internas do código",
+				"A perspectiva do desenvolvedor",
+				"O resultado da interação do usuário com o sistema em um contexto específico",
+				"A velocidade de compilação do código"
+			],
+			"answer": "O resultado da interação do usuário com o sistema em um contexto específico",
+			"explanation": "Qualidade em uso vai além das características do produto para avaliar a eficácia, eficiência e satisfação do usuário ao realizar tarefas reais no seu ambiente."
+		},
+		{
+			"question": "A característica 'Compatibilidade' na ISO 25010 inclui:",
+			"options": [
+				"Apenas a aparência visual",
+				"Coexistência e Interoperabilidade",
+				"Facilidade de instalação",
+				"Rapidez na execução"
+			],
+			"answer": "Coexistência e Interoperabilidade",
+			"explanation": "Compatibilidade aborda como o software se comporta em um ambiente compartilhado, podendo coexistir com outros softwares sem conflitos e interoperar (trocar dados) com eles."
+		},
+		"Quais subcaracterísticas da confiabilidade são mensuráveis?",
+		"Como a compatibilidade difere de interoperabilidade?",
+		"Explique a subcaracterística 'Maturidade'.",
+		"Por que a atratividade é relevante em usabilidade?",
+		"Como medir 'Comportamento em Relação ao Tempo'?",
+		"Quais são os critérios de 'Capacidade para Substituir'?",
+		"Como a segurança impacta a integridade dos dados?",
+		"Explique a diferença entre portabilidade e adaptabilidade."
+	]
+}

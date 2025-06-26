@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testes: Qualidade de Software</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3ef;
+            color: #4A4A4A;
+        }
+        .quiz-option {
+            transition: all 0.2s ease-in-out;
+        }
+        .quiz-option:hover {
+            background-color: #fef3c7; /* amber-100 */
+        }
+        .quiz-option.selected {
+            background-color: #fbbf24; /* amber-400 */
+            color: #78350f; /* amber-900 */
+            border-color: #d97706; /* amber-600 */
+        }
+        .progress-bar-fill {
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="app-container" class="container mx-auto p-4 md:p-8 max-w-4xl">
+
+        <!-- Main Menu View -->
+        <div id="menu-view">
+            <header class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-bold text-amber-900">Teste Seus Conhecimentos</h1>
+                <p class="mt-4 text-lg text-gray-600">Escolha um tópico para iniciar um teste rápido de 10 questões ou faça o teste geral para uma avaliação completa.</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                <button data-topic="fundamentos" class="menu-button bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <h2 class="font-bold text-xl text-amber-800">Fundamentos da Qualidade</h2>
+                    <p class="text-sm text-gray-500 mt-2">Visões, processo vs. produto.</p>
+                </button>
+                <button data-topic="sqa" class="menu-button bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <h2 class="font-bold text-xl text-amber-800">Garantia da Qualidade (SQA)</h2>
+                    <p class="text-sm text-gray-500 mt-2">Objetivos e visibilidade.</p>
+                </button>
+                 <button data-topic="melhoria" class="menu-button bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <h2 class="font-bold text-xl text-amber-800">Melhoria Contínua</h2>
+                    <p class="text-sm text-gray-500 mt-2">PDCA, MASP e ferramentas.</p>
+                </button>
+                 <button data-topic="modelos" class="menu-button bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <h2 class="font-bold text-xl text-amber-800">Modelos de Processo</h2>
+                    <p class="text-sm text-gray-500 mt-2">Cascata, Espiral, Ágil.</p>
+                </button>
+                 <button data-topic="maturidade" class="menu-button bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <h2 class="font-bold text-xl text-amber-800">Modelos de Maturidade</h2>
+                    <p class="text-sm text-gray-500 mt-2">CMMI e MPS.BR.</p>
+                </button>
+                 <button data-topic="avaliacao" class="menu-button bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <h2 class="font-bold text-xl text-amber-800">Avaliação de Processos</h2>
+                    <p class="text-sm text-gray-500 mt-2">SCAMPI, MA-MPS, medição.</p>
+                </button>
+                 <button data-topic="normas" class="menu-button bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <h2 class="font-bold text-xl text-amber-800">Normas ISO</h2>
+                    <p class="text-sm text-gray-500 mt-2">9001, 12207, 25010...</p>
+                </button>
+                 <button data-topic="produto" class="menu-button bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <h2 class="font-bold text-xl text-amber-800">Qualidade de Produto</h2>
+                    <p class="text-sm text-gray-500 mt-2">McCall e ISO 25010.</p>
+                </button>
+            </div>
+             <div class="text-center">
+                <button data-topic="geral" class="menu-button bg-amber-800 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-amber-900 hover:-translate-y-1 transition-all duration-300">
+                    Iniciar Teste Geral (30 Questões)
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz View -->
+        <div id="quiz-view" class="hidden">
+            <div class="bg-white p-6 md:p-8 rounded-lg shadow-2xl">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 id="quiz-title" class="text-2xl font-bold text-amber-800">Teste em Andamento</h2>
+                    <div id="quiz-progress-text" class="text-lg font-semibold text-gray-600">Questão 1 de 10</div>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
+                    <div id="quiz-progress-bar" class="bg-amber-600 h-2.5 rounded-full" style="width: 10%"></div>
+                </div>
+
+                <div id="question-container">
+                    <p id="question-text" class="text-xl md:text-2xl font-medium mb-8 min-h-[100px]"></p>
+                    <div id="options-container" class="space-y-4"></div>
+                </div>
+                
+                <div class="flex justify-between mt-10">
+                    <button id="prev-question-btn" class="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg hover:bg-gray-400 transition-colors">Anterior</button>
+                    <button id="next-question-btn" class="bg-amber-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-amber-700 transition-colors">Próxima</button>
+                    <button id="finish-quiz-btn" class="hidden bg-green-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">Finalizar Teste</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results View -->
+        <div id="results-view" class="hidden">
+             <div class="bg-white p-6 md:p-8 rounded-lg shadow-2xl text-center">
+                <h2 class="text-4xl font-bold text-amber-900">Resultado do Teste</h2>
+                <p class="text-2xl text-gray-600 mt-4">Você acertou</p>
+                <p id="score-text" class="text-6xl font-extrabold text-green-600 my-4">8 de 10</p>
+                <p id="score-percentage" class="text-2xl text-gray-800 font-semibold mb-8">(80%)</p>
+                
+                <div class="flex justify-center space-x-4">
+                    <button id="back-to-menu-btn" class="bg-amber-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-amber-700 transition-colors">Voltar ao Menu</button>
+                    <button id="review-answers-btn" class="bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors">Revisar Respostas</button>
+                </div>
+            </div>
+            <div id="review-container" class="hidden mt-8 space-y-6"></div>
+        </div>
+
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const appState = {
+            questionBank: {},
+            currentView: 'menu',
+            currentQuiz: [],
+            currentQuestionIndex: 0,
+            userAnswers: [],
+            currentTopic: ''
+        };
+
+        const menuView = document.getElementById('menu-view');
+        const quizView = document.getElementById('quiz-view');
+        const resultsView = document.getElementById('results-view');
+        
+        async function fetchQuestionBank() {
+            try {
+                // Fetch from the external bd.json file
+                const response = await fetch('./bd.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                appState.questionBank = await response.json();
+            } catch (error) {
+                console.error("Não foi possível carregar o banco de questões:", error);
+                document.getElementById('app-container').innerHTML = '<p class="text-center text-red-600 font-bold">Erro: Não foi possível carregar o arquivo de questões. Verifique se o arquivo "bd.json" está na mesma pasta que este arquivo HTML.</p>';
+            }
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function startQuiz(topic) {
+            appState.currentTopic = topic;
+            let questions = [];
+            const questionBank = appState.questionBank;
+            let quizSize;
+
+            if (topic === 'geral') {
+                quizSize = 30;
+                let allQuestions = [];
+                const topicsForGeneral = Object.keys(questionBank);
+                
+                // Dynamically calculate questions per topic to reach 30
+                const numTopics = topicsForGeneral.length;
+                let questionsPerTopic = Math.floor(quizSize / numTopics);
+                let remainder = quizSize % numTopics;
+
+                topicsForGeneral.forEach((t, index) => {
+                    if(questionBank[t]) {
+                        const topicQuestions = shuffleArray([...questionBank[t]]);
+                        let count = questionsPerTopic + (index < remainder ? 1 : 0);
+                        allQuestions.push(...topicQuestions.slice(0, count));
+                    }
+                });
+                questions = shuffleArray(allQuestions);
+                 if (questions.length > quizSize) {
+                    questions = questions.slice(0, quizSize);
+                }
+
+            } else {
+                quizSize = 10;
+                const availableQuestions = [...(questionBank[topic] || [])];
+                questions = shuffleArray(availableQuestions).slice(0, quizSize);
+            }
+            
+            if (questions.length === 0) {
+                alert(`Não há questões disponíveis para o tópico "${topic}".`);
+                return;
+            }
+
+            // Shuffle options for each selected question
+            appState.currentQuiz = questions.map(q => ({...q, options: shuffleArray([...q.options])}));
+            appState.currentQuestionIndex = 0;
+            appState.userAnswers = new Array(appState.currentQuiz.length).fill(null);
+            
+            appState.currentView = 'quiz';
+            renderView();
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const quizSize = appState.currentQuiz.length;
+            if(appState.currentQuestionIndex >= quizSize) return;
+
+            const question = appState.currentQuiz[appState.currentQuestionIndex];
+            
+            document.getElementById('question-text').textContent = question.question;
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            question.options.forEach(option => {
+                const optionButton = document.createElement('button');
+                optionButton.className = 'quiz-option w-full text-left p-4 border-2 rounded-lg';
+                optionButton.textContent = option;
+                if (appState.userAnswers[appState.currentQuestionIndex] === option) {
+                    optionButton.classList.add('selected');
+                }
+                optionButton.onclick = () => selectAnswer(option);
+                optionsContainer.appendChild(optionButton);
+            });
+
+            // Update progress
+            const progress = ((appState.currentQuestionIndex + 1) / quizSize) * 100;
+            document.getElementById('quiz-progress-bar').style.width = `${progress}%`;
+            document.getElementById('quiz-progress-text').textContent = `Questão ${appState.currentQuestionIndex + 1} de ${quizSize}`;
+            
+            const quizTitle = document.getElementById('quiz-title');
+            const topicName = appState.currentTopic.charAt(0).toUpperCase() + appState.currentTopic.slice(1);
+            quizTitle.textContent = `Teste: ${topicName}`;
+
+            // Update button visibility
+            document.getElementById('prev-question-btn').classList.toggle('invisible', appState.currentQuestionIndex === 0);
+            document.getElementById('next-question-btn').classList.toggle('hidden', appState.currentQuestionIndex === quizSize - 1);
+            document.getElementById('finish-quiz-btn').classList.toggle('hidden', appState.currentQuestionIndex !== quizSize - 1);
+        }
+        
+        function selectAnswer(option) {
+            appState.userAnswers[appState.currentQuestionIndex] = option;
+            renderQuestion(); // Re-render to show selection
+        }
+
+        function navigateQuestion(direction) {
+            appState.currentQuestionIndex += direction;
+            renderQuestion();
+        }
+
+        function finishQuiz() {
+            appState.currentView = 'results';
+            renderView();
+            renderResults();
+        }
+        
+        function renderResults() {
+            let score = 0;
+            appState.currentQuiz.forEach((q, index) => {
+                if(q.answer === appState.userAnswers[index]) {
+                    score++;
+                }
+            });
+            
+            const quizSize = appState.currentQuiz.length;
+            const percentage = Math.round((score / quizSize) * 100);
+            
+            document.getElementById('score-text').textContent = `${score} de ${quizSize}`;
+            document.getElementById('score-percentage').textContent = `(${percentage}%)`;
+            document.getElementById('review-container').innerHTML = '';
+            document.getElementById('review-container').classList.add('hidden');
+        }
+        
+        function renderReview() {
+            const reviewContainer = document.getElementById('review-container');
+            reviewContainer.innerHTML = '';
+            
+            appState.currentQuiz.forEach((q, index) => {
+                const userAnswer = appState.userAnswers[index];
+                const isCorrect = q.answer === userAnswer;
+
+                const questionDiv = document.createElement('div');
+                questionDiv.className = `p-6 rounded-lg shadow-md border-l-4 ${isCorrect ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50'}`;
+                
+                let content = `
+                    <p class="font-bold text-lg mb-2">Questão ${index + 1}: ${q.question}</p>
+                    <p class="text-sm">Sua resposta: <span class="font-semibold ${isCorrect ? 'text-green-700' : 'text-red-700'}">${userAnswer || "Não respondida"}</span></p>
+                `;
+                if (!isCorrect) {
+                    content += `<p class="text-sm">Resposta correta: <span class="font-semibold text-green-700">${q.answer}</span></p>
+                    <p class="text-sm mt-2 text-gray-600"><strong>Justificativa:</strong> ${q.explanation}</p>
+                    `;
+                }
+                questionDiv.innerHTML = content;
+                reviewContainer.appendChild(questionDiv);
+            });
+            
+            reviewContainer.classList.remove('hidden');
+        }
+
+        function renderView() {
+            menuView.classList.toggle('hidden', appState.currentView !== 'menu');
+            quizView.classList.toggle('hidden', appState.currentView !== 'quiz');
+            resultsView.classList.toggle('hidden', appState.currentView !== 'results');
+        }
+
+        // Initializer
+        async function init() {
+            await fetchQuestionBank();
+            // Event Listeners
+            document.querySelectorAll('.menu-button').forEach(btn => {
+                btn.addEventListener('click', () => startQuiz(btn.dataset.topic));
+            });
+            
+            document.getElementById('prev-question-btn').addEventListener('click', () => navigateQuestion(-1));
+            document.getElementById('next-question-btn').addEventListener('click', () => navigateQuestion(1));
+            document.getElementById('finish-quiz-btn').addEventListener('click', finishQuiz);
+            
+            document.getElementById('back-to-menu-btn').addEventListener('click', () => {
+                 appState.currentView = 'menu';
+                 renderView();
+            });
+            
+            document.getElementById('review-answers-btn').addEventListener('click', renderReview);
+            
+            renderView();
+        }
+
+        init();
+    });
+    </script>
+</body>
+</html>
